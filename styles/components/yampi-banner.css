@@ -51,10 +51,3 @@
   .case-page--yampi .banner--yampi .hero-line { font-size: 34px; line-height: 1.02; }
   .case-page--yampi .banner--yampi .case-pill { white-space: normal; }
 }
-
-/* Content-only correction; preserve the existing background rules. */
-.case-page--yampi .banner--yampi .banner-left .banner-description {
-  margin: 0;
-  text-align: left;
-  color: inherit;
-}
