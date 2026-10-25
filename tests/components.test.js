@@ -44,6 +44,22 @@ test('generated case cards preserve all content and valid local images', () => {
     assert.match(imageLink[1], /aria-label="[^"]+"/);
   }
 });
+test('Mercado Pago contains the supplied overview and four real image panels', () => {
+  build();
+  const html = read('case-mercadopago.html');
+  const main = html.match(/<main[\s\S]*?<\/main>/)[0];
+  for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21 pontos percentuais', '+6 pontos percentuais', '−18%']) assert.ok(main.includes(value), value);
+  assert.equal([...main.matchAll(/<figure class="mp-showcase /g)].length, 4);
+  assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
+  const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
+  assert.equal(images.length, 6);
+  for (const [tag, src] of images) {
+    assert.ok(fs.existsSync(path.join(root, src)), src);
+    assert.match(tag, /alt="[^"]+"/);
+    assert.match(tag, /width="\d+"/);
+    assert.match(tag, /height="\d+"/);
+  }
+});
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
   try {

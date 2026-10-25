@@ -6,12 +6,10 @@
     <title>Case Mercado Pago</title>
       <link rel="icon" type="image/svg+xml" href="assets/icons/gabriele_pedro_product_designer_24px.svg">
   <link rel="stylesheet" href="styles/style.css" />
-  <link rel="stylesheet" href="styles/components/case-mercadopago.css" />
-  <link rel="stylesheet" href="styles/case-layout.css" />
-  <link rel="stylesheet" href="styles/components/mercadopago-layout.css?v=mp-spacing-1" />
+  <link rel="stylesheet" href="styles/components/mercadopago.css?v=mp-content-2" />
   <link rel="stylesheet" href="styles/motion.css?v=site-motion-1">
 </head>
-  <body>
+  <body class="mercadopago-page">
 <!-- component:header -->
 <header class="site-header">
   <div class="container">
@@ -38,99 +36,75 @@
 </header>
 <!-- /component:header -->
 
-  <main class="case-page case-page--mercadopago">
-  <article class="case case-mercadopago">
-
-        <div class="mp-banner banner--mp case-section" role="region" aria-label="Banner Mercado Pago">
-
-          <!-- inner wrapper centers content and constrains width like other case sections -->
-          <div class="case-section__content mp-inner">
-
-            <div class="mp-left">
-              <div class="mp-logo" aria-hidden="true"><img src="assets/icons/BRAND-MERCADO-PAGO-NEGATIVE.svg" alt="Mercado Pago logo"/></div>
-              <div class="mp-title">Retenção<br>de saldo com<br>transparência</div>
-
-              <div class="mp-pill mp-pill--spaced">
-                <div class="pill-text">Redesign de fluxo, microcopy</div>
-              </div>
-              <div class="mp-pill mp-pill--spaced-small">
-                <div class="pill-text">e regras para reduzir atrito</div>
-              </div>
-            </div>
-
-            <div class="mp-right">
-            <img src="assets/images/Mercado-Pago/01-Gabriele-Pedro-Mercado_pago.png" alt="Mercado Pago visual" />
-            </div>
-
+  <main class="mp-project" id="main-content">
+  <section class="mp-hero" aria-labelledby="mp-title">
+    <div class="mp-hero-inner">
+      <div class="mp-left">
+        <img class="mp-logo" src="assets/icons/BRAND-MERCADO-PAGO-NEGATIVE.svg" alt="Mercado Pago" width="216" height="56">
+        <div class="mp-heading">
+          <h1 class="mp-title" id="mp-title"><span>Retenção</span><span>de saldo com</span><span>transparência</span></h1>
+          <div class="mp-hero-tags">
+            <p class="mp-hero-tag">Redesign de fluxo, microcopy</p>
+            <p class="mp-hero-tag">e regras para reduzir atrito</p>
           </div>
         </div>
+      </div>
+      <div class="mp-right">
+        <img src="assets/images/Mercado-Pago/01-Gabriele-Pedro-Mercado_pago.png" alt="Conta Mercado Pago com aviso de saldo parcialmente retido e orientação para regularizar o pagamento." width="540" height="632" fetchpriority="high">
+      </div>
+    </div>
+  </section>
 
-      </article>
-      <!-- Context / Problem two-layer block -->
-      <section class="context-block case-section">
-        <div class="context-inner">
-          <div class="case-section__content context-content two-layer-content">
-
-              <div class="context-left">
-                <img class="context-image" src="assets/images/Mercado-Pago/02-Gabriele-Pedro-Mercado_pago.png" alt="Mercado Pago" />
-              </div>
-              <div class="context-right">
-                <div class="context-head">
-                  <div class="context-pill context-pill-left"><span class="context-pill-text">Contexto</span></div>
-                  <div class="context-pill context-pill-right"><span class="context-pill-text-dark">Problema</span></div>
-                  <div class="context-de">&amp;</div>
-                </div>
-
-                <div class="context-copy">
-                  <p>
-                    A retenção de saldo é crítica em contas digitais. No Mercado Pago, faltavam previsibilidade e clareza sobre motivos, prazos e impactos, o que gerava volume alto de chamados, desconfiança e até processos judiciais. O desafio era comunicar com empatia, explicar as regras e reduzir atrito sem comprometer segurança. Correntistas recebiam aviso de retenção total e eram instruídos a contatar o suporte, sem prazo definido de liberação — um gatilho de estresse especialmente para quem depende da maquininha para renda diária.
-                  </p>
-                </div>
-              </div>
-
-          </div>
+  <section class="mp-overview" aria-labelledby="mp-overview-title">
+    <div class="mp-overview-inner">
+      <div class="mp-overview-copy">
+        <h2 class="mp-overview-title" id="mp-overview-title">Mercado Pago</h2>
+        <p>Redesenho da experiência de <strong>retenção de saldo</strong> do Mercado Pago, com foco em <strong>transparência</strong>, <strong>confiança e redução de atritos</strong>. O projeto combinou melhorias nas regras de negócio, UX Writing e testes A/B para facilitar a compreensão das restrições e incentivar a regularização de pagamentos.</p>
+      </div>
+      <dl class="mp-metadata">
+        <div class="mp-meta-item">
+          <dt class="mp-label">Período</dt>
+          <dd>2024, ago – out</dd>
         </div>
-      </section>
-      <!-- Regra de Negócio block -->
-      <section class="rule-block case-section">
-        <div class="rule-inner">
-          <div class="case-section__content rule-content">
-
-                <div class="rule-left">
-                  <div class="rule-head">
-                    <div class="rule-pill-left">Regra</div>
-                    <div class="rule-pill-right">Negócio</div>
-                    <div class="rule-de">de</div>
-                  </div>
-
-                  <div class="rule-body">
-                    <div class="rule-text">
-                      <p class="rule-paragraph">O fluxo de retenção de saldo era baseado em <strong>bloqueios totais e pouco transparentes</strong>. Ao investigar, entendemos que a regra precisava ser graduada e proporcional.</p>
-                    </div>
-
-                    <div class="rule-cta-outer">
-                      <div class="mp-pill mp-pill-blue mp-pill-small">Como funcionava antes:</div>
-                    </div>
-
-                    <div class="rule-text">
-                      <ul class="rule-list">
-                        <li><strong>Qualquer atraso ou contestação</strong> já podia gerar bloqueio total do saldo, sem previsão de liberação.</li>
-                        <li>Usuários eram obrigados a abrir chamado no suporte.</li>
-                      </ul>
-
-                      <p class="rule-paragraph"><strong>Resultado:</strong> perda de confiança, aumento de churn e reclamações judiciais.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="rule-right">
-                  <div class="mp-rule-visual" aria-hidden="true"></div>
-                </div>
-
-          </div>
+        <div class="mp-meta-item">
+          <dt class="mp-label">Atuação</dt>
+          <dd>Product Designer · UX Research · UI Design</dd>
         </div>
-      </section>
-    </main>
+        <div class="mp-meta-item">
+          <dt class="mp-label">Escopo</dt>
+          <dd>UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.</dd>
+        </div>
+        <div class="mp-meta-item">
+          <dt class="mp-label">Status</dt>
+          <dd>Projeto com resultados documentados.</dd>
+        </div>
+      </dl>
+      <div class="mp-results">
+        <h3 class="mp-label">Resultados</h3>
+        <ul>
+          <li>+21 pontos percentuais na compreensão da retenção de saldo;</li>
+          <li>+6 pontos percentuais na taxa de pagamento em até 3 horas;</li>
+          <li>−18% nos chamados ao suporte relacionados a saldo retido.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="mp-gallery" aria-label="Telas do projeto Mercado Pago">
+    <figure class="mp-showcase mp-showcase--yellow">
+      <img src="assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-01.png" alt="Tela inicial do Mercado Pago com saldo parcialmente retido e comunicação para regularização." width="2048" height="1560" loading="lazy">
+    </figure>
+    <figure class="mp-showcase mp-showcase--blue">
+      <img src="assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-02.png" alt="Três etapas do fluxo de retenção: aviso na conta, orientações de pagamento e detalhe do saldo retido." width="2048" height="1560" loading="lazy">
+    </figure>
+    <figure class="mp-showcase mp-showcase--yellow">
+      <img src="assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-03.png" alt="Telas da conta após a regularização, com confirmação de pagamento e acompanhamento do saldo." width="2048" height="1560" loading="lazy">
+    </figure>
+    <figure class="mp-showcase mp-showcase--blue">
+      <img src="assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-04.png" alt="Visão geral das telas de saldo, pagamento e liberação na experiência redesenhada do Mercado Pago." width="2048" height="1560" loading="lazy">
+    </figure>
+  </section>
+</main>
 
   <!-- Footer (shared component) -->
   <!-- component:footer -->
@@ -179,7 +153,7 @@
 <div class="custom-cursor" aria-hidden="true">
   <span class="custom-cursor-icon"><img src="assets/icons/asterisco_v2.svg" alt="" width="32" height="32"></span>
 </div>
-<script src="scripts/site-motion.js?v=site-motion-1" defer></script>
+<script src="scripts/site-motion.js?v=site-motion-2" defer></script>
 <!-- /component:motion -->
 </body>
 </html>
