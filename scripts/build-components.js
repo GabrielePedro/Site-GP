@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const pages = ['index.html', 'case-atlas.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
+const pages = ['index.html', 'case-atlas.html', 'case-b3.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const template = name => fs.readFileSync(path.join(root, 'components', `${name}.html`), 'utf8').trim();
 function expandButtons(html) {
@@ -65,4 +65,4 @@ for (const page of pages) {
   html = html.replace(/[ \t]+$/gm, '');
   if (html !== original) fs.writeFileSync(file, html);
 }
-console.log('Shared components and motion generated for 5 pages.');
+console.log(`Shared components and motion generated for ${pages.length} pages.`);
