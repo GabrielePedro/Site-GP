@@ -4,7 +4,7 @@
   isolation: isolate;
   overflow: visible;
   min-height: 0;
-  background: transparent;
+  background: linear-gradient(to bottom, var(--yampi-purple-dark, #522fad) 0 calc(100% - 86px), white calc(100% - 86px) 100%);
 }
 .case-page--yampi .banner--yampi::before {
   content: '';
@@ -13,12 +13,13 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background:
-    url('../../assets/icons/Yampi-coracao.svg') left top / 997px 854px no-repeat,
-    linear-gradient(to bottom, var(--yampi-purple-dark) 0 calc(100% - 86px), white calc(100% - 86px) 100%);
-  z-index: -1;
+  background: url('../../assets/icons/Yampi-coracao.svg') left top / 997px 854px no-repeat;
+  pointer-events: none;
+  z-index: 0;
 }
 .case-page--yampi .banner--yampi .banner-outer {
+  position: relative;
+  z-index: 1;
   max-width: none;
   width: 100%;
   margin: 0 auto;
@@ -50,7 +51,7 @@
   .case-page--yampi .banner--yampi .meta-text { max-width: none; text-align: left; }
 }
 @media (max-width: 900px) {
-  .case-page--yampi .banner--yampi::before { background-size: contain, auto; }
+  .case-page--yampi .banner--yampi::before { background-size: contain; }
   .case-page--yampi .banner--yampi .banner-inner { padding: 0; }
   .case-page--yampi .banner--yampi .hero-line { font-size: 34px; line-height: 1.02; }
   .case-page--yampi .banner--yampi .case-pill { white-space: normal; }
