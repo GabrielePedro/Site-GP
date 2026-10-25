@@ -558,10 +558,3 @@
 	.solution-block { border-radius: 0; }
 	.solution-inner-column { border-radius: 0 0 48px 48px; }
 }
-
-
-
-
-
-/* Hero copy belongs to the text column, directly below its tag. */
-.banner--yampi .banner-description { width: 100%; max-width: 100%; text-align: left; align-self: flex-start; }
