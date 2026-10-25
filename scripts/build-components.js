@@ -33,17 +33,18 @@ function expandCaseImageLinks(html) {
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const catalog = [...home.matchAll(/<!-- component:case (.*?) -->/g)].map(match => JSON.parse(match[1]));
 const relatedOrder = ['Atlas', 'B3', 'Mercado Pago', 'Yampi'];
+const relatedSummaries = JSON.parse(fs.readFileSync(path.join(root, 'components/related-case-summaries.json'), 'utf8'));
 function renderRelatedCases(page) {
   const current = catalog.find(item => item.action.href === page);
   if (!current || !relatedOrder.includes(current.title)) throw new Error(`Missing case data: ${page}`);
   const cards = relatedOrder.filter(title => title !== current.title).map(title => {
     const data = catalog.find(item => item.title === title);
-    if (!data) throw new Error(`Missing related case: ${title}`);
+    if (!data || !relatedSummaries[title]) throw new Error(`Missing related case or summary: ${title}`);
     return template('related-case-card').replace(/{{(\w+)}}/g, (_, key) => {
       if (key === 'key') return escape(data.action.href.replace(/^case-/, '').replace(/\.html$/, ''));
       if (key === 'href') return escape(data.action.href);
       if (key === 'tag') return escape(data.pill || '');
-      if (key === 'description') return data.lead;
+      if (key === 'description') return escape(relatedSummaries[title]);
       if (key === 'action') return `<!-- component:button ${JSON.stringify({href: data.action.href, label: 'Conhecer projeto'})} -->\n<!-- /component:button -->`;
       return escape(data[key]);
     });
@@ -58,7 +59,7 @@ for (const page of pages) {
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   if (page.startsWith('case-')) {
     if (!source.includes('<!-- component:related-cases -->')) source = source.replace('<!-- component:footer -->', '<!-- component:related-cases -->\n<!-- /component:related-cases -->\n<!-- component:footer -->');
-    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-1">\n</head>');
+    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-2">\n</head>');
     if (!source.includes('<!-- component:image-viewer -->')) source = source.replace('</body>', '<!-- component:image-viewer -->\n<!-- /component:image-viewer -->\n</body>');
     if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
   }

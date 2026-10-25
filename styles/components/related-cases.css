@@ -13,17 +13,17 @@
 .related-cases__controls[hidden] { display: none; }
 .related-cases__controls button { width: 44px; height: 44px; border: 1px solid var(--system-componentes-blue); border-radius: 50%; background: var(--system-background-medium); color: var(--brand-blue); cursor: pointer; font-size: 24px; }
 .related-cases__controls button:disabled { opacity: .4; cursor: default; }
-.related-cases__track { display: flex; align-items: flex-start; gap: 50px; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; }
+.related-cases__track { display: flex; align-items: stretch; gap: 50px; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; }
 .related-card { display: flex; flex: 0 0 calc((100% - 100px) / 3); flex-direction: column; align-items: flex-start; min-width: 0; max-width: 347px; scroll-snap-align: start; }
-.related-card__media { position: relative; width: 100%; aspect-ratio: 347 / 200; overflow: hidden; border-radius: 16px 16px 0 0; }
+.related-card__media { flex-shrink: 0; position: relative; width: 100%; aspect-ratio: 347 / 200; overflow: hidden; border-radius: 16px 16px 0 0; }
 .related-card__media img { position: absolute; top: -7%; left: -.865%; width: 102%; max-width: none; height: 166%; object-fit: cover; }
-.related-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; border-radius: 0 0 24px 24px; padding: 24px; background: var(--system-background-medium); }
+.related-card__body { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; border-radius: 0 0 24px 24px; padding: 24px; background: var(--system-background-medium); }
 .related-card__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; }
 .related-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .related-card__tag { padding: 0 4px; background: var(--brand-blue); color: white; font: 700 14px/1.2 var(--font-family-body); letter-spacing: .03em; }
 .related-card h3 { margin: 0; color: var(--brand-blue); font: 400 22px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
-.related-card p { margin: 0; font: 400 16px/1.3 var(--font-family-body); letter-spacing: .01em; overflow-wrap: anywhere; }
-.related-card .contact-button { width: 100%; }
+.related-card p { margin: 0; font: 400 16px/1.3 var(--font-family-body); letter-spacing: .01em; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; height: 3.9em; overflow: hidden; }
+.related-card .contact-button { width: 100%; margin-top: auto; }
 .related-card .cb-link { min-height: 40px; padding: 4px 0 4px 8px; gap: 8px; }
 .related-card .cb-label { font: 700 16px/1.2 var(--font-family-body); letter-spacing: .01em; }
 .related-card .cb-icon { flex-basis: 32px; padding: 4px; }

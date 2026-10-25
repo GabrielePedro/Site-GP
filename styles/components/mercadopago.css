@@ -35,7 +35,6 @@
   background: transparent;
 }
 .mp-overview-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; width: 100%; }
-.mp-overview-title { margin: 0; padding: 6px 6px 10px; background: var(--mercado-pago-blue-light); color: white; font: 400 32px/1 var(--font-family-headings); }
 .mp-overview p, .mp-metadata dd, .mp-results li { margin: 0; font: 400 20px/1.4 var(--font-family-body); letter-spacing: .2px; }
 .mp-overview strong { font-weight: 700; }
 .mp-metadata { display: grid; grid-template-columns: max-content 204px minmax(0, 1fr) 226px; gap: 88px; width: 100%; margin: 0; }
@@ -83,7 +82,6 @@
   .mp-title { font-size: clamp(26px, 6.5vw, 36px); }
   .mp-hero-tag { font-size: 20px; }
   .mp-overview-inner { padding-block: 48px; gap: 32px; }
-  .mp-overview-title { font-size: 28px; }
   .mp-metadata { grid-template-columns: minmax(0, 1fr); }
   .mp-gallery { padding-block: 48px; }
 }
