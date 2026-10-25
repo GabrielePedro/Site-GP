@@ -1,0 +1,16 @@
+<section class="related-cases" aria-labelledby="related-cases-title">
+  <div class="related-cases__header">
+    <div class="related-cases__heading">
+      <img src="assets/icons/asterisco.svg" alt="" width="101" height="96" aria-hidden="true">
+      <h2 id="related-cases-title"><span>Outros</span><span>Projetos</span></h2>
+    </div>
+    <div class="related-cases__controls" hidden>
+      <button type="button" data-related-previous aria-label="Cases anteriores" aria-controls="related-cases-track">←</button>
+      <button type="button" data-related-next aria-label="Próximos cases" aria-controls="related-cases-track">→</button>
+    </div>
+  </div>
+  <div id="related-cases-track" class="related-cases__track" role="region" aria-roledescription="carrossel" aria-label="Outros cases" tabindex="0">
+{{cards}}
+  </div>
+</section>
+<script src="scripts/related-cases.js?v=related-1" defer></script>

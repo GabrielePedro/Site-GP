@@ -1,0 +1,43 @@
+/* Figma: 150px frame padding, 50px gaps and approximately 347px cards. */
+.related-cases {
+  display: flex; flex-direction: column; align-items: flex-start;
+  width: 100%; max-width: 1440px; margin-inline: auto;
+  padding: 150px; gap: 50px; background: white; color: var(--system-text-black);
+}
+.related-cases__header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; width: 100%; }
+.related-cases__heading { position: relative; width: 262px; height: 96px; }
+.related-cases__heading > img { position: absolute; top: 0; left: calc(50% - 50px); width: 101px; height: 96px; }
+.related-cases__heading h2 { position: relative; top: 4px; display: flex; flex-direction: column; margin: 0; font: 400 40px/1.1 var(--font-family-headings); letter-spacing: -.05em; }
+.related-cases__heading h2 span:last-child { padding-left: 56px; }
+.related-cases__controls { display: flex; gap: 8px; }
+.related-cases__controls[hidden] { display: none; }
+.related-cases__controls button { width: 44px; height: 44px; border: 1px solid var(--system-componentes-blue); border-radius: 50%; background: var(--system-background-medium); color: var(--brand-blue); cursor: pointer; font-size: 24px; }
+.related-cases__controls button:disabled { opacity: .4; cursor: default; }
+.related-cases__track { display: flex; align-items: flex-start; gap: 50px; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; }
+.related-card { display: flex; flex: 0 0 calc((100% - 100px) / 3); flex-direction: column; align-items: flex-start; min-width: 0; max-width: 347px; scroll-snap-align: start; }
+.related-card__media { position: relative; width: 100%; aspect-ratio: 347 / 200; overflow: hidden; border-radius: 16px 16px 0 0; }
+.related-card__media img { position: absolute; top: -7%; left: -.865%; width: 102%; max-width: none; height: 166%; object-fit: cover; }
+.related-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; border-radius: 0 0 24px 24px; padding: 24px; background: var(--system-background-medium); }
+.related-card__copy { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; }
+.related-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.related-card__tag { padding: 0 4px; background: var(--brand-blue); color: white; font: 700 14px/1.2 var(--font-family-body); letter-spacing: .03em; }
+.related-card h3 { margin: 0; color: var(--brand-blue); font: 400 22px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
+.related-card p { margin: 0; font: 400 16px/1.3 var(--font-family-body); letter-spacing: .01em; overflow-wrap: anywhere; }
+.related-card .contact-button { width: 100%; }
+.related-card .cb-link { min-height: 40px; padding: 4px 0 4px 8px; gap: 8px; }
+.related-card .cb-label { font: 700 16px/1.2 var(--font-family-body); letter-spacing: .01em; }
+.related-card .cb-icon { flex-basis: 32px; padding: 4px; }
+.related-card .cb-icon svg { width: 24px; height: 24px; }
+.related-cases :is(.case-image-link, .cb-link):focus-visible { outline-offset: -3px; }
+@media (max-width: 1250px) {
+  .related-cases { padding: var(--spacing-section) var(--spacing-inline); }
+  .related-card { flex: 0 0 min(347px, 100%); }
+}
+@media (max-width: 700px) {
+  .related-cases { gap: 32px; }
+  .related-cases__track { gap: 24px; }
+  .related-cases__heading { width: 230px; height: 88px; }
+  .related-cases__heading h2 { font-size: 32px; }
+}
+/* Reveal cards without creating vertical overflow inside the scroll track. */
+body.motion-ready .related-card[data-reveal] { transform: none; }

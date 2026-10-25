@@ -81,6 +81,32 @@ test('case images share a same-page viewer, without changing home cards', () => 
   }
   assert.doesNotMatch(read('index.html'), /class="case-media-link"/);
 });
+test('related cases exclude the current case and reuse the existing catalog in the requested order', () => {
+  build();
+  const catalog = [...read('index.html').matchAll(/<!-- component:case (.*?) -->/g)].map(m => JSON.parse(m[1]));
+  const order = ['Atlas', 'B3', 'Mercado Pago', 'Yampi'];
+  for (const current of catalog.filter(item => order.includes(item.title))) {
+    const html = read(current.action.href);
+    const section = html.match(/<!-- component:related-cases -->([\s\S]*?)<!-- \/component:related-cases -->/)[1];
+    const expected = order.filter(title => title !== current.title);
+    const cards = [...section.matchAll(/<article class="related-card"[\s\S]*?<\/article>/g)].map(m => m[0]);
+    assert.equal(cards.length, 3, current.title);
+    assert.deepEqual(cards.map(card => card.match(/<h3[^>]*>(.*?)<\/h3>/)[1]), expected);
+    for (let i = 0; i < cards.length; i++) {
+      const data = catalog.find(item => item.title === expected[i]);
+      assert.ok(cards[i].includes(data.lead));
+      assert.ok(cards[i].includes(data.pill));
+      const media = cards[i].match(/<a class="related-card__media case-image-link"[^>]*href="([^"]+)"/)[1];
+      const button = cards[i].match(/<a class="cb-link"[^>]*href="([^"]+)"/)[1];
+      assert.equal(media, data.action.href);
+      assert.equal(button, data.action.href);
+      assert.match(cards[i], /Conhecer projeto/);
+      assert.doesNotMatch(cards[i], /class="case-media-link"/);
+    }
+    assert.ok(html.indexOf('<!-- component:related-cases -->') < html.indexOf('<!-- component:footer -->'));
+  }
+  for (const page of ['index.html', 'contact.html']) assert.doesNotMatch(read(page), /class="related-cases"/);
+});
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
   try {
