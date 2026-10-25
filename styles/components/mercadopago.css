@@ -34,7 +34,7 @@
   display: flex; flex-direction: column; align-items: flex-start; gap: 48px;
   background: transparent;
 }
-.mp-overview-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; width: 100%; }
+.mp-overview-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
 .mp-overview p, .mp-metadata dd, .mp-results li { margin: 0; font: 400 20px/1.4 var(--font-family-body); letter-spacing: .2px; }
 .mp-overview strong { font-weight: 700; }
 .mp-metadata { display: grid; grid-template-columns: max-content 204px minmax(0, 1fr) 226px; gap: 88px; width: 100%; margin: 0; }

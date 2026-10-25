@@ -95,7 +95,8 @@ test('related cases exclude the current case and use the right summaries in the 
     assert.deepEqual(cards.map(card => card.match(/<h3[^>]*>(.*?)<\/h3>/)[1]), expected);
     for (let i = 0; i < cards.length; i++) {
       const data = catalog.find(item => item.title === expected[i]);
-      assert.ok(cards[i].includes(summaries[data.title]));
+      assert.ok(cards[i].includes(summaries[data.title].intro));
+      assert.ok(cards[i].includes(summaries[data.title].highlight));
       assert.ok(cards[i].includes(data.pill));
       const media = cards[i].match(/<a class="related-card__media case-image-link"[^>]*href="([^"]+)"/)[1];
       const button = cards[i].match(/<a class="cb-link"[^>]*href="([^"]+)"/)[1];

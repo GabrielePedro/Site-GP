@@ -44,7 +44,8 @@ function renderRelatedCases(page) {
       if (key === 'key') return escape(data.action.href.replace(/^case-/, '').replace(/\.html$/, ''));
       if (key === 'href') return escape(data.action.href);
       if (key === 'tag') return escape(data.pill || '');
-      if (key === 'description') return escape(relatedSummaries[title]);
+      if (key === 'description') return escape(relatedSummaries[title].intro);
+      if (key === 'metric') return escape(relatedSummaries[title].highlight);
       if (key === 'action') return `<!-- component:button ${JSON.stringify({href: data.action.href, label: 'Conhecer projeto'})} -->\n<!-- /component:button -->`;
       return escape(data[key]);
     });
@@ -59,7 +60,7 @@ for (const page of pages) {
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   if (page.startsWith('case-')) {
     if (!source.includes('<!-- component:related-cases -->')) source = source.replace('<!-- component:footer -->', '<!-- component:related-cases -->\n<!-- /component:related-cases -->\n<!-- component:footer -->');
-    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-2">\n</head>');
+    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-3">\n</head>');
     if (!source.includes('<!-- component:image-viewer -->')) source = source.replace('</body>', '<!-- component:image-viewer -->\n<!-- /component:image-viewer -->\n</body>');
     if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
   }
