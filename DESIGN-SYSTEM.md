@@ -80,3 +80,10 @@ O menu compartilhado usa B3 no lugar de Yampi. O card B3 da home aponta para `ca
 `components/related-cases.html` e `components/related-case-card.html` geram a seção antes do footer dos quatro cases. Os dados vêm dos comentários `component:case` da home; edite ali títulos, descrições, tags e imagens e execute `npm run build`. A ordem base é Atlas, B3, Mercado Pago, Yampi, omitindo o projeto atual. Os resumos curtos ficam em `components/related-case-summaries.json`; eles contêm uma descrição do projeto e sua primeira métrica de resultados. Os textos aparecem completos, sem truncamento, e a métrica usa a cor padrão do texto. Os cards mantêm altura uniforme e os botões ficam alinhados na base. As descrições completas da home e das páginas não são alteradas por esses resumos.
 
 `styles/components/related-cases.css` segue o frame com padding de 150px, gap de 50px e cards de aproximadamente 347px, com imagens de 200px e corpo com padding de 24px. As três opções aparecem juntas no desktop. Quando falta espaço, `scripts/related-cases.js` habilita os controles; a rolagem horizontal, o encaixe dos cards, os links e a navegação por Tab também funcionam sem JavaScript. Imagem e botão “Conhecer projeto” navegam para o case, enquanto imagens editoriais continuam abrindo o modal.
+
+
+## Idiomas
+
+O português brasileiro é a fonte dos seis arquivos HTML. `scripts/build-locales.js`, chamado pelo build de componentes, gera `en/` (inglês americano, `en-US`) e `es/` (espanhol latino-americano, `es-419`). As traduções ficam em `locales/en-US.json` e `locales/es-419.json`, indexadas pelo texto original normalizado. O build exige tradução para cada texto e atributo de acessibilidade, evitando publicar conteúdo parcialmente traduzido. Ao editar o português, atualize os dois dicionários e rode `npm run build`.
+
+O seletor PT/EN/ES aponta para a mesma página em cada idioma e funciona sem JavaScript. Links entre páginas preservam o idioma; arquivos de imagem são compartilhados. Metadados, `lang`, canonical e `hreflang` são gerados por idioma. O texto incorporado às imagens e o protótipo externo do Figma mantêm o idioma dos arquivos originais.

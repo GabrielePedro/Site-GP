@@ -65,7 +65,7 @@ for (const page of pages) {
     if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
   }
   let html = source.replace(/<!-- component:(header|footer|motion|image-viewer|related-cases) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
-    let content = name === 'related-cases' ? renderRelatedCases(page) : template(name);
+    let content = (name === 'related-cases' ? renderRelatedCases(page) : template(name)).replaceAll('{{page}}', page);
     if (name === 'header') content = content.replace(/<a href="([^"]+)"(?: class="active")?>/g, (tag, href) => `<a href="${href}"${href === page ? ' class="active" aria-current="page"' : ''}>`);
     return `<!-- component:${name} -->\n${content}\n<!-- /component:${name} -->`;
   });
@@ -91,3 +91,5 @@ for (const page of pages) {
   if (html !== original) fs.writeFileSync(file, html);
 }
 console.log(`Shared components and motion generated for ${pages.length} pages.`);
+
+require('./build-locales').buildLocales(pages);

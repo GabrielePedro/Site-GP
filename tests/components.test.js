@@ -131,6 +131,26 @@ test('related cases exclude the current case and use the right summaries in the 
   }
   for (const page of ['index.html', 'contact.html']) assert.doesNotMatch(read(page), /class="related-cases"/);
 });
+test('localized pages cover all six routes, preserve locale navigation and include translated metadata', () => {
+ build();
+ for (const [dir, lang] of [['en', 'en-US'], ['es', 'es-419']]) {
+  for (const page of pages) {
+   const html = read(`${dir}/${page}`);
+   assert.match(html, new RegExp(`<html lang="${lang}"`));
+   assert.match(html, /<base href="\.\.\/">/);
+   assert.ok(html.includes(`data-language="${lang}"`));
+   assert.ok(html.includes(`href="${dir}/case-b3.html"`));
+   assert.ok(html.includes('hreflang="pt-BR"'));
+   assert.ok(html.includes('hreflang="en-US"'));
+   assert.ok(html.includes('hreflang="es-419"'));
+   assert.doesNotMatch(html, /Entenda o processo|Conhecer projeto|Navegação principal|{{\w+}}/);
+   assert.equal((html.match(/aria-current="true"/g) || []).length, 1);
+   for (const [, src] of html.matchAll(/(?:src|href)="((?:assets|styles|scripts)\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root,src)), src);
+  }
+ }
+ assert.match(read('en/index.html'), /people and businesses/);
+ assert.match(read('es/index.html'), /personas y negocios/);
+});
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
   try {
