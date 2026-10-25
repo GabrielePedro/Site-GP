@@ -1,0 +1,50 @@
+/* Mercado Pago frames supplied from Figma. The banner remains unchanged. */
+.case-page--mercadopago .context-content {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  padding: var(--Padding-150px, 150px) var(--Padding-150px, 150px) 300px var(--Padding-0px, 0px);
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  border-radius: 0 0 150px 150px;
+  background: var(--system-background-medium, #ecf0f7);
+}
+.case-page--mercadopago .context-left { flex: 0 1 522px; min-width: 0; }
+.case-page--mercadopago .context-right { flex: 1 1 0; min-width: 0; }
+.case-page--mercadopago .rule-content {
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  padding: var(--Padding-75px, 75px);
+  align-items: center;
+  gap: var(--Padding-100px, 100px);
+  border-radius: 150px;
+  background: linear-gradient(0deg, rgba(255, 231, 0, .2), rgba(255, 231, 0, .2)), var(--system-background-pure, #fff);
+}
+.case-page--mercadopago .rule-left { flex: 1 1 0; min-width: 0; }
+.case-page--mercadopago .rule-right { flex: 0 1 350px; min-width: 0; }
+/* Keep the existing title badges anchored above their own copy. */
+.case-page--mercadopago .rule-head { position: relative; min-height: 120px; margin-bottom: var(--space-24); }
+@media (max-width: 1000px) {
+  .case-page--mercadopago .context-content {
+    padding: var(--spacing-section) var(--spacing-inline) calc(var(--spacing-section) * 2);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-grid);
+    border-radius: 0 0 48px 48px;
+  }
+  .case-page--mercadopago .rule-inner { padding-inline: var(--spacing-inline); }
+  .case-page--mercadopago .rule-content {
+    padding: var(--space-48);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-grid);
+    border-radius: 48px;
+  }
+  .case-page--mercadopago :is(.context-left, .context-right, .rule-left, .rule-right) { flex: auto; width: 100%; }
+}
+@media (max-width: 700px) {
+  .case-page--mercadopago .rule-content { padding: var(--space-32); }
+  .case-page--mercadopago .rule-head { min-height: 0; }
+}
