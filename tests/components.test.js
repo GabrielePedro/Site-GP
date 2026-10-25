@@ -58,7 +58,7 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
   assert.equal(images.length, 10);
   assert.ok(main.indexOf('class="mp-results"') < main.indexOf('class="mp-gallery"'));
   assert.doesNotMatch(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Resultados/);
-  assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="100" height="100"/g)].length, 4);
+  assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="53" height="53"/g)].length, 4);
   for (const [tag, src] of images) {
     assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
     assert.match(tag, /alt="[^"]+"/);
