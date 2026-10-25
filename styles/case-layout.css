@@ -118,10 +118,20 @@
   min-height: 0;
   aspect-ratio: 1;
 }
-.case-page--yampi :is(.process-right, .solution-left) img {
+.case-page--yampi .process-right img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 523px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 523 / 373;
+  object-fit: contain;
+}
+.case-page--yampi .solution-left img {
+  display: block;
+  width: 372px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
   object-fit: contain;
 }
 @media (max-width: 1200px) {
