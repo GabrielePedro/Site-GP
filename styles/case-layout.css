@@ -59,3 +59,44 @@
   .case-page .plan-track .track-line { top: 0; bottom: 0; left: 6px; width: 4px; height: auto; }
   .case-page .plan-subtitle-wrapper { padding-left: var(--space-24); }
 }
+
+/* Yampi frames supplied from Figma. Background/artwork remains page-specific. */
+.case-page--yampi {
+  --yampi-frame-width: 1440px;
+  --yampi-section-padding: var(--Padding-150px, 150px);
+  --yampi-section-gap: var(--Padding-100px, 100px);
+}
+.case-page--yampi .case-context,
+.case-page--yampi :is(.plan-content, .process-content, .solution-content, .results-content) {
+  display: flex;
+  width: 100%;
+  max-width: var(--yampi-frame-width);
+  margin-inline: auto;
+  padding: var(--yampi-section-padding);
+  gap: var(--yampi-section-gap);
+}
+.case-page--yampi .case-context,
+.case-page--yampi :is(.process-content, .solution-content) {
+  flex-direction: row;
+  align-items: center;
+}
+.case-page--yampi .plan-content { flex-direction: column; align-items: flex-start; }
+.case-page--yampi .results-content {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Padding-0px, 0px);
+}
+.case-page--yampi :is(.process-left, .process-right, .solution-left, .solution-right) {
+  flex: 1 1 0;
+  min-width: 0;
+}
+@media (max-width: 1000px) {
+  .case-page--yampi {
+    --yampi-section-padding: var(--spacing-section) var(--spacing-inline);
+    --yampi-section-gap: var(--spacing-grid);
+  }
+  .case-page--yampi .case-context,
+  .case-page--yampi :is(.process-content, .solution-content) { flex-direction: column; align-items: stretch; }
+  .case-page--yampi :is(.process-left, .process-right, .solution-left, .solution-right) { flex: auto; width: 100%; }
+}
