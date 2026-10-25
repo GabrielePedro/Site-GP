@@ -60,7 +60,7 @@ for (const page of pages) {
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   if (page.startsWith('case-')) {
     if (!source.includes('<!-- component:related-cases -->')) source = source.replace('<!-- component:footer -->', '<!-- component:related-cases -->\n<!-- /component:related-cases -->\n<!-- component:footer -->');
-    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-3">\n</head>');
+    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-4">\n</head>');
     if (!source.includes('<!-- component:image-viewer -->')) source = source.replace('</body>', '<!-- component:image-viewer -->\n<!-- /component:image-viewer -->\n</body>');
     if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
   }

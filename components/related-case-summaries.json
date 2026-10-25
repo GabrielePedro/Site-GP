@@ -1,18 +1,18 @@
 {
   "Atlas": {
-    "intro": "Um cadastro pronto para outros mercados.",
-    "highlight": "Cadastro mais claro"
+    "intro": "Discovery e redesign do cadastro internacional para apoiar a expansão em Londres, simplificar a criação de perfis e facilitar a ativação de novos usuários.",
+    "highlight": "+22% na conclusão de cadastro"
   },
   "B3": {
-    "intro": "Cadastro financeiro sem complicação.",
-    "highlight": "−32% no abandono"
+    "intro": "Redesign da contratação de serviços financeiros, com uma jornada guiada, validação por etapa e mais autonomia para cadastrar empresas.",
+    "highlight": "−32% de abandono do cadastro"
   },
   "Mercado Pago": {
-    "intro": "Saldo retido explicado com clareza.",
-    "highlight": "−18% de chamados"
+    "intro": "Redesign da experiência de saldo retido, combinando regras mais transparentes e UX Writing para orientar pagamentos e reduzir dúvidas.",
+    "highlight": "−18% de chamados no suporte"
   },
   "Yampi": {
-    "intro": "Decisões melhores com métricas claras.",
-    "highlight": "−35% no tempo de busca"
+    "intro": "Pesquisa e testes de usabilidade no dashboard de e-commerce para melhorar a navegação e facilitar o acompanhamento das métricas pelos lojistas.",
+    "highlight": "−35% no tempo de busca de métricas"
   }
 }
