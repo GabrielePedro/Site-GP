@@ -60,6 +60,22 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
     assert.match(tag, /height="\d+"/);
   }
 });
+test('case images open their original files in new tabs, without changing home cards', () => {
+  build();
+  for (const page of pages.filter(page => page.startsWith('case-'))) {
+    const main = read(page).match(/<main[\s\S]*?<\/main>/)[0];
+    const images = [...main.matchAll(/<img[^>]+src="(assets\/images\/[^"]+)"[^>]*>/g)];
+    const links = [...main.matchAll(/<a class="case-media-link"([^>]*)>(<img[^>]*>)<\/a>/g)];
+    assert.ok(images.length > 0, page);
+    assert.equal(links.length, images.length, page);
+    for (const [, attrs, img] of links) {
+      assert.equal(attrs.match(/href="([^"]+)"/)[1], img.match(/src="([^"]+)"/)[1]);
+      assert.match(attrs, /target="_blank"/);
+      assert.match(attrs, /rel="noopener noreferrer"/);
+    }
+  }
+  assert.doesNotMatch(read('index.html'), /class="case-media-link"/);
+});
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
   try {

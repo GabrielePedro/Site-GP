@@ -13,12 +13,28 @@ function expandButtons(html) {
     return `<!-- component:button ${json} -->\n${button}\n<!-- /component:button -->`;
   });
 }
+// Open editorial case images as native full-size images in a separate tab.
+// Authored links stay intact; generated links follow image revisions automatically.
+function expandCaseImageLinks(html) {
+  return html.replace(/<main\b[\s\S]*?<\/main>/, main => main.replace(/<a\b[^>]*>[\s\S]*?<\/a>|<img\b[^>]*>/g, tag => {
+    if (!tag.startsWith('<img')) {
+      if (!/^<a\b[^>]*class="case-media-link"/.test(tag)) return tag;
+      const image = tag.match(/<img\b[^>]*>/);
+      if (!image) return tag;
+      tag = image[0];
+    }
+    const src = tag.match(/\bsrc="([^"]+)"/);
+    if (!src || !/^\/?assets\/images\//.test(src[1])) return tag;
+    const alt = tag.match(/\balt="([^"]*)"/)?.[1] || 'Imagem do case';
+    return `<a class="case-media-link" href="${src[1]}" target="_blank" rel="noopener noreferrer" aria-label="Ampliar: ${alt} (nova aba)" title="Abrir imagem ampliada em nova aba">${tag}</a>`;
+  }));
+}
 for (const page of pages) {
   const file = path.join(root, page);
   const original = fs.readFileSync(file, 'utf8');
   let source = original;
   if (!source.includes('<!-- component:motion -->')) source = source.replace('</body>', '<!-- component:motion -->\n<!-- /component:motion -->\n</body>');
-  if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=site-motion-1">\n</head>');
+  if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   let html = source.replace(/<!-- component:(header|footer|motion) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
     let content = template(name);
     if (name === 'header') content = content.replace(/<a href="([^"]+)"(?: class="active")?>/g, (tag, href) => `<a href="${href}"${href === page ? ' class="active" aria-current="page"' : ''}>`);
@@ -41,6 +57,7 @@ for (const page of pages) {
     return `<!-- component:case ${json} -->\n${card}\n<!-- /component:case -->`;
   });
   html = expandButtons(html);
+  if (page.startsWith('case-')) html = expandCaseImageLinks(html);
   html = html.replace(/[ \t]+$/gm, '');
   if (html !== original) fs.writeFileSync(file, html);
 }
