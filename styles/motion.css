@@ -34,15 +34,18 @@ body.motion-ready .is-visible .hero-word { opacity: 1; transform: none; }
 .custom-cursor.is-hovering .custom-cursor-icon { transform: scale(1.4375); }
 .custom-cursor img { display: block; width: 32px; height: 32px; animation: asterisco-rotate 5s linear infinite; }
 @keyframes asterisco-rotate { to { transform: rotate(360deg); } }
-.work-section .work-card .badge, .mp-result-card > .case-media-link { transform-origin: center; animation: work-badge-breathe 5.5s ease-in-out infinite; }
-.work-section .work-card .badge img, .mp-result-icon { transform-origin: center; animation: work-icon-drift 5.5s ease-in-out infinite; }
+.work-section .work-card .badge, .mp-result-card > .case-media-link, .atlas-result-card > .case-media-link { transform-origin: center; animation: work-badge-breathe 5.5s ease-in-out infinite; }
+.work-section .work-card .badge img, .mp-result-icon, .atlas-result-card img { transform-origin: center; animation: work-icon-drift 5.5s ease-in-out infinite; }
 .work-section .work-card:nth-child(2) .badge,
 .work-section .work-card:nth-child(2) .badge img,
-.mp-result-card:nth-child(2) > .case-media-link, .mp-result-card:nth-child(2) .mp-result-icon { animation-delay: -1.8s; }
+.mp-result-card:nth-child(2) > .case-media-link, .mp-result-card:nth-child(2) .mp-result-icon,
+.atlas-result-card:nth-child(2) > .case-media-link, .atlas-result-card:nth-child(2) img { animation-delay: -1.8s; }
 .work-section .work-card:nth-child(3) .badge,
 .work-section .work-card:nth-child(3) .badge img,
-.mp-result-card:nth-child(3) > .case-media-link, .mp-result-card:nth-child(3) .mp-result-icon { animation-delay: -3.6s; }
-.mp-result-card:nth-child(4) > .case-media-link, .mp-result-card:nth-child(4) .mp-result-icon { animation-delay: -4.5s; }
+.mp-result-card:nth-child(3) > .case-media-link, .mp-result-card:nth-child(3) .mp-result-icon,
+.atlas-result-card:nth-child(3) > .case-media-link, .atlas-result-card:nth-child(3) img { animation-delay: -3.6s; }
+.mp-result-card:nth-child(4) > .case-media-link, .mp-result-card:nth-child(4) .mp-result-icon,
+.atlas-result-card:nth-child(4) > .case-media-link, .atlas-result-card:nth-child(4) img { animation-delay: -4.5s; }
 @keyframes work-badge-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
 @keyframes work-icon-drift { 0%,100% { transform: scale(1); } 50% { transform: scale(1.045) rotate(2deg); } }
 @media (hover: none), (pointer: coarse) { .custom-cursor { display: none; } }
@@ -53,5 +56,5 @@ body.motion-ready .is-visible .hero-word { opacity: 1; transform: none; }
   }
   .motion-media { transition: none; transform: none; }
   .work-section .work-card .badge, .work-section .work-card .badge img,
-  .mp-result-card > .case-media-link, .mp-result-icon { animation: none; }
+  .mp-result-card > .case-media-link, .mp-result-icon, .atlas-result-card > .case-media-link, .atlas-result-card img { animation: none; }
 }
