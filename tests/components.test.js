@@ -66,6 +66,14 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
     assert.match(tag, /height="\d+"/);
   }
 });
+test('Atlas presents the supplied context and visible Figma results before the gallery', () => {
+  build();
+  const main = read('case-atlas.html').match(/<main[\s\S]*?<\/main>/)[0];
+  assert.doesNotMatch(main, /Conteúdo do case Atlas/);
+  for (const value of ['2025, mai –jun', 'Implementado em produção.', '+22% na tx. de conclusão de cadastro', 'Redução de 30%', 'Figma Maker e Lovable']) assert.ok(main.includes(value), value);
+  assert.equal((main.match(/class="atlas-result-card"/g) || []).length, 4);
+  assert.ok(main.indexOf('class="atlas-results"') < main.indexOf('class="atlas-gallery"'));
+});
 test('case images share a same-page viewer, without changing home cards', () => {
   build();
   for (const page of pages.filter(page => page.startsWith('case-'))) {
