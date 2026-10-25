@@ -564,4 +564,4 @@
 
 
 /* Hero copy belongs to the text column, directly below its tag. */
-.banner--yampi .banner-description { text-align: left; max-width: 100%; }
+.banner--yampi .banner-description { width: 100%; max-width: 100%; text-align: left; align-self: flex-start; }
