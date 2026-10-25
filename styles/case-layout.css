@@ -20,7 +20,6 @@
 .case-page .rule-text { width: 100%; }
 .case-page .results-container, .case-page .prototype-container { padding: 0; }
 .case-page .prototype-container iframe { width: 100%; max-width: 100%; }
-.case-page .results-card { padding: var(--spacing-grid); }
 .case-page .results-pill { white-space: normal; }
 .case-page .mp-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-grid); }
 .case-page .mp-banner::before { inset: 0; width: 100%; height: auto; margin: 0; }
@@ -140,4 +139,31 @@
     align-items: stretch;
   }
   .case-page--yampi :is(.process-left, .solution-right) { flex: auto; width: 100%; }
+}
+
+/* Results card: Figma padding and internal rhythm, independent of section padding. */
+.case-page--yampi .results-card {
+  display: flex;
+  padding: var(--Padding-75px, 75px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--Padding-32px, 32px);
+  align-self: stretch;
+}
+.case-page--yampi .results-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--Padding-100px, 100px);
+  align-self: stretch;
+  margin: 0;
+}
+.case-page--yampi .results-item { min-width: 0; }
+@media (max-width: 1200px) {
+  .case-page--yampi .results-grid { flex-direction: column; gap: var(--spacing-grid); }
+  .case-page--yampi .results-item { align-self: stretch; }
+}
+@media (max-width: 900px) {
+  .case-page--yampi .results-card { padding: var(--space-32); }
 }
