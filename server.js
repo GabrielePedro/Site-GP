@@ -1,3 +1,4 @@
+require('./scripts/build-components');
 const express = require('express');
 const path = require('path');
 

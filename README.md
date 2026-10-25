@@ -27,3 +27,11 @@ Visualizar localmente (servidor estático simples):
 python3 -m http.server 8000
 # então abra http://localhost:8000
 ```
+
+## Desenvolvimento e componentes compartilhados
+
+Use Node.js 24. Instale com `npm ci`, inicie com `npm run dev` e valide com `npm test` e `npm run check:styles`.
+
+Menu, botões, cards e footer têm templates únicos em `components/`. Após editar templates ou dados dos componentes, rode `npm run build`. O servidor de desenvolvimento e a publicação no GitHub Pages também geram esses trechos automaticamente.
+
+Consulte [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) para ajustar o espaçamento global, criar componentes e adicionar animações sem alterar o layout.

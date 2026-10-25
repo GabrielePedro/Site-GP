@@ -1,4 +1,4 @@
-@import "../_tokens.css";
+
 
 /* Yampi case specific styles */
 .case-page { padding: 0 0 var(--space-32) 0; /* remove large global top/bottom margin so banner sits under header */ }

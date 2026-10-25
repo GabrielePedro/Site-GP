@@ -18,6 +18,9 @@ jobs:
         with:
           persist-credentials: true
 
+      - name: Generate shared components
+        run: node scripts/build-components.js
+
       - name: Create public directory
         run: |
           rm -rf public || true

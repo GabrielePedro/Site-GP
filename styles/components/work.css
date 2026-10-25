@@ -1,4 +1,4 @@
-@import "../_tokens.css";
+
 
 .work-section { background: var(--system-background-pure); }
 .work-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-box;}
@@ -15,10 +15,10 @@
   height: 96px;
   /* use mask so we can color the SVG using CSS variables */
   background-color: var(--brand-blue);
-  -webkit-mask-image: url('/assets/icons/asterisco.svg');
+  -webkit-mask-image: url('../../assets/icons/asterisco.svg');
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
-  mask-image: url('/assets/icons/asterisco.svg');
+  mask-image: url('../../assets/icons/asterisco.svg');
   mask-repeat: no-repeat;
   mask-size: contain;
   opacity: 1;
@@ -40,7 +40,7 @@
 .work-cards { width:100%; display:flex; gap:48px; flex-wrap:wrap; justify-content:space-between; }
 .work-card { flex: 0 1 347px; display:flex; flex-direction:column; gap:0px; }
 
-@media (min-width: var(--bp-desktop)) {
+@media (min-width: 1001px) {
   /* Prefer a single row on desktop-sized viewports */
   .work-cards { flex-wrap: nowrap; justify-content: flex-start; }
   .work-card { margin-right: 0; }
