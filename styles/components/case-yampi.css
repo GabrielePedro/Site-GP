@@ -366,7 +366,7 @@
 .process-right { max-width:523px; width:100%; height:auto; border-radius:8px; flex:0 0 auto; }
 .process-rich p { margin: 0; color: var(--system-background-pure); font-family: var(--font-family-body); font-size:20px; line-height:1.4; }
 .process-box { display:flex; flex-direction:column; gap:16px; align-items:flex-start; }
-.process-box-bar { background: var(--yampi-purple-high); color: var(--system-background-pure); font-family: var(--font-family-body); font-weight:700; font-size:20px; padding: 2px 12px; display:inline-flex; align-items:center; justify-content:center; border: radius 0; }
+.process-box-bar { background: var(--yampi-purple-high); color: var(--system-background-pure); font-family: var(--font-family-body); font-weight:700; font-size:20px; padding: var(--pill-padding-vertical) var(--pill-padding-horizontal); display:inline-flex; align-items:center; justify-content:center; border: radius 0; }
 .process-box-list p { margin: 0; color: var(--system-background-pure); font-family: var(--font-family-body); font-size:20px; line-height:1.4; }
 .process-content {
 	position: relative; z-index: 2; max-width: var(--layout-max-width); width:100%; box-sizing: border-box;
@@ -415,7 +415,7 @@
 .solution-title { font-family:var(--font-family-headings); font-size:32px; color:var(--yampi-purple-dark); margin:0 0 8px 0; width:100%; }
 .solution-rich p { margin:0 0 var(--space-24) 0; color:var(--system-background-pure); font-family:var(--font-family-body); font-size:20px; line-height:1.4; }
 .solution-box { display:flex; flex-direction:column; gap:16px; }
-.solution-box-bar { padding:2px 12px; background:var(--yampi-purple-pure); color:var(--system-background-pure); font-weight:700; display:inline-flex; align-items:center; }
+.solution-box-bar { padding:var(--pill-padding-vertical) var(--pill-padding-horizontal); background:var(--yampi-purple-pure); color:var(--system-background-pure); font-weight:700; display:inline-flex; align-items:center; }
 .solution-box-list p { margin:0; color:var(--system-background-pure); font-size:20px; line-height:1.4; }
 
 /* Solution content widths were inline in HTML; move to CSS for responsiveness */
@@ -440,7 +440,7 @@
 .solution-text-container { display:flex; flex-direction:column; gap:32px; }
 .solution-title { color: var(--yampi-purple-dark); font-family: var(--font-family-headings); font-size:32px; font-weight:400; line-height:1; letter-spacing:-1.6px; margin:0 0 8px 0; }
 .solution-lead { color: var(--system-background-pure); font-family: var(--font-family-body); font-size:20px; font-weight:400; line-height:1.4; letter-spacing:0.2px; }
-.solution-pill { display:inline-flex; align-items:center; padding:2px 12px; background: var(--yampi-purple-pure); color: var(--system-background-pure); font-family: var(--font-family-body); font-weight:700; font-size:20px; }
+.solution-pill { display:inline-flex; align-items:center; padding:var(--pill-padding-vertical) var(--pill-padding-horizontal); background: var(--yampi-purple-pure); color: var(--system-background-pure); font-family: var(--font-family-body); font-weight:700; font-size:20px; }
 .solution-list { color: var(--system-background-pure); font-family: var(--font-family-body); font-size:20px; line-height:1.4; }
 
 @media (max-width:900px) {
@@ -525,7 +525,7 @@
 .results-head { display:flex; flex-direction:column; gap:var(--space-8); align-items:flex-start; }
 .results-title-left { font-family: var(--font-family-headings); font-size:32px; color: var(--yampi-purple-dark); margin:0; letter-spacing:-1.6px; line-height:1; font-weight:400; }
 .results-title-right { font-family: var(--font-family-headings); font-size:32px; color: var(--yampi-pink-pure); margin:0; letter-spacing:-1.6px; line-height:1; font-weight:400; }
-.results-pill { display:inline-flex; padding:2px 12px; background: var(--yampi-pink-pure); color: var(--system-background-pure); font-weight:700; font-family: var(--font-family-body); font-size:20px; }
+.results-pill { display:inline-flex; padding:var(--pill-padding-vertical) var(--pill-padding-horizontal); background: var(--yampi-pink-pure); color: var(--system-background-pure); font-weight:700; font-family: var(--font-family-body); font-size:20px; }
 .results-icon-inner img { width:100%; height:100%; object-fit:cover; display:block; }
 .results-grid { display:flex; gap:100px; margin-top: var(--space-32); }
 .results-item { flex:1; display:flex; flex-direction:column; gap:16px; align-items:center; text-align:center; }
