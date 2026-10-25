@@ -22,7 +22,10 @@
 .related-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .related-card__tag { padding: 0 4px; background: var(--brand-blue); color: white; font: 700 14px/1.2 var(--font-family-body); letter-spacing: .03em; }
 .related-card h3 { margin: 0; color: var(--brand-blue); font: 400 22px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
-.related-card p { margin: 0; font: 400 16px/1.3 var(--font-family-body); letter-spacing: .01em; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; height: 3.9em; overflow: hidden; }
+.related-card p { margin: 0; font: 400 16px/1.3 var(--font-family-body); letter-spacing: .01em; overflow-wrap: anywhere; }
+.related-card__teaser { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.related-card .related-card__intro { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; height: 2.6em; overflow: hidden; }
+.related-card .related-card__metric { font-weight: 700; color: var(--brand-blue); height: 1.3em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .related-card .contact-button { width: 100%; margin-top: auto; }
 .related-card .cb-link { min-height: 40px; padding: 4px 0 4px 8px; gap: 8px; }
 .related-card .cb-label { font: 700 16px/1.2 var(--font-family-body); letter-spacing: .01em; }
