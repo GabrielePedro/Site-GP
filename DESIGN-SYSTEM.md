@@ -12,7 +12,7 @@ O site continua estático, compatível com Express, Python e GitHub Pages. Não 
 | Layout comum das páginas de case | `styles/case-layout.css` |
 | Menu, botão, card e footer | `components/header.html`, `contact-button.html`, `case-card.html`, `footer.html` |
 | Estilo de cada componente | `styles/components/` |
-| Animações da home | `styles/home.css`, `scripts/home.js` |
+| Animações e cursor em todas as páginas | `styles/motion.css`, `scripts/site-motion.js`, `components/motion.html` |
 
 `styles/style.css` é a entrada dos estilos compartilhados em todas as páginas. Os cases carregam sua arte específica e, por último, o contrato comum `case-layout.css`.
 
@@ -66,3 +66,5 @@ npm run dev
 ```
 
 Os testes verificam geração repetível, footer único entre páginas, estrutura e imagens dos cards e detecção real de estilos inline. A CI também rejeita HTML gerado desatualizado. No navegador, confira home, Atlas, Yampi, Mercado Pago e contato nas larguras 375, 768, 1024 e 1440px; valide ausência de rolagem horizontal, navegação, foco, hover, revelação por scroll e movimento reduzido. O protótipo Figma é externo e depende de acesso ao serviço.
+
+O build injeta um único cursor e os arquivos de movimento compartilhados em todas as páginas. Imagens dos cards usam uma âncora nativa com o mesmo destino e comportamento de nova aba do botão, gerados de `action`. As imagens recebem entrada por scroll e efeitos de hover/foco sem alterar o tamanho de layout. O movimento reduzido pode ser ativado durante a navegação; o conteúdo permanece visível e o cursor decorativo é desativado. Em telas de toque, o cursor fica oculto.

@@ -1,0 +1,51 @@
+/* Shared motion never owns spacing, dimensions or background layers. */
+body.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, 1, .36, 1);
+}
+body.motion-ready [data-reveal].is-visible { opacity: 1; transform: none; }
+body.motion-ready .hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--word-delay, 0ms);
+}
+body.motion-ready .is-visible .hero-word { opacity: 1; transform: none; }
+.case-image-link { display: block; color: inherit; text-decoration: none; }
+.case-image-link:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 6px; }
+.motion-media { transition: transform 450ms cubic-bezier(.22, 1, .36, 1); }
+@media (hover: hover) and (pointer: fine) {
+  .case-image-link:hover .motion-media,
+  .case-image-link:focus-visible .motion-media { transform: scale(1.035); }
+  .motion-illustration:hover { transform: translateY(-6px); }
+}
+.custom-cursor {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  pointer-events: none; opacity: 0;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  transition: opacity 200ms ease;
+}
+.custom-cursor.is-active { opacity: 1; }
+.custom-cursor-icon { display: block; transition: transform 250ms ease; }
+.custom-cursor.is-hovering .custom-cursor-icon { transform: scale(1.4375); }
+.custom-cursor img { display: block; width: 32px; height: 32px; animation: asterisco-rotate 5s linear infinite; }
+@keyframes asterisco-rotate { to { transform: rotate(360deg); } }
+.work-section .work-card .badge { transform-origin: center; animation: work-badge-breathe 5.5s ease-in-out infinite; }
+.work-section .work-card .badge img { transform-origin: center; animation: work-icon-drift 5.5s ease-in-out infinite; }
+.work-section .work-card:nth-child(2) .badge,
+.work-section .work-card:nth-child(2) .badge img { animation-delay: -1.8s; }
+.work-section .work-card:nth-child(3) .badge,
+.work-section .work-card:nth-child(3) .badge img { animation-delay: -3.6s; }
+@keyframes work-badge-breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes work-icon-drift { 0%,100% { transform: scale(1); } 50% { transform: scale(1.045) rotate(2deg); } }
+@media (hover: none), (pointer: coarse) { .custom-cursor { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor { display: none; }
+  body.motion-ready [data-reveal], body.motion-ready .hero-word {
+    opacity: 1; transform: none; transition: none;
+  }
+  .motion-media { transition: none; transform: none; }
+  .work-section .work-card .badge, .work-section .work-card .badge img { animation: none; }
+}

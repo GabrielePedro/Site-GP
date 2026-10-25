@@ -16,7 +16,10 @@ function expandButtons(html) {
 for (const page of pages) {
   const file = path.join(root, page);
   const original = fs.readFileSync(file, 'utf8');
-  let html = original.replace(/<!-- component:(header|footer) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
+  let source = original;
+  if (!source.includes('<!-- component:motion -->')) source = source.replace('</body>', '<!-- component:motion -->\n<!-- /component:motion -->\n</body>');
+  if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=site-motion-1">\n</head>');
+  let html = source.replace(/<!-- component:(header|footer|motion) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
     let content = template(name);
     if (name === 'header') content = content.replace(/<a href="([^"]+)"(?: class="active")?>/g, (tag, href) => `<a href="${href}"${href === page ? ' class="active" aria-current="page"' : ''}>`);
     return `<!-- component:${name} -->\n${content}\n<!-- /component:${name} -->`;
@@ -25,6 +28,9 @@ for (const page of pages) {
     const data = JSON.parse(json);
     if (!/^hero-variant-[abc]$/.test(data.variant)) throw new Error('Unknown case variant');
     const card = template('case-card').replace(/{{(\w+)}}/g, (_, key) => {
+      if (key === 'imageHref') return escape(data.action.href);
+      if (key === 'imageExternal') return data.action.external ? ' target="_blank" rel="noopener noreferrer"' : '';
+      if (key === 'imageLabel') return escape(`${data.action.label} — ${data.title}`);
       if (key === 'reverse') return data.reverse ? ' case-row--reverse' : '';
       if (key === 'pill') return data.pill ? `<span class="pill">${escape(data.pill)}</span>` : '';
       // Lead is authored HTML, like the rest of the page; never use untrusted input here.
@@ -38,4 +44,4 @@ for (const page of pages) {
   html = html.replace(/[ \t]+$/gm, '');
   if (html !== original) fs.writeFileSync(file, html);
 }
-console.log('Shared header, footer and buttons generated for 5 pages.');
+console.log('Shared components and motion generated for 5 pages.');

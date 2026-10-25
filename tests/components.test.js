@@ -19,6 +19,9 @@ test('static build is repeatable and all pages share the same footer', () => {
     assert.equal(footer(html), footer(first[0]));
     assert.doesNotMatch(html, /{{\w+}}|\sstyle\s*=/i);
     assert.match(html, /styles\/style.css/);
+    assert.equal((html.match(/class="custom-cursor"/g) || []).length, 1);
+    assert.equal((html.match(/src="scripts\/site-motion.js/g) || []).length, 1);
+    assert.equal((html.match(/href="styles\/motion.css/g) || []).length, 1);
   }
 });
 test('generated case cards preserve all content and valid local images', () => {
@@ -33,6 +36,12 @@ test('generated case cards preserve all content and valid local images', () => {
     assert.match(html, /class="case-left"/);
     assert.match(html, /class="case-right"/);
     assert.match(html, /class="cb-link"/);
+    const imageLink = html.match(/<a class="case-hero case-image-link[^"]*"([^>]*)>/);
+    assert.ok(imageLink, `${data.title}: missing image link`);
+    const button = html.match(/<a class="cb-link"([^>]*)>/);
+    assert.equal(imageLink[1].match(/href="([^"]*)"/)[1], button[1].match(/href="([^"]*)"/)[1]);
+    assert.equal(imageLink[1].includes('target="_blank"'), button[1].includes('target="_blank"'));
+    assert.match(imageLink[1], /aria-label="[^"]+"/);
   }
 });
 test('inline style check rejects a real violation', () => {

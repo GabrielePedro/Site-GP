@@ -10,15 +10,14 @@
     <link rel="icon" type="image/svg+xml" href="assets/icons/gabriele_pedro_product_designer_24px.svg">
 
 <link rel="stylesheet" href="styles/style.css" />
-<link rel="stylesheet" href="styles/home.css" />
 
-  </head>
+
+  <link rel="stylesheet" href="styles/motion.css?v=site-motion-1">
+</head>
 
  <body class="home-page">
 
-    <div class="custom-cursor" aria-hidden="true">
-  <img src="assets/icons/asterisco_v2.svg" alt="" />
-</div>
+
 
 <!-- component:header -->
 <header class="site-header">
@@ -124,9 +123,9 @@
 <!-- /component:button -->
   </div>
   <div class="case-right">
-    <div class="case-hero hero-variant-a">
+    <a class="case-hero case-image-link hero-variant-a" href="case-atlas.html" aria-label="Entenda o processo — Atlas">
       <div class="hero-inner"><img src="assets/images/case-images/UX-Atlas.png" alt="Atlas image" loading="lazy" width="570" height="500"></div>
-    </div>
+    </a>
   </div>
 </div>
 <!-- /component:case -->
@@ -148,9 +147,9 @@
 <!-- /component:button -->
   </div>
   <div class="case-right">
-    <div class="case-hero hero-variant-b">
+    <a class="case-hero case-image-link hero-variant-b" href="case-yampi.html" aria-label="Entenda o processo — Yampi">
       <div class="hero-inner"><img src="assets/images/case-images/UX-Yampi.png" alt="Yampi image" loading="lazy" width="570" height="500"></div>
-    </div>
+    </a>
   </div>
 </div>
 <!-- /component:case -->
@@ -172,9 +171,9 @@
 <!-- /component:button -->
   </div>
   <div class="case-right">
-    <div class="case-hero hero-variant-c">
+    <a class="case-hero case-image-link hero-variant-c" href="case-mercadopago.html" aria-label="Entenda o processo — Mercado Pago">
       <div class="hero-inner"><img src="assets/images/case-images/UX-Mercado-Pago.png" alt="Mercado Pago image" loading="lazy" width="570" height="500"></div>
-    </div>
+    </a>
   </div>
 </div>
 <!-- /component:case -->
@@ -288,9 +287,9 @@
 <!-- /component:button -->
   </div>
   <div class="case-right">
-    <div class="case-hero hero-variant-b">
+    <a class="case-hero case-image-link hero-variant-b" href="#" aria-label="Ir para o site — B3">
       <div class="hero-inner"><img src="assets/images/case-images/UX-B3.png" alt="B3 image" loading="lazy" width="570" height="500"></div>
-    </div>
+    </a>
   </div>
 </div>
 <!-- /component:case -->
@@ -312,9 +311,9 @@
 <!-- /component:button -->
   </div>
   <div class="case-right">
-    <div class="case-hero hero-variant-c">
+    <a class="case-hero case-image-link hero-variant-c" href="#" aria-label="Ir para o Behance — Vega Feedback">
       <div class="hero-inner"><img src="assets/images/case-images/UX-Vega_Feedback.png" alt="Vega Feedback image" loading="lazy" width="570" height="500"></div>
-    </div>
+    </a>
   </div>
 </div>
 <!-- /component:case -->
@@ -356,7 +355,7 @@
         </div>
       </section>
       </main>
-  <script src="scripts/home.js"></script>
+
   <!-- Footer (shared component) -->
   <!-- component:footer -->
 <footer class="footer-section">
@@ -400,5 +399,11 @@
     </div>
   </footer>
 <!-- /component:footer -->
-  </body>
+  <!-- component:motion -->
+<div class="custom-cursor" aria-hidden="true">
+  <span class="custom-cursor-icon"><img src="assets/icons/asterisco_v2.svg" alt="" width="32" height="32"></span>
+</div>
+<script src="scripts/site-motion.js?v=site-motion-1" defer></script>
+<!-- /component:motion -->
+</body>
 </html>
