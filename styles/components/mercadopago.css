@@ -31,7 +31,7 @@
 .mp-overview { width: 100%; background: var(--system-background-medium); border-radius: 0 0 var(--mp-radius) var(--mp-radius); }
 .mp-overview-inner {
   width: 100%; max-width: var(--mp-frame-width);
-  margin-inline: auto; padding: 100px var(--mp-inline);
+  margin-inline: auto; padding: 0 var(--mp-inline) 100px;
   display: flex; flex-direction: column; align-items: flex-start; gap: 48px;
   background: transparent;
 }
@@ -84,7 +84,7 @@
   .mp-hero::before { height: calc(100% - 64px); }
   .mp-hero-inner { min-height: 0; padding-top: 64px; grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .mp-right { width: min(100%, 540px); margin-top: 0; justify-self: center; }
-  .mp-overview-inner { min-height: 0; padding-block: 64px; }
+  .mp-overview-inner { min-height: 0; padding-block: 0 64px; }
   .mp-gallery { padding-block: 64px; }
   .mp-results { padding-block: 64px; }
   .mp-results-grid { column-gap: 48px; }
@@ -97,7 +97,7 @@
   .mp-hero-inner { padding-top: 48px; }
   .mp-title { font-size: clamp(26px, 6.5vw, 36px); }
   .mp-hero-tag { font-size: 20px; }
-  .mp-overview-inner { padding-block: 48px; gap: 32px; }
+  .mp-overview-inner { padding-block: 0 48px; gap: 32px; }
   .mp-metadata { grid-template-columns: minmax(0, 1fr); }
   .mp-gallery { padding-block: 48px; }
   .mp-results { padding-block: 48px; }
@@ -108,5 +108,5 @@
 /* One owner for the desktop transition from gallery to related projects. */
 @media (min-width: 1251px) {
  .mp-gallery { padding-bottom: 0; }
- .mercadopago-page .related-cases { padding-top: 250px; }
+ .mercadopago-page .related-cases { padding-top: 150px; }
 }
