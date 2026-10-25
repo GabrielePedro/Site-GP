@@ -51,11 +51,11 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
   build();
   const html = read('case-mercadopago.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)[0];
-  for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21 pontos percentuais', '+6 pontos percentuais', '−18%']) assert.ok(main.includes(value), value);
+  for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
   assert.equal([...main.matchAll(/<figure class="mp-showcase /g)].length, 4);
   assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
-  assert.equal(images.length, 6);
+  assert.equal(images.length, 10);
   for (const [tag, src] of images) {
     assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
     assert.match(tag, /alt="[^"]+"/);
