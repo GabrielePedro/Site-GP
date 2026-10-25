@@ -29,6 +29,27 @@ function expandCaseImageLinks(html) {
     return `<a class="case-media-link" href="${src[1]}" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: ${alt}" title="Ampliar imagem">${tag}</a>`;
   }));
 }
+// The home card data is the single source for related case titles/copy/images.
+const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const catalog = [...home.matchAll(/<!-- component:case (.*?) -->/g)].map(match => JSON.parse(match[1]));
+const relatedOrder = ['Atlas', 'B3', 'Mercado Pago', 'Yampi'];
+function renderRelatedCases(page) {
+  const current = catalog.find(item => item.action.href === page);
+  if (!current || !relatedOrder.includes(current.title)) throw new Error(`Missing case data: ${page}`);
+  const cards = relatedOrder.filter(title => title !== current.title).map(title => {
+    const data = catalog.find(item => item.title === title);
+    if (!data) throw new Error(`Missing related case: ${title}`);
+    return template('related-case-card').replace(/{{(\w+)}}/g, (_, key) => {
+      if (key === 'key') return escape(data.action.href.replace(/^case-/, '').replace(/\.html$/, ''));
+      if (key === 'href') return escape(data.action.href);
+      if (key === 'tag') return escape(data.pill || '');
+      if (key === 'description') return data.lead;
+      if (key === 'action') return `<!-- component:button ${JSON.stringify({href: data.action.href, label: 'Conhecer projeto'})} -->\n<!-- /component:button -->`;
+      return escape(data[key]);
+    });
+  }).join('\n');
+  return template('related-cases').replace('{{cards}}', cards);
+}
 for (const page of pages) {
   const file = path.join(root, page);
   const original = fs.readFileSync(file, 'utf8');
@@ -36,11 +57,13 @@ for (const page of pages) {
   if (!source.includes('<!-- component:motion -->')) source = source.replace('</body>', '<!-- component:motion -->\n<!-- /component:motion -->\n</body>');
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   if (page.startsWith('case-')) {
+    if (!source.includes('<!-- component:related-cases -->')) source = source.replace('<!-- component:footer -->', '<!-- component:related-cases -->\n<!-- /component:related-cases -->\n<!-- component:footer -->');
+    if (!source.includes('styles/components/related-cases.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/related-cases.css?v=related-1">\n</head>');
     if (!source.includes('<!-- component:image-viewer -->')) source = source.replace('</body>', '<!-- component:image-viewer -->\n<!-- /component:image-viewer -->\n</body>');
     if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
   }
-  let html = source.replace(/<!-- component:(header|footer|motion|image-viewer) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
-    let content = template(name);
+  let html = source.replace(/<!-- component:(header|footer|motion|image-viewer|related-cases) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
+    let content = name === 'related-cases' ? renderRelatedCases(page) : template(name);
     if (name === 'header') content = content.replace(/<a href="([^"]+)"(?: class="active")?>/g, (tag, href) => `<a href="${href}"${href === page ? ' class="active" aria-current="page"' : ''}>`);
     return `<!-- component:${name} -->\n${content}\n<!-- /component:${name} -->`;
   });

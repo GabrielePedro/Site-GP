@@ -7,7 +7,7 @@
   let cursorFrame = null;
   let mouseX = -100, mouseY = -100, cursorX = -100, cursorY = -100;
 
-  document.querySelectorAll('.case-hero img, .hero-image img, .banner-graphic img, .case-context-image img, .process-right img, .solution-left img, .mp-right img, .context-image, .rule-visual img, .results-icon img, .mp-showcase img, .b3-preview img').forEach(img => {
+  document.querySelectorAll('.case-hero img, .hero-image img, .banner-graphic img, .case-context-image img, .process-right img, .solution-left img, .mp-right img, .context-image, .rule-visual img, .results-icon img, .mp-showcase img, .b3-preview img, .related-card__media img').forEach(img => {
     img.classList.add('motion-media');
     if (!img.closest('.case-image-link')) img.classList.add('motion-illustration');
   });
@@ -22,7 +22,7 @@
         }
       });
     }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
-    const targets = document.querySelectorAll('.banner-meta, .contact-buttons, .case-row, .work-top, .work-card, .skillset-block, .experience-item, .case-context-left, .case-context-right, .plan-head, .plan-track, .process-left, .process-right, .solution-left, .solution-right, .prototype-container, .results-head, .results-pill, .results-item, .mp-left, .mp-right, .context-left, .context-right, .rule-left, .rule-right, .case-detail .case-hero, .case-detail .case-content, .contact-page, .footer-cta, .footer-contacts, .mp-overview-copy, .mp-meta-item, .mp-results, .mp-showcase, .b3-heading, .b3-preview');
+    const targets = document.querySelectorAll('.banner-meta, .contact-buttons, .case-row, .work-top, .work-card, .skillset-block, .experience-item, .case-context-left, .case-context-right, .plan-head, .plan-track, .process-left, .process-right, .solution-left, .solution-right, .prototype-container, .results-head, .results-pill, .results-item, .mp-left, .mp-right, .context-left, .context-right, .rule-left, .rule-right, .case-detail .case-hero, .case-detail .case-content, .contact-page, .footer-cta, .footer-contacts, .mp-overview-copy, .mp-meta-item, .mp-results, .mp-showcase, .b3-heading, .b3-preview, .related-cases__heading, .related-card');
     targets.forEach(el => { el.setAttribute('data-reveal', ''); observer.observe(el); });
     const titles = document.querySelectorAll('.hero-line, .mp-title, .case-detail h2, .contact-page h1, .b3-heading h1');
     titles.forEach(title => {
