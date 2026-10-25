@@ -100,3 +100,34 @@
   .case-page--yampi :is(.process-content, .solution-content) { flex-direction: column; align-items: stretch; }
   .case-page--yampi :is(.process-left, .process-right, .solution-left, .solution-right) { flex: auto; width: 100%; }
 }
+
+/* Figma illustrations have fixed desktop dimensions, never equal-width columns. */
+.case-page--yampi .process-right {
+  flex: none;
+  width: 523px;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 523 / 373;
+}
+.case-page--yampi .solution-left {
+  flex: none;
+  width: 372px;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1;
+}
+.case-page--yampi :is(.process-right, .solution-left) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (max-width: 1200px) {
+  .case-page--yampi :is(.process-content, .solution-content) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .case-page--yampi :is(.process-left, .solution-right) { flex: auto; width: 100%; }
+}
