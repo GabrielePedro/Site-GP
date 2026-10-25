@@ -42,7 +42,7 @@
 .mp-meta-item { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
 .mp-label { display: inline-flex; margin: 0; padding: 2px 6px; background: var(--mp-yellow); color: var(--system-text-black); font: 700 16px/1.2 var(--font-family-body); letter-spacing: .16px; }
 /* Results are independent of the Contexto metadata. */
-.mp-results { --mp-results-blue: #50b4e9; width: 100%; max-width: var(--mp-frame-width); margin-inline: auto; padding: 150px var(--mp-inline); display: flex; flex-direction: column; align-items: flex-start; gap: 50px; }
+.mp-results { --mp-results-blue: #50b4e9; width: 100%; max-width: var(--mp-frame-width); margin-inline: auto; padding: 75px var(--mp-inline); display: flex; flex-direction: column; align-items: flex-start; gap: 75px; }
 .mp-results-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 100%; }
 .mp-results-heading h2 { margin: 0; padding: 4px 8px; background: var(--mp-results-blue); color: white; font: 400 32px/1 var(--font-family-headings); letter-spacing: -.05em; }
 .mp-results p { margin: 0; color: var(--system-text-black); font: 400 20px/1.4 var(--font-family-body); letter-spacing: .01em; }
@@ -86,7 +86,7 @@
   .mp-right { width: min(100%, 540px); margin-top: 0; justify-self: center; }
   .mp-overview-inner { min-height: 0; padding-block: 64px; }
   .mp-gallery { padding-block: 64px; }
-  .mp-results { padding-block: 64px; gap: 48px; }
+  .mp-results { padding-block: 64px; }
   .mp-results-grid { column-gap: 48px; }
   .mercadopago-page .footer-row { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .mercadopago-page .footer-cta { font-size: 36px; }
@@ -100,7 +100,7 @@
   .mp-overview-inner { padding-block: 48px; gap: 32px; }
   .mp-metadata { grid-template-columns: minmax(0, 1fr); }
   .mp-gallery { padding-block: 48px; }
-  .mp-results { padding-block: 48px; gap: 40px; }
+  .mp-results { padding-block: 48px; }
   .mp-results-grid { grid-template-columns: minmax(0, 1fr); }
   .mp-results-heading h2 { font-size: 28px; }
 }
