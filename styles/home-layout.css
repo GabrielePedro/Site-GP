@@ -51,3 +51,18 @@
     padding: var(--home-banner-top) var(--spacing-inline) 0;
   }
 }
+
+/* Scale the headline to its column, leaving space above the divider. */
+.home-page .banner--home .banner-left {
+  container-type: inline-size;
+  padding-bottom: var(--space-40);
+}
+.home-page .banner--home .hero-lines { width: 100%; }
+.home-page .banner--home .hero-line {
+  font-size: clamp(18px, 7cqw, 48px);
+  line-height: 1.2;
+}
+.home-page .banner--home .hero-line--keep-together { white-space: nowrap; }
+@media (max-width: 1000px) {
+  .home-page .banner--home .banner-left { padding-bottom: var(--space-24); }
+}
