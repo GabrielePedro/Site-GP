@@ -104,3 +104,9 @@
   .mp-results-grid { grid-template-columns: minmax(0, 1fr); }
   .mp-results-heading h2 { font-size: 28px; }
 }
+
+/* One owner for the desktop transition from gallery to related projects. */
+@media (min-width: 1251px) {
+ .mp-gallery { padding-bottom: 0; }
+ .mercadopago-page .related-cases { padding-top: 250px; }
+}
