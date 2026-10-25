@@ -4,7 +4,7 @@ const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const pages = ['index.html', 'case-atlas.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
+const pages = ['index.html', 'case-atlas.html', 'case-b3.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const build = () => execFileSync(process.execPath, ['scripts/build-components.js'], { cwd: root });
 test('static build is repeatable and all pages share the same footer', () => {
@@ -17,6 +17,9 @@ test('static build is repeatable and all pages share the same footer', () => {
     assert.equal((html.match(/<header class="site-header"/g) || []).length, 1);
     assert.equal((html.match(/<footer class="footer-section"/g) || []).length, 1);
     assert.equal(footer(html), footer(first[0]));
+    const nav = html.match(/<nav class="header-nav"[\s\S]*?<\/nav>/)[0];
+    assert.match(nav, /href="case-b3.html"/);
+    assert.doesNotMatch(nav, /href="case-yampi.html"/);
     assert.doesNotMatch(html, /{{\w+}}|\sstyle\s*=/i);
     assert.match(html, /styles\/style.css/);
     assert.equal((html.match(/class="custom-cursor"/g) || []).length, 1);

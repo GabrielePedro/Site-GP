@@ -1,0 +1,9 @@
+/* B3 uses the existing portfolio copy and artwork with shared components. */
+.b3-content { display: flex; flex-direction: column; gap: var(--spacing-case); width: 100%; max-width: 1440px; padding: 150px; margin-inline: auto; }
+.b3-heading { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-elements); }
+.b3-heading h1 { margin: 0; color: var(--brand-blue); font: 400 clamp(32px, 4vw, 56px)/1.2 var(--font-family-headings); }
+.b3-heading p { margin: 0; max-width: 820px; font: 400 20px/1.6 var(--font-family-body); }
+.b3-preview { width: 100%; margin: 0; overflow: hidden; border-radius: 100px 24px 100px 24px; }
+.b3-preview img { display: block; width: 100%; height: auto; }
+@media (max-width: 1000px) { .b3-content { padding: var(--spacing-section) var(--spacing-inline); } }
+@media (max-width: 700px) { .b3-preview { border-radius: 48px 16px 48px 16px; } }
