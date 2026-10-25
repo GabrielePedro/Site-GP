@@ -29,7 +29,7 @@
 .mp-right img { display: block; width: 540px; height: 632px; max-width: 100%; object-fit: cover; object-position: center; }
 .mp-overview { width: 100%; background: var(--system-background-medium); border-radius: 0 0 var(--mp-radius) var(--mp-radius); }
 .mp-overview-inner {
-  width: 100%; max-width: var(--mp-frame-width); min-height: 690px;
+  width: 100%; max-width: var(--mp-frame-width);
   margin-inline: auto; padding: 100px var(--mp-inline);
   display: flex; flex-direction: column; align-items: flex-start; gap: 48px;
   background: transparent;
@@ -41,20 +41,20 @@
 .mp-meta-item { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
 .mp-label { display: inline-flex; margin: 0; padding: 2px 6px; background: var(--mp-yellow); color: var(--system-text-black); font: 700 16px/1.2 var(--font-family-body); letter-spacing: .16px; }
 /* Results are independent of the Contexto metadata. */
-.mp-results { --mp-results-blue: #50b4e9; width: 100%; max-width: var(--mp-frame-width); margin-inline: auto; padding: 150px var(--mp-inline) 0; display: flex; flex-direction: column; align-items: flex-start; gap: 75px; }
-.mp-results-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; width: 100%; }
+.mp-results { --mp-results-blue: #50b4e9; width: 100%; max-width: var(--mp-frame-width); margin-inline: auto; padding: 150px var(--mp-inline); display: flex; flex-direction: column; align-items: flex-start; gap: 50px; }
+.mp-results-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; width: 100%; }
 .mp-results-heading h2 { margin: 0; padding: 4px 8px; background: var(--mp-results-blue); color: white; font: 400 32px/1 var(--font-family-headings); letter-spacing: -.05em; }
 .mp-results p { margin: 0; color: var(--system-text-black); font: 400 20px/1.4 var(--font-family-body); letter-spacing: .01em; }
 .mp-results strong { font-weight: 700; }
 .mp-results-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 100px; width: 100%; margin: 0; padding: 0; list-style: none; }
-.mp-result-card { display: flex; flex-direction: column; align-items: center; gap: 32px; min-width: 0; text-align: center; }
-.mp-result-card > .case-media-link { width: 150px; height: 150px; flex-shrink: 0; }
-.mp-result-icon { display: block; width: 150px; height: 150px; border-radius: 250px; object-fit: contain; }
+.mp-result-card { display: flex; flex-direction: column; align-items: center; gap: 24px; min-width: 0; text-align: center; }
+.mp-result-card > .case-media-link { width: 100px; height: 100px; flex-shrink: 0; }
+.mp-result-icon { display: block; width: 100px; height: 100px; border-radius: 250px; object-fit: contain; }
 .mp-result-copy { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 100%; }
-.mp-result-copy h3 { margin: 0; color: var(--mp-results-blue); font: 400 22px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
-.mp-results-conclusion { width: 100%; padding: 24px; background: var(--mp-results-blue); }
+.mp-result-copy h3 { margin: 0; color: var(--mp-results-blue); font: 400 20px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
+.mp-results-conclusion { width: 100%; padding: 8px 24px; background: var(--mp-results-blue); }
 .mp-results-conclusion p { color: white; }
-.mp-gallery { display: flex; flex-direction: column; align-items: center; gap: var(--mp-section-gap); width: 100%; max-width: var(--mp-frame-width); padding: 100px 0; margin-inline: auto; }
+.mp-gallery { border-radius: var(--mp-radius) var(--mp-radius) 0 0; background: rgba(80, 180, 233, .2); overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: var(--mp-section-gap); width: 100%; max-width: var(--mp-frame-width); padding: 100px 0; margin-inline: auto; }
 .mp-showcase { width: 100%; max-width: 1140px; aspect-ratio: 1140 / 800; margin: 0; overflow: hidden; }
 .mp-showcase--yellow { background: linear-gradient(-71.29deg, #fffbd7, #ffe700); }
 .mp-showcase--blue { background: var(--mp-blue-gradient); }
@@ -84,7 +84,7 @@
   .mp-right { width: min(100%, 540px); margin-top: 0; justify-self: center; }
   .mp-overview-inner { min-height: 0; padding-block: 64px; }
   .mp-gallery { padding-block: 64px; }
-  .mp-results { padding-top: 64px; gap: 48px; }
+  .mp-results { padding-block: 64px; gap: 48px; }
   .mp-results-grid { column-gap: 48px; }
   .mercadopago-page .footer-row { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .mercadopago-page .footer-cta { font-size: 36px; }
@@ -98,7 +98,7 @@
   .mp-overview-inner { padding-block: 48px; gap: 32px; }
   .mp-metadata { grid-template-columns: minmax(0, 1fr); }
   .mp-gallery { padding-block: 48px; }
-  .mp-results { padding-top: 48px; gap: 40px; }
+  .mp-results { padding-block: 48px; gap: 40px; }
   .mp-results-grid { grid-template-columns: minmax(0, 1fr); }
   .mp-results-heading h2 { font-size: 28px; }
 }
