@@ -58,3 +58,6 @@
 }
 
 @media (max-width: 600px) { .case-page--yampi .banner--yampi .case-pill-text { font-size: 20px; } }
+
+.case-page--yampi .banner--yampi .banner-logo { width: auto; height: 48px; }
+.case-page--yampi .banner--yampi .banner-logo img { display: block; width: auto; height: 48px; object-fit: contain; }

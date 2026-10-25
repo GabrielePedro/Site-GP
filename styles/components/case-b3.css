@@ -5,7 +5,7 @@
 .b3-project p, .b3-project dd, .b3-context li { margin: 0; font: 400 20px/1.4 var(--font-family-body); letter-spacing: .01em; }
 .b3-project strong { font-weight: 700; }
 .b3-hero { background: #28316b; color: white; border-radius: 0 0 0 var(--b3-radius); }
-.b3-hero-inner { max-width: 1440px; min-height: 600px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr) 583px; padding-left: var(--b3-inline); }
+.b3-hero-inner { width: 100%; min-height: 600px; margin-inline: auto; display: grid; grid-template-columns: minmax(0, 1fr) 583px; padding-left: max(var(--b3-inline), calc((100% - 1140px) / 2)); }
 .b3-hero-copy { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; gap: 16px; padding-top: 100px; padding-bottom: 64px; }
 .b3-brand { width: 60px; height: 48px; object-fit: contain; }
 .b3-hero h1 { display: flex; flex-direction: column; gap: 8px; margin: 0; font: 400 56px/1.2 var(--font-family-headings); letter-spacing: -.04em; }

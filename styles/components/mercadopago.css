@@ -20,7 +20,7 @@
   display: grid; grid-template-columns: minmax(0, 1fr) 540px; gap: 100px; align-items: start;
 }
 .mp-left { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; color: white; }
-.mp-logo { width: 216px; height: 56px; object-fit: contain; }
+.mp-logo { width: auto; height: 48px; object-fit: contain; }
 .mp-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
 .mp-title { display: flex; flex-direction: column; gap: 8px; margin: 0; color: white; font: 400 56px/1.2 var(--font-family-headings); letter-spacing: -.04em; }
 .mp-title > span { display: block; }
@@ -103,4 +103,10 @@
   .mp-results { padding-block: 48px; }
   .mp-results-grid { grid-template-columns: minmax(0, 1fr); }
   .mp-results-heading h2 { font-size: 28px; }
+}
+
+/* One owner for the desktop transition from gallery to related projects. */
+@media (min-width: 1251px) {
+ .mp-gallery { padding-bottom: 0; }
+ .mercadopago-page .related-cases { padding-top: 250px; }
 }
