@@ -8,7 +8,7 @@ O site continua estático, compatível com Express, Python e GitHub Pages. Não 
 | --- | --- |
 | Cores, fontes e escala de espaçamento | `styles/_tokens.css` |
 | Espaçamento global e ajustes responsivos | `styles/spacing.css` |
-| Containers e ritmo das seções da home | `styles/layout.css` |
+| Containers compartilhados e medidas dos frames da home | `styles/layout.css`, `styles/home-layout.css` |
 | Layout comum das páginas de case | `styles/case-layout.css` |
 | Menu, botão, card e footer | `components/header.html`, `contact-button.html`, `case-card.html`, `footer.html` |
 | Estilo de cada componente | `styles/components/` |
@@ -27,7 +27,7 @@ Não altere `--space-24` para significar outro tamanho no celular. A escala prim
 | `--spacing-case` (entre cards) | 100px | 64px | 48px |
 | `--spacing-grid` (colunas) | 48px | 32px | 24px |
 
-Cada seção controla seu padding vertical; containers controlam largura e padding horizontal; componentes controlam somente os espaços internos. Seções coloridas têm padding em ambos os lados. Entre banner e cases da home, o banner já fornece a separação e a seção de cases não repete padding superior.
+Cada seção controla seu padding vertical; containers controlam largura e padding horizontal; componentes controlam somente os espaços internos. Seções coloridas têm padding em ambos os lados. Na home, o banner tem padding de 100px no topo, 150px nas laterais e zero na base; a seção de cases fornece os 150px de separação seguintes. Banner, Cases, Como trabalho e Projetos usam frames de até 1440px, definidos em `home-layout.css`. Os containers recebem o padding uma única vez; o espaço entre cards/cabeçalho vem do `gap`, sem margens adicionais.
 
 Cards usam altura natural no texto e proporção reservada na imagem. Evite alturas fixas para conteúdo, margens negativas para espaçamento e `100vw` para escapar de containers. Uma página de case usa `.case-page`; cada bloco usa `.case-section`, com seu container interno `.case-section__content`. O contexto Yampi tem conteúdo diretamente na seção e aplica o mesmo contrato ali.
 
