@@ -7,6 +7,7 @@
       <link rel="icon" type="image/svg+xml" href="assets/icons/gabriele_pedro_product_designer_24px.svg">
   <link rel="stylesheet" href="styles/style.css?v=global-base-3" />
   <link rel="stylesheet" href="styles/motion.css?v=case-images-3">
+<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">
 </head>
   <body>
  <!-- component:header -->
@@ -39,7 +40,7 @@
         <h2>Atlas</h2>
         <section class="case-hero hero-variant-a">
           <div class="hero-inner">
-            <a class="case-media-link" href="assets/images/case-images/UX-Atlas.png" target="_blank" rel="noopener noreferrer" aria-label="Ampliar: Atlas hero (nova aba)" title="Abrir imagem ampliada em nova aba"><img src="assets/images/case-images/UX-Atlas.png" alt="Atlas hero" /></a>
+            <a class="case-media-link" href="assets/images/case-images/UX-Atlas.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Atlas hero" title="Ampliar imagem"><img src="assets/images/case-images/UX-Atlas.png" alt="Atlas hero" /></a>
           </div>
         </section>
         <section class="case-content">Conteúdo do case Atlas — detalhes sobre colaboração, desafios e resultados.</section>
@@ -95,5 +96,16 @@
 </div>
 <script src="scripts/site-motion.js?v=site-motion-2" defer></script>
 <!-- /component:motion -->
+<!-- component:image-viewer -->
+<dialog id="case-image-viewer" class="image-viewer" aria-label="Imagem ampliada" aria-describedby="image-viewer-caption">
+  <button class="image-viewer-close" type="button" aria-label="Fechar imagem ampliada" autofocus>×</button>
+  <button class="image-viewer-zoom" type="button" aria-pressed="false">Ampliar</button>
+  <figure class="image-viewer-figure">
+    <div class="image-viewer-stage"><img class="image-viewer-image" alt=""></div>
+    <figcaption id="image-viewer-caption" class="image-viewer-caption"></figcaption>
+  </figure>
+</dialog>
+<script src="scripts/case-gallery.js?v=viewer-1" defer></script>
+<!-- /component:image-viewer -->
 </body>
 </html>

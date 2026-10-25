@@ -60,7 +60,7 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
     assert.match(tag, /height="\d+"/);
   }
 });
-test('case images open their original files in new tabs, without changing home cards', () => {
+test('case images share a same-page viewer, without changing home cards', () => {
   build();
   for (const page of pages.filter(page => page.startsWith('case-'))) {
     const main = read(page).match(/<main[\s\S]*?<\/main>/)[0];
@@ -68,10 +68,12 @@ test('case images open their original files in new tabs, without changing home c
     const links = [...main.matchAll(/<a class="case-media-link"([^>]*)>(<img[^>]*>)<\/a>/g)];
     assert.ok(images.length > 0, page);
     assert.equal(links.length, images.length, page);
+    assert.equal((read(page).match(/<dialog id="case-image-viewer"/g) || []).length, 1);
     for (const [, attrs, img] of links) {
       assert.equal(attrs.match(/href="([^"]+)"/)[1], img.match(/src="([^"]+)"/)[1]);
-      assert.match(attrs, /target="_blank"/);
-      assert.match(attrs, /rel="noopener noreferrer"/);
+      assert.doesNotMatch(attrs, /target="_blank"/);
+      assert.match(attrs, /aria-haspopup="dialog"/);
+      assert.match(attrs, /aria-controls="case-image-viewer"/);
     }
   }
   assert.doesNotMatch(read('index.html'), /class="case-media-link"/);

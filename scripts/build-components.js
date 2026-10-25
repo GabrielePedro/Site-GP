@@ -13,7 +13,7 @@ function expandButtons(html) {
     return `<!-- component:button ${json} -->\n${button}\n<!-- /component:button -->`;
   });
 }
-// Open editorial case images as native full-size images in a separate tab.
+// Editorial case images progressively open in a same-page modal.
 // Authored links stay intact; generated links follow image revisions automatically.
 function expandCaseImageLinks(html) {
   return html.replace(/<main\b[\s\S]*?<\/main>/, main => main.replace(/<a\b[^>]*>[\s\S]*?<\/a>|<img\b[^>]*>/g, tag => {
@@ -26,7 +26,7 @@ function expandCaseImageLinks(html) {
     const src = tag.match(/\bsrc="([^"]+)"/);
     if (!src || !/^\/?assets\/images\//.test(src[1])) return tag;
     const alt = tag.match(/\balt="([^"]*)"/)?.[1] || 'Imagem do case';
-    return `<a class="case-media-link" href="${src[1]}" target="_blank" rel="noopener noreferrer" aria-label="Ampliar: ${alt} (nova aba)" title="Abrir imagem ampliada em nova aba">${tag}</a>`;
+    return `<a class="case-media-link" href="${src[1]}" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: ${alt}" title="Ampliar imagem">${tag}</a>`;
   }));
 }
 for (const page of pages) {
@@ -35,7 +35,11 @@ for (const page of pages) {
   let source = original;
   if (!source.includes('<!-- component:motion -->')) source = source.replace('</body>', '<!-- component:motion -->\n<!-- /component:motion -->\n</body>');
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
-  let html = source.replace(/<!-- component:(header|footer|motion) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
+  if (page.startsWith('case-')) {
+    if (!source.includes('<!-- component:image-viewer -->')) source = source.replace('</body>', '<!-- component:image-viewer -->\n<!-- /component:image-viewer -->\n</body>');
+    if (!source.includes('styles/components/image-viewer.css')) source = source.replace('</head>', '<link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">\n</head>');
+  }
+  let html = source.replace(/<!-- component:(header|footer|motion|image-viewer) -->[\s\S]*?<!-- \/component:\1 -->/g, (_, name) => {
     let content = template(name);
     if (name === 'header') content = content.replace(/<a href="([^"]+)"(?: class="active")?>/g, (tag, href) => `<a href="${href}"${href === page ? ' class="active" aria-current="page"' : ''}>`);
     return `<!-- component:${name} -->\n${content}\n<!-- /component:${name} -->`;
