@@ -53,5 +53,5 @@
 /* One owner for the desktop transition from gallery to related projects. */
 @media (min-width: 1251px) {
  .atlas-gallery { padding-bottom: 0; }
- .atlas-page .related-cases { padding-top: 250px; }
+ .atlas-page .related-cases { padding-top: 150px; }
 }

@@ -108,5 +108,5 @@
 /* One owner for the desktop transition from gallery to related projects. */
 @media (min-width: 1251px) {
  .mp-gallery { padding-bottom: 0; }
- .mercadopago-page .related-cases { padding-top: 250px; }
+ .mercadopago-page .related-cases { padding-top: 150px; }
 }
