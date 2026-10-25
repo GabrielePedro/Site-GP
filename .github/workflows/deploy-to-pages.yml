@@ -23,21 +23,21 @@ jobs:
 
       - name: Create public directory
         run: |
-          rm -rf public || true
+          rm -rf public
           mkdir -p public
           # Copy site files (adjust as needed)
-          cp index.html public/ || true
-          cp case-*.html public/ || true
-          cp contact.html public/ || true
-          cp experiencia.html public/ || true
+          cp index.html public/
+          cp case-*.html public/
+          cp contact.html public/
+          cp experiencia.html public/
           mkdir -p public/assets
-          cp -R assets public/assets || true
+          cp -R assets/. public/assets/
           mkdir -p public/styles
-          cp -R styles public/styles || true
+          cp -R styles/. public/styles/
           mkdir -p public/components
-          cp -R components public/components || true
+          cp -R components/. public/components/
           mkdir -p public/scripts
-          cp -R scripts public/scripts || true
+          cp -R scripts/. public/scripts/
 
       - name: Deploy to gh-pages via peaceiris
         uses: peaceiris/actions-gh-pages@v3
