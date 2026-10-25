@@ -18,7 +18,7 @@ h1, h2, h3 { font-family: var(--font-family-headings); overflow-wrap: anywhere; 
 .banner-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 424px); gap: var(--spacing-grid); align-items: end; }
 .banner-left, .banner-right { min-width: 0; }
 .banner-left { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-16); }
-.label { background: var(--brand-blue); color: white; padding: var(--space-4) var(--space-8); font: 32px/1.2 var(--font-family-headings); }
+.label { background: var(--brand-blue); color: white; padding: var(--pill-padding-vertical) var(--pill-padding-horizontal); font: 32px/1.2 var(--font-family-headings); }
 .hero-lines { display: flex; flex-direction: column; gap: var(--space-8); }
 .hero-line { margin: 0; font: clamp(28px, 3.8vw, 56px)/1.18 var(--font-family-headings); letter-spacing: -.04em; }
 .hero-image img { width: 100%; }

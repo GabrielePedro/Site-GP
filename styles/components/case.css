@@ -6,7 +6,7 @@
 .case-right { min-width: 0; width: 100%; }
 .case-title { font: 400 clamp(28px, 3vw, 40px)/1.15 var(--font-family-headings); letter-spacing: -.04em; color: var(--brand-blue); }
 .case-lead { font-size: var(--case-lead-size); line-height: 1.6; }
-.pill { display: inline-block; background: var(--brand-blue); color: white; padding: var(--space-4) var(--space-8); font-weight: 700; }
+.pill { display: inline-block; background: var(--brand-blue); color: white; padding: var(--pill-padding-vertical) var(--pill-padding-horizontal); font-weight: 700; }
 .case-hero { width: 100%; aspect-ratio: 570 / 500; overflow: hidden; background: var(--system-background-medium); }
 .hero-inner { width: 100%; height: 100%; }
 .case-hero img { width: 100%; height: 100%; object-fit: cover; }
