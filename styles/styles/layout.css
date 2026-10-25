@@ -1,0 +1,24 @@
+/* Layout owns space; components own their internal gaps; motion owns neither. */
+.container, .banner-outer, .cases-outer, .work-outer, .experience-outer,
+.skillset-outer, .footer-outer, .contact-page {
+  width: 100%; max-width: var(--layout-max-width); margin-inline: auto;
+  padding-inline: var(--spacing-inline);
+}
+.home-page main > section { margin: 0; padding-block: var(--spacing-section); }
+.home-page main > .banner--home { padding-top: var(--spacing-menu-banner); }
+/* Same background: a single section owns the gap between banner and cases. */
+.home-page main > .cases-section { padding-top: 0; }
+.cases-outer > .case-row + .case-row { margin-top: var(--spacing-case); }
+.work-inner { gap: var(--spacing-case); }
+.work-cards { gap: var(--spacing-grid); }
+.work-card { flex: 1 1 0; min-width: 0; }
+.experience-inner { gap: var(--spacing-text); }
+.skillset-row, .skillset-block { gap: var(--spacing-grid); }
+@media (max-width: 1000px) {
+  .work-card { flex-basis: auto; }
+}
+@media (max-width: 700px) {
+  .work-top .title-stack .line1 { font-size: 36px; }
+  .experience-item { gap: var(--spacing-elements); }
+  .experience-item .exp-role, .experience-item .exp-company { font-size: 26px; overflow-wrap: anywhere; }
+}

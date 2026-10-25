@@ -1,51 +1,33 @@
-
-/* =========================================
-   SISTEMA CENTRAL DE ESPAÇAMENTO
-   Gabriele Pedro — Product Designer
-   ========================================= */
-
+/* Semantic layout tokens. Change these to adjust the whole site.
+   Primitives (--space-*) stay constant; only semantic tokens respond. */
 :root {
-  /* Espaçamento horizontal */
-  --spacing-inline: 24px;
-
-  /* Espaçamento entre textos e elementos */
-  --spacing-text: 40px;
-  --spacing-elements: 24px;
-  --spacing-banner-divider-text: 40px;
-
-  /* Espaçamento entre cases e projetos */
-  --spacing-between-cases: 100px;
-  --spacing-between-projects: 100px;
-  --spacing-projects-header: 100px;
-
-  /* Espaçamento entre seções */
-  --spacing-menu-banner: 75px;
-  --spacing-banner-cases: 150px;
-  --spacing-section-desktop: 150px;
-
-  /* Responsividade */
-  --spacing-section-tablet: 96px;
-  --spacing-section-mobile: 64px;
-  --spacing-case-mobile: 48px;
+  --spacing-inline: var(--space-24);
+  --spacing-text: var(--space-40);
+  --spacing-elements: var(--space-24);
+  --spacing-section: var(--space-150);
+  --spacing-case: var(--space-100);
+  --spacing-grid: var(--space-48);
+  --spacing-menu-banner: var(--space-75);
+  --spacing-footer: var(--space-48);
+  --spacing-banner-divider-text: var(--space-40);
+  /* Compatibility aliases for existing page-specific artwork. */
+  --spacing-banner-cases: var(--spacing-section);
+  --spacing-between-cases: var(--spacing-case);
+  --spacing-between-projects: var(--spacing-case);
+  --spacing-projects-header: var(--spacing-case);
+  --spacing-section-desktop: var(--spacing-section);
+  --spacing-section-mobile: var(--space-48);
 }
-
-/* Tablet */
 @media (max-width: 1000px) {
-  :root {
-    --spacing-inline: 24px;
-    --spacing-banner-cases: var(--spacing-section-tablet);
-    --spacing-section-desktop: var(--spacing-section-tablet);
-  }
+  :root { --spacing-section: 96px; --spacing-case: 64px; --spacing-grid: var(--space-32); }
 }
-
-/* Mobile */
 @media (max-width: 700px) {
   :root {
     --spacing-inline: 20px;
-    --spacing-banner-cases: var(--spacing-section-mobile);
-    --spacing-section-desktop: var(--spacing-section-mobile);
-    --spacing-between-cases: var(--spacing-case-mobile);
-    --spacing-between-projects: var(--spacing-case-mobile);
-    --spacing-projects-header: var(--spacing-case-mobile);
+    --spacing-section: 64px;
+    --spacing-case: var(--space-48);
+    --spacing-grid: var(--space-24);
+    --spacing-menu-banner: var(--space-48);
+    --spacing-footer: var(--space-32);
   }
 }

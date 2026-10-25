@@ -1,71 +1,14 @@
-@import "../_tokens.css";
-
-/* Footer component (fixed last block across pages) */
-.footer-section { background: var(--system-text-black); color: var(--system-background-pure); }
-.footer-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-box; padding-block: 75px; }
-.footer-row { display:flex; gap:50px; align-items:center; }
-.footer-cta { max-width: 593px; width: 100%; font-family: 'Krona One', var(--font-family-headings); font-size:56px; line-height:1.2; letter-spacing:-2.24px; margin:0; }
-.footer-cta .brand-blue { color: var(--brand-blue); }
-
-.footer-contacts { max-width: 100%; width: 100%; display:flex; flex-direction:column; gap:0; }
-.footer-contacts .contact-button { margin: 0; }
-.footer-contacts .contact-button + .contact-button { margin-top: -4px; }
-.footer-contacts .contact-button .cb-label { color: var(--system-background-pure); }
-.footer-contact-bar { width:100%; height:4px; background: var(--system-componentes-blue); }
-.footer-contact-row { display:flex; align-items:center; gap:8px; }
-.footer-contact-label { font-family: var(--font-family-body); font-size:20px; font-weight:700; color: var(--system-background-pure); }
-
-.footer-contacts .copyright { color: var(--system-componentes-blue); font-family: var(--font-family-body); font-size:16px; font-weight:700; margin-top: var(--space-32); max-width: 497px; text-align:left; }
-
-/* Responsive */
-@media (max-width:1000px) {
-  .footer-outer { padding: 32px; }
-  .footer-row { flex-direction:column; align-items:flex-start; gap:24px; }
-  .footer-cta { font-size:36px; }
-  .footer-contacts { width:100%; }
-  .footer-bottom { padding: 16px 48px; margin-top: 16px; display:flex; justify-content:center; }
-  .footer-bottom { background: var(--system-text-black); }
-}
-
-/* Safety rules: ensure copyright remains inside the contacts column
-  and appears under the contact buttons on desktop pages. This prevents
-  case-specific layouts from pushing the copyright to the far right. */
-.footer-row .footer-contacts { display:flex !important; flex-direction:column !important; }
-.footer-row .footer-contacts .copyright { order: 99; align-self: flex-start; margin-top: var(--space-32); }
-
-
-/* Shared footer spacing: 75px above and below its content */
-.footer-outer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-@media (max-width: 1000px) {
-  .footer-outer {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-}
-
-
-/* CTA do rodapé — alternância suave entre azul e branco */
-.footer-cta .footer-word {
-  display: inline-block;
-  color: var(--brand-blue);
-  animation: footer-word-color 3.6s ease-in-out infinite;
-}
-
-.footer-cta .footer-word--contratar {
-  animation-delay: -1.8s;
-}
-
-@keyframes footer-word-color {
-  0%, 100% { color: var(--brand-blue); }
-  50% { color: var(--system-background-pure); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footer-cta .footer-word {
-    animation: none;
-    color: var(--brand-blue);
-  }
-}
+.footer-section { background: var(--system-text-black); color: white; }
+.footer-outer { padding-block: var(--spacing-footer); }
+.footer-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-grid); align-items: center; }
+.footer-cta { margin: 0; font: clamp(28px, 4vw, 56px)/1.2 var(--font-family-headings); letter-spacing: -.04em; }
+.brand-blue { color: var(--brand-blue); }
+.footer-contacts { display: flex; flex-direction: column; min-width: 0; }
+.footer-contacts .contact-button { color: white; }
+.footer-contacts .contact-button + .contact-button { border-top: 0; }
+.copyright { color: var(--system-componentes-blue); margin-top: var(--space-32); font-size: 16px; }
+.footer-word { animation: footer-word-color 3.6s ease-in-out infinite; }
+.footer-word--contratar { animation-delay: -1.8s; }
+@keyframes footer-word-color { 0%,100% { color: var(--brand-blue); } 50% { color: white; } }
+@media (max-width: 1000px) { .footer-row { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .footer-word { animation: none; color: var(--brand-blue); } }

@@ -1,196 +1,32 @@
-/* Case component styles - refactored from styles/style.css */
-@import "../_tokens.css";
-
-.cases-section { background: var(--system-background-medium);  padding-top: 0; }
-/* Unified outer containers (layout contract) */
-.container,
-.banner-outer,
-.cases-outer,
-.work-outer,
-.experience-outer,
-.skillset-outer,
-.footer-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-box; }
-
-/* Ensure consistent section spacing is handled globally via `section` */
-
-/* Projects section spacing */
-.projects-section .projects-header {
-  padding-bottom: var(--spacing-projects-header);
-}
-
-.projects-section .projects-body {
-  padding-top: var(--spacing-projects-header);
-}
-
-/* Projects header layout (moved from inline styles) */
-.projects-section .cases-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-box; }
-/* Header wrapper sized to Container(max-width:389, height:96) */
-.projects-section .projects-header-wrapper { max-width: 389px; width: 100%; height: 96px; position: relative; }
-/* Positioned(left:0, top:4) and vertical stacking with spacing: 10 */
-.projects-section .projects-titles { position: absolute; left: 0; top: 4px; display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
-/* Decorative asterisk behind the Projects header — centered, brand-blue, full opacity */
-.projects-section .projects-header-wrapper::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 220px; /* reasonable default size, scales visually with header */
-  height: 220px;
-  background-color: var(--brand-blue);
-  -webkit-mask-image: url('/assets/icons/asterisco.svg');
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-image: url('/assets/icons/asterisco.svg');
-  mask-repeat: no-repeat;
-  mask-position: center;
-  opacity: 1; /* 100% opacity as requested */
-  pointer-events: none;
-  z-index: 0;
-}
-/* Ensure titles render above the decorative asterisk */
-.projects-section .projects-titles { z-index: 2; }
-/* Title text parameters (Krona One, 40px, weight 400, height 1.10, letter-spacing -2) */
-.projects-section .projects-title-main { max-width: 389px; width: 100%; }
-.projects-section .projects-title-main-text,
-.projects-section .projects-title-sub-text {
-  font-family: 'Krona One', var(--font-family-headings);
-  font-size: 40px;
-  color: #2E3640; /* System-Text-Black */
-  font-weight: 400;
-  line-height: 1.10;
-  letter-spacing: -2px;
-  margin: 0;
-}
-/* Subtitle container: full width with left padding 56, centered row with spacing 10 */
-.projects-section .projects-title-sub { padding-left: 56px; width: 100%; display:flex; justify-content:center; align-items:center; gap:10px; }
-.projects-section .projects-titles h2 { white-space: nowrap; display: inline-block; }
-/* Keep UI/UX Design on a single line */
-.projects-section .projects-titles h2 { white-space: nowrap; display: inline-block; }
-
-.case-row { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr minmax(0, var(--case-hero-width)); align-items: end; box-sizing: border-box; overflow: hidden; margin-bottom:  var(--spacing-between-cases); }
-.case-row.reverse { grid-template-columns: 570px 1fr; }
-
-.case-left { min-width: 0; display: block; }
-.case-right { width: 100%; box-sizing: border-box; }
-
-.case-title { font-family: var(--font-family-headings); font-size: var(--case-title-size); color: var(--brand-blue); margin: 0 0 12px 0; letter-spacing: -2px; line-height: 1.1; font-weight: 400; }
-
-/* Pill (subtitle) — uses tokens set in _tokens.css */
-.cases-section .pill {
-  display: inline-block;
-  background: var(--brand-blue);
-  color: var(--system-background-pure);
-  padding: var(--pill-padding-vertical) var(--pill-padding-horizontal);
-  font-family: var(--font-family-body);
-  font-weight: var(--pill-font-weight);
-  font-size: var(--pill-font-size);
-  line-height: var(--pill-line-height);
-  letter-spacing: var(--pill-letter-spacing);
-  margin-bottom: 16px;
-  align-self: flex-start;
-}
-
-/* Remove o espaçamento inferior da Atlas e do Mercado Pago */
-.cases-section .case-mercado-pago {
-  margin-bottom: 0;
-}
-
-.case-left { max-width: 560px; }
-
-.case-lead { font-family: var(--font-family-body); font-size: var(--case-lead-size); color: var(--system-text-black); line-height:1.6; margin: 0 0 40px 0; }
-
-.case-hero { max-width: var(--case-hero-width); width: 100%; height: auto; overflow: hidden; position: relative; background: var(--system-background-medium); }
-.case-hero img { display:block; width:100%; height:auto; object-fit: cover; object-position: center bottom; }
-
-/* project-specific hero helper (replaces inline styles) */
-.project-hero { max-width: var(--case-hero-width); width: 100%; height: auto; }
-
-/* exact corner radii from design (user-specified) */
-/* Hero A: top-left:24px; top-right:100px; bottom-right:24px; bottom-left:100px */
-.hero-variant-a { border-radius: 24px 100px 24px 100px; }
-/* Hero B: top-left:100px; top-right:24px; bottom-right:100px; bottom-left:24px */
+/* Shared case card. Natural text height; media has a reserved aspect ratio. */
+.cases-section, .skillset-section { background: var(--system-background-medium); }
+.case-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-grid); align-items: center; width: 100%; min-width: 0; }
+.case-left { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-elements); min-width: 0; }
+.case-left > * { margin: 0; }
+.case-right { min-width: 0; width: 100%; }
+.case-title { font: 400 clamp(28px, 3vw, 40px)/1.15 var(--font-family-headings); letter-spacing: -.04em; color: var(--brand-blue); }
+.case-lead { font-size: var(--case-lead-size); line-height: 1.6; }
+.pill { display: inline-block; background: var(--brand-blue); color: white; padding: var(--space-4) var(--space-8); font-weight: 700; }
+.case-hero { width: 100%; aspect-ratio: 570 / 500; overflow: hidden; background: var(--system-background-medium); }
+.hero-inner { width: 100%; height: 100%; }
+.case-hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero-variant-a, .hero-variant-c { border-radius: 24px 100px 24px 100px; }
 .hero-variant-b { border-radius: 100px 24px 100px 24px; }
-.hero-variant-c { border-radius: 24px 100px 24px 100px; }
-
-/* gradients for each hero variant */
-.hero-variant-a { background: linear-gradient(90deg, var(--atlas-gradient-start) 0%, var(--atlas-gradient-end) 100%); }
-.hero-variant-b { background: linear-gradient(90deg, var(--yampi-gradient-start) 0%, var(--yampi-gradient-end) 100%); }
-.hero-variant-c { background: linear-gradient(135deg, var(--mercadopago-gradient-start) 0%, var(--mercadopago-gradient-end) 100%); }
-
-.hero-inner { width: 100%; height: 100%; box-sizing: border-box; position: relative; padding: 0; background: transparent; overflow: hidden; border-radius: inherit; }
-/* Ensure images inside hero-inner are not positioned absolutely (which created extra visual gaps in some layouts). Keep them as block-level elements that fill the container. */
-.case-row .hero-inner img, .projects-section .hero-inner img { position: static; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; display: block; z-index: 2; border-radius: inherit; }
-
-/* Desktop (exact layout) */
-/* Desktop: bloco de texto alinhado à base da imagem */
-@media (min-width: 1200px) {
-  .case-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--case-hero-width);
-    gap: 100px;
-    align-items: stretch;
-    overflow: visible;
-  }
-
-  .case-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-self: stretch;
-    min-width: 0;
-    max-width: 560px;
-    height: 500px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .case-right {
-    width: 100%;
-    height: 500px;
-    align-self: stretch;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .case-right .case-hero {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    margin: 0;
-  }
-
-  .case-right .hero-inner {
-    width: 100%;
-    height: 100%;
-  }
-
-  .case-right .hero-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
-  }
+.projects-header { margin-bottom: var(--spacing-case); }
+.projects-header-wrapper { position: relative; width: fit-content; }
+.projects-titles { display: flex; flex-direction: column; gap: var(--space-8); }
+.projects-titles h2 { font: 400 clamp(28px, 3vw, 40px)/1.2 var(--font-family-headings); margin: 0; }
+.projects-title-sub { padding-left: var(--space-40); }
+.case-detail { padding-block: var(--spacing-section); }
+.case-detail .case { display: grid; gap: var(--spacing-text); }
+.case-detail .case-hero { max-width: 570px; }
+@media (max-width: 1000px) {
+  .case-row { grid-template-columns: minmax(0, 1fr); }
+  .case-row--reverse .case-left { order: -1; }
 }
-
-/* Responsive adjustments */
-@media (max-width:1000px) {
-  .cases-outer { padding: 0; }
-  .case-row { grid-template-columns: 1fr; gap: 48px; align-items: start; height: auto; margin-bottom:  var(--spacing-between-cases); }
-  .case-right, .case-left { width: 100%; }
-  .case-hero { width: 100%; height: auto; aspect-ratio: 4/3; }
-  .case-left { max-width: 100%; }
-}
-
-@media (max-width:700px) {
-  .pill { font-size: var(--pill-font-size-mobile); }
-}
-
 /* Skillset section styles (added for Projects -> Skillset block) */
 .skillset-section { background: var(--system-background-medium); }
-.skillset-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-boxpx; }
+.skillset-outer { max-width: var(--layout-max-width); margin-inline: auto; width: 100%; box-sizing: border-box; }
 .skillset-row { display:flex; gap:100px; align-items:flex-start; }
 .skillset-title { font-family: 'Krona One', var(--font-family-headings); font-size: 40px; color: var(--system-text-black); font-weight:400; line-height:1.10; letter-spacing:-2px; margin:0; }
 .skillset-columns { flex:1 1 auto; display:flex; flex-direction:column; gap:24px; }
@@ -199,104 +35,13 @@
 .skillset-kv { font-family: 'Krona One', var(--font-family-headings); font-size: 32px; color: var(--brand-blue); font-weight:400; line-height:1; letter-spacing:-1.6px; }
 .skillset-copy { font-family: var(--font-family-body); font-size:20px; font-weight:700; color:var(--system-text-black); line-height:1.4; letter-spacing:0.2px; max-width:510px; width:100%; }
 
-/* Safari occasionally renders Krona/heading text bolder than expected.
-   Provide a targeted override for the specific case titles to ensure
-   consistent weight across browsers. We use feature detection via
-   -webkit-font-smoothing to limit scope to WebKit-based browsers. */
-@supports (-webkit-font-smoothing: antialiased) {
-  .projects-section .projects-titles h2,
-  .skillset-kv,
-  .skillset-copy {
-    font-weight: 400 !important;
-  }
+
+@media (max-width: 1000px) {
+  .skillset-row, .skillset-block { flex-direction: column; gap: var(--spacing-elements); }
+  .skillset-title { font-size: 32px; }
+  .skillset-block-title, .skillset-copy { max-width: none; }
 }
-
-/* Hide decorative asterisk on smaller viewports to avoid crowding */
-@media (max-width:1000px) {
-  .projects-section .projects-header-wrapper::before { display: none; }
+@media (min-width: 1001px) {
+  .case-row--reverse .case-right { grid-column: 1; grid-row: 1; }
+  .case-row--reverse .case-left { grid-column: 2; grid-row: 1; }
 }
-
-@media (max-width:1000px) {
-  .skillset-outer { padding: 48px; }
-  .skillset-row { flex-direction:column; gap:16px; }
-  .skillset-title { margin-bottom:8px; }
-}
-/* Desktop: alinhamento dos cases, inclusive os invertidos */
-@media (min-width: 1200px) {
-  .case-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--case-hero-width);
-    gap: 100px;
-    align-items: stretch;
-    overflow: visible;
-  }
-
-  /* Imagem */
-  .case-row .case-right {
-    width: 100%;
-    height: var(--case-hero-height);
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    align-self: stretch;
-    box-sizing: border-box;
-  }
-
-  .case-row .case-hero {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  .case-row .hero-inner {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .case-row .hero-inner img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  /* Texto alinhado à base da imagem */
-  .case-row .case-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-self: stretch;
-    width: 100%;
-    max-width: 560px;
-    min-width: 0;
-    height: var(--case-hero-height);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  /* Case invertido: imagem à esquerda e texto à direita */
-  .case-row.reverse {
-    grid-template-columns: var(--case-hero-width) minmax(0, 1fr);
-  }
-  /* Remove somente o espaço inferior do Vega Feedback */
-.case-row.case-vega-feedback {
-  margin-bottom: 0;
-}
-}
-
-/* Projetos — UI/UX Design: divisão 50/50 entre texto e imagem */
-@media (min-width: 1200px) {
-  .projects-section .case-row {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-
-  .projects-section .case-row .case-left {
-    max-width: none;
-  }
-}
-
