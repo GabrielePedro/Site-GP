@@ -53,6 +53,7 @@
 }
 
 /* Scale the headline to its column, leaving space above the divider. */
+.home-page .banner--home .banner-inner { align-items: start; }
 .home-page .banner--home .banner-left {
   container-type: inline-size;
   padding-bottom: var(--space-40);
