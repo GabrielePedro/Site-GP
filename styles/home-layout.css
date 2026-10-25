@@ -1,0 +1,53 @@
+/* Figma measurements for the four selected Home frames only. */
+.home-page {
+  --home-frame-width: 1440px;
+  --home-frame-padding: var(--Padding-150px, 150px);
+  --home-frame-gap: var(--Padding-100px, 100px);
+  --home-banner-top: var(--Padding-100px, 100px);
+}
+.home-page main > :is(.banner--home, .cases-section, .work-section, .projects-section) { padding: 0; }
+.home-page .banner--home .banner-outer {
+  display: flex;
+  width: 100%;
+  max-width: var(--home-frame-width);
+  padding: var(--home-banner-top) var(--home-frame-padding) 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--Padding-40px, 40px);
+}
+.home-page .banner--home .banner-content,
+.home-page .banner--home .banner-inner,
+.home-page .banner--home .banner-meta,
+.home-page .banner--home .contact-buttons { width: 100%; }
+.home-page .banner--home .banner-meta { padding-top: 0; }
+.home-page .banner--home .contact-buttons { margin-top: 0; }
+.home-page :is(.cases-section, .projects-section) > .cases-outer,
+.home-page .work-section > .work-outer {
+  display: flex;
+  width: 100%;
+  max-width: var(--home-frame-width);
+  padding: var(--home-frame-padding);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--home-frame-gap);
+}
+.home-page .cases-outer > .case-row { margin: 0; }
+.home-page .projects-section .projects-header { margin: 0; padding: 0; }
+.home-page .work-section .work-inner { width: 100%; gap: var(--home-frame-gap); }
+.home-page .work-section .work-cards {
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  align-items: flex-start;
+  gap: var(--home-frame-gap);
+}
+@media (max-width: 1000px) {
+  .home-page {
+    --home-frame-padding: var(--spacing-section) var(--spacing-inline);
+    --home-frame-gap: var(--spacing-grid);
+    --home-banner-top: var(--spacing-menu-banner);
+  }
+  .home-page .banner--home .banner-outer {
+    padding: var(--home-banner-top) var(--spacing-inline) 0;
+  }
+}
