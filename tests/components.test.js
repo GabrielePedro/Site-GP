@@ -54,7 +54,7 @@ test('Mercado Pago contains the supplied overview and four real image panels', (
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
   assert.equal(images.length, 6);
   for (const [tag, src] of images) {
-    assert.ok(fs.existsSync(path.join(root, src)), src);
+    assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
     assert.match(tag, /alt="[^"]+"/);
     assert.match(tag, /width="\d+"/);
     assert.match(tag, /height="\d+"/);
