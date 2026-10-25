@@ -1,4 +1,4 @@
-/* Original Yampi banner, restored independently of the new section layout. */
+/* Yampi banner: Figma container spacing; original background artwork. */
 .case-page--yampi .banner--yampi {
   position: relative;
   isolation: isolate;
@@ -19,35 +19,39 @@
   z-index: -1;
 }
 .case-page--yampi .banner--yampi .banner-outer {
-  max-width: var(--layout-max-width);
+  max-width: none;
   width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: var(--Padding-150px, 150px);
 }
 .case-page--yampi .banner--yampi .banner-inner {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
+  align-self: stretch;
   position: relative;
-  padding: 150px 0 32px;
-  gap: 80px;
+  padding: 0;
+  gap: var(--Padding-80px, 80px);
 }
-.case-page--yampi .banner--yampi .banner-left { flex: 1 1 auto; min-width: 0; }
-.case-page--yampi .banner--yampi .banner-right { flex: 0 0 auto; width: 100%; max-width: 567px; }
-.case-page--yampi .banner--yampi .hero-lines { margin-top: 12px; }
+.case-page--yampi .banner--yampi .banner-left { display: flex; flex-direction: column; align-items: flex-start; gap: var(--Padding-16px, 16px); flex: 1 0 0; min-width: 0; }
+.case-page--yampi .banner--yampi .banner-right { flex: 1 1 0; min-width: 0; width: 100%; max-width: 567px; }
+.case-page--yampi .banner--yampi .hero-lines { margin-top: 0; }
 .case-page--yampi .banner--yampi .hero-line { font-size: 56px; line-height: 1.2; }
-.case-page--yampi .banner--yampi .case-pill { padding: 4px 8px; white-space: nowrap; }
+.case-page--yampi .banner--yampi .case-pill { padding: var(--pill-padding-vertical) var(--pill-padding-horizontal); white-space: normal; }
 .case-page--yampi .banner--yampi .case-pill-text { font-size: 32px; }
 .case-page--yampi .banner--yampi .banner-meta { display: flex; justify-content: flex-end; padding-top: 24px; }
 .case-page--yampi .banner--yampi .meta-text { width: 100%; max-width: 540px; margin: 20px 0; text-align: right; color: var(--system-text-black); }
+@media (max-width: 1200px) {
+  .case-page--yampi .banner--yampi .banner-outer { padding: var(--spacing-section) var(--spacing-inline); }
+}
 @media (max-width: 1000px) {
-  .case-page--yampi .banner--yampi .banner-inner { flex-direction: column; }
+  .case-page--yampi .banner--yampi .banner-inner { flex-direction: column; align-items: flex-start; gap: var(--spacing-grid); }
+  .case-page--yampi .banner--yampi .banner-left, .case-page--yampi .banner--yampi .banner-right { flex: auto; }
   .case-page--yampi .banner--yampi .meta-text { max-width: none; text-align: left; }
 }
 @media (max-width: 900px) {
   .case-page--yampi .banner--yampi::before { background-size: contain, auto; }
-  .case-page--yampi .banner--yampi .banner-outer { padding-inline: 24px; }
-  .case-page--yampi .banner--yampi .banner-inner { padding-top: 48px; gap: 24px; }
+  .case-page--yampi .banner--yampi .banner-inner { padding: 0; }
   .case-page--yampi .banner--yampi .hero-line { font-size: 34px; line-height: 1.02; }
   .case-page--yampi .banner--yampi .case-pill { white-space: normal; }
 }
