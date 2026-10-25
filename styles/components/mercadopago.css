@@ -4,11 +4,11 @@
   --mp-inline: 150px;
   --mp-section-gap: 100px;
   --mp-radius: 150px;
-  --mp-blue-gradient: linear-gradient(135deg, #1a2c84, #019ee3);
+  --mp-blue-gradient: linear-gradient(109.69deg, #1a2c84, #019ee3);
   --mp-yellow: var(--mercado-pago-yellow-pure, #ffe700);
 }
-.mp-project { width: 100%; }
-.mp-hero { position: relative; background: var(--system-background-medium); }
+.mp-project { position: relative; display: flex; flex-direction: column; align-items: flex-start; width: 100%; background: white; text-align: left; }
+.mp-hero { width: 100%; position: relative; background: var(--system-background-medium); }
 .mp-hero::before {
   content: ''; position: absolute; inset: 0 0 auto; height: 611px;
   background: var(--mp-blue-gradient); border-radius: 0 0 var(--mp-radius) var(--mp-radius);
@@ -21,12 +21,13 @@
 .mp-left { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; min-width: 0; color: white; }
 .mp-logo { width: 216px; height: 56px; object-fit: contain; }
 .mp-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; }
-.mp-title { display: flex; flex-direction: column; gap: 8px; margin: 0; color: white; font: 400 56px/1.2 var(--font-family-headings); }
+.mp-title { display: flex; flex-direction: column; gap: 8px; margin: 0; color: white; font: 400 56px/1.2 var(--font-family-headings); letter-spacing: -.04em; }
 .mp-title > span { display: block; }
 .mp-hero-tags { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .mp-hero-tag { margin: 0; padding-inline: 8px; background: var(--mp-yellow); color: var(--system-text-black); font: 400 24px/1.4 var(--font-family-body); letter-spacing: .24px; }
 .mp-right { margin-top: 27px; width: 540px; max-width: 100%; }
-.mp-right img { display: block; width: 540px; height: 632px; max-width: 100%; object-fit: contain; object-position: top; }
+.mp-right img { display: block; width: 540px; height: 632px; max-width: 100%; object-fit: cover; object-position: center; }
+.mp-overview { width: 100%; }
 .mp-overview-inner {
   width: 100%; max-width: var(--mp-frame-width); min-height: 690px;
   margin-inline: auto; padding: 100px var(--mp-inline);
@@ -40,18 +41,25 @@
 .mp-metadata { display: grid; grid-template-columns: max-content 204px minmax(0, 1fr) 226px; gap: 88px; width: 100%; margin: 0; }
 .mp-meta-item, .mp-results { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
 .mp-label { display: inline-flex; margin: 0; padding: 2px 6px; background: var(--mp-yellow); color: var(--system-text-black); font: 700 16px/1.2 var(--font-family-body); letter-spacing: .16px; }
-.mp-results ul { margin: 0; padding: 0; list-style: none; }
-.mp-gallery { display: flex; flex-direction: column; align-items: center; gap: var(--mp-section-gap); width: 100%; max-width: var(--mp-frame-width); padding: 100px var(--mp-inline); margin-inline: auto; }
+.mp-results ul { margin: 0; padding-left: 27px; list-style: disc; }
+.mp-results li:not(:last-child) { margin-bottom: 8px; }
+.mp-gallery { display: flex; flex-direction: column; align-items: center; gap: var(--mp-section-gap); width: 100%; max-width: var(--mp-frame-width); padding: 100px 0; margin-inline: auto; }
 .mp-showcase { width: 100%; max-width: 1140px; aspect-ratio: 1140 / 800; margin: 0; overflow: hidden; }
-.mp-showcase--yellow { background: linear-gradient(314deg, #fffbd7, #ffe700); }
+.mp-showcase--yellow { background: linear-gradient(-71.29deg, #fffbd7, #ffe700); }
 .mp-showcase--blue { background: var(--mp-blue-gradient); }
 /* Full exports already include the phones and decorative circles. */
 .mp-showcase img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .mercadopago-page .footer-outer { max-width: var(--mp-frame-width); padding: 75px var(--mp-inline); }
 .mercadopago-page .footer-row { grid-template-columns: minmax(0, 593fr) minmax(0, 497fr); gap: 50px; }
 .mercadopago-page .footer-cta { font-size: 56px; }
+.mercadopago-page .footer-contacts .cb-link { min-height: 56px; padding: 8px 0 8px 8px; gap: 8px; }
+.mercadopago-page .footer-contacts .contact-button + .contact-button { border-top: 4px solid transparent; }
+.mercadopago-page .footer-contacts .cb-icon { padding: 4px; }
+.mercadopago-page .footer-contacts .cb-icon svg { width: 32px; height: 32px; }
+.mercadopago-page .copyright { line-height: 1.2; letter-spacing: .16px; }
 @media (max-width: 1250px) {
   .mercadopago-page { --mp-inline: 64px; }
+  .mp-gallery { padding-inline: var(--mp-inline); }
   .mp-hero-inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
   .mp-title { font-size: clamp(32px, 4.4vw, 56px); }
   .mp-right { width: 100%; }

@@ -9,7 +9,7 @@
 @import './layout.css';
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: var(--font-family-body); color: var(--system-text-black); background: var(--system-background-pure); line-height: 1.4; }
+body { margin: 0; font-family: var(--font-family-body); color: var(--system-text-black); background: var(--system-background-pure); line-height: normal; }
 img { display: block; max-width: 100%; height: auto; }
 :focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 4px; }
 h1, h2, h3 { font-family: var(--font-family-headings); overflow-wrap: anywhere; }
