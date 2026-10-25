@@ -74,6 +74,17 @@ test('Atlas presents the supplied context and visible Figma results before the g
   assert.equal((main.match(/class="atlas-result-card"/g) || []).length, 4);
   assert.ok(main.indexOf('class="atlas-results"') < main.indexOf('class="atlas-gallery"'));
 });
+test('B3 uses its supplied case content, four full-resolution panels and requested result icons', () => {
+ build();
+ const main = read('case-b3.html').match(/<main[\s\S]*?<\/main>/)[0];
+ for (const copy of ['−32% de abandono', '−41% de cancelamentos', '−27% no tempo', '−35% nos erros', 'Google Analytics', 'Microsoft Clarity', '2025–2026']) assert.ok(main.includes(copy), copy);
+ const cards = [...main.matchAll(/<li class="b3-result-card">[\s\S]*?<\/li>/g)].map(m => m[0]);
+ const icons = ['Atlas/festa.png', 'Mercado-Pago/09-Gabriele-Pedro-Mercado_pago.png', 'Atlas/reducao.png', 'Atlas/NPS.png'];
+ assert.equal(cards.length, 4);
+ cards.forEach((card, i) => assert.ok(card.includes(icons[i])));
+ assert.equal((main.match(/width="4560" height="3200"/g) || []).length, 4);
+ assert.ok(main.indexOf('class="b3-results"') < main.indexOf('class="b3-gallery"'));
+});
 test('case images share a same-page viewer, without changing home cards', () => {
   build();
   for (const page of pages.filter(page => page.startsWith('case-'))) {
