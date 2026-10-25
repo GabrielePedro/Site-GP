@@ -1,0 +1,53 @@
+/* Original Yampi banner, restored independently of the new section layout. */
+.case-page--yampi .banner--yampi {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  min-height: 0;
+  background: transparent;
+}
+.case-page--yampi .banner--yampi::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background:
+    url('../../assets/icons/Yampi-coracao.svg') left top / 997px 854px no-repeat,
+    linear-gradient(to bottom, var(--yampi-purple-dark) 0 calc(100% - 86px), white calc(100% - 86px) 100%);
+  z-index: -1;
+}
+.case-page--yampi .banner--yampi .banner-outer {
+  max-width: var(--layout-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.case-page--yampi .banner--yampi .banner-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  padding: 150px 0 32px;
+  gap: 80px;
+}
+.case-page--yampi .banner--yampi .banner-left { flex: 1 1 auto; min-width: 0; }
+.case-page--yampi .banner--yampi .banner-right { flex: 0 0 auto; width: 100%; max-width: 567px; }
+.case-page--yampi .banner--yampi .hero-lines { margin-top: 12px; }
+.case-page--yampi .banner--yampi .hero-line { font-size: 56px; line-height: 1.2; }
+.case-page--yampi .banner--yampi .case-pill { padding: 4px 8px; white-space: nowrap; }
+.case-page--yampi .banner--yampi .case-pill-text { font-size: 32px; }
+.case-page--yampi .banner--yampi .banner-meta { display: flex; justify-content: flex-end; padding-top: 24px; }
+.case-page--yampi .banner--yampi .meta-text { width: 100%; max-width: 540px; margin: 20px 0; text-align: right; color: var(--system-text-black); }
+@media (max-width: 1000px) {
+  .case-page--yampi .banner--yampi .banner-inner { flex-direction: column; }
+  .case-page--yampi .banner--yampi .meta-text { max-width: none; text-align: left; }
+}
+@media (max-width: 900px) {
+  .case-page--yampi .banner--yampi::before { background-size: contain, auto; }
+  .case-page--yampi .banner--yampi .banner-outer { padding-inline: 24px; }
+  .case-page--yampi .banner--yampi .banner-inner { padding-top: 48px; gap: 24px; }
+  .case-page--yampi .banner--yampi .hero-line { font-size: 34px; line-height: 1.02; }
+  .case-page--yampi .banner--yampi .case-pill { white-space: normal; }
+}
