@@ -39,7 +39,7 @@
 .case-page--yampi .banner--yampi .hero-lines { margin-top: 0; }
 .case-page--yampi .banner--yampi .hero-line { font-size: 56px; line-height: 1.2; }
 .case-page--yampi .banner--yampi .case-pill { padding: var(--pill-padding-vertical) var(--pill-padding-horizontal); white-space: normal; }
-.case-page--yampi .banner--yampi .case-pill-text { font-size: 32px; }
+.case-page--yampi .banner--yampi .case-pill-text { font: 400 24px/1.4 var(--font-family-body); }
 .case-page--yampi .banner--yampi .banner-meta { display: flex; justify-content: flex-end; padding-top: 24px; }
 .case-page--yampi .banner--yampi .meta-text { width: 100%; max-width: 540px; margin: 20px 0; text-align: right; color: var(--system-text-black); }
 @media (max-width: 1200px) {
@@ -56,3 +56,5 @@
   .case-page--yampi .banner--yampi .hero-line { font-size: 34px; line-height: 1.02; }
   .case-page--yampi .banner--yampi .case-pill { white-space: normal; }
 }
+
+@media (max-width: 600px) { .case-page--yampi .banner--yampi .case-pill-text { font-size: 20px; } }

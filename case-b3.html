@@ -8,12 +8,12 @@
   <title>Redesign de onboarding B3 | Gabriele Pedro</title>
   <link rel="icon" type="image/svg+xml" href="assets/icons/gabriele_pedro_product_designer_24px.svg">
   <link rel="stylesheet" href="styles/style.css?v=global-base-3">
-  <link rel="stylesheet" href="styles/components/case-b3.css?v=b3-content-2">
-<link rel="stylesheet" href="styles/motion.css?v=case-images-3">
+  <link rel="stylesheet" href="styles/components/case-b3.css?v=b3-figma-3">
+<link rel="stylesheet" href="styles/motion.css?v=results-6">
 <link rel="stylesheet" href="styles/components/image-viewer.css?v=viewer-1">
 <link rel="stylesheet" href="styles/components/related-cases.css?v=related-3">
 </head>
-<body>
+<body class="b3-page">
 <!-- component:header -->
 <header class="site-header">
   <div class="container">
@@ -39,20 +39,58 @@
   </div>
 </header>
 <!-- /component:header -->
-<main class="b3-case">
-  <article class="b3-content" aria-labelledby="b3-title">
-    <header class="b3-heading">
-      <h1 id="b3-title">B3</h1>
-      <span class="pill">Service Design</span>
-      <div class="b3-description">
-        <p>Atuei como <strong>Product Designer</strong> na reestruturação do onboarding de contratação de produtos da <strong>B3</strong>, transformando um processo complexo e pouco intuitivo em uma jornada guiada, clara e alinhada às exigências regulatórias.</p>
-        <p>O redesign contribuiu para <strong>reduzir em 32% o abandono</strong> e <strong>27% o tempo médio de cadastro</strong>, melhorando a experiência de ativação e a eficiência operacional.</p>
+<main class="b3-project" id="main-content">
+  <section class="b3-hero" aria-labelledby="b3-title">
+    <div class="b3-hero-inner">
+      <div class="b3-hero-copy">
+        <img class="b3-brand" src="assets/icons/BRAND-B3-NEGATIVE.svg" alt="B3" width="60" height="48">
+        <h1 id="b3-title"><span>Redesign</span><span>Contratação</span><span>de serviços</span></h1>
+        <p class="b3-hero-tag">Blueprint e análise de dados</p>
       </div>
-    </header>
-    <figure class="b3-preview">
-      <a class="case-media-link" href="assets/images/case-images/UX-B3.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Redesign do onboarding B3 para cadastro de CNPJ, com interface UX/UI focada em navegação guiada, clareza e ativação de usuários." title="Ampliar imagem"><img src="assets/images/case-images/UX-B3.png" alt="Redesign do onboarding B3 para cadastro de CNPJ, com interface UX/UI focada em navegação guiada, clareza e ativação de usuários." width="1140" height="1000" fetchpriority="high"></a>
-    </figure>
-  </article>
+      <div class="b3-hero-visual">
+        <img class="b3-hero-shapes" src="assets/icons/03-Gabriele-Pedro-Formas_banner.svg" alt="" width="583" height="600" aria-hidden="true">
+        <img class="b3-hero-card" src="assets/icons/03-Gabriele-Pedro-Formas_Card.svg" alt="Card B3 com aviso de nenhum CNPJ cadastrado e opção de iniciar cadastro do CNPJ." width="480" height="268">
+      </div>
+    </div>
+  </section>
+  <section class="b3-context" aria-labelledby="b3-context-title">
+    <div class="b3-copy-group">
+      <h2 class="b3-label" id="b3-context-title">Contexto</h2>
+      <div class="b3-context-description">
+        <p>Como Product Designer, atuei no diagnóstico e redesenho da jornada de cadastro de participantes:</p>
+        <ul>
+          <li>Analisei dados do <strong>Google Analytics</strong> e <strong>Microsoft Clarity</strong>, identificando gargalos e padrões de abandono;</li>
+          <li>Realizei <strong>análise heurística</strong> e mapeei a jornada atual, identificando problemas de navegação, validação e feedback;</li>
+          <li>Reestruturei o fluxo em uma <strong>experiência guiada</strong>, com progressão clara, validações por etapa e redução da carga cognitiva;</li>
+          <li>Desenvolvi a proposta de redesign no Figma, priorizando usabilidade, eficiência operacional e requisitos regulatórios.</li>
+        </ul>
+      </div>
+    </div>
+    <dl class="b3-metadata">
+      <div><dt class="b3-label">Período</dt><dd>2025–2026, set – jan</dd></div>
+      <div><dt class="b3-label">Atuação</dt><dd>Product Designer · UX Research · UI Design</dd></div>
+      <div><dt class="b3-label">Escopo</dt><dd>UX Research, Discovery, Análise Heurística, Analytics, Jornada do Usuário, Prototipação</dd></div>
+      <div><dt class="b3-label">Status</dt><dd>Implementado em produção.</dd></div>
+    </dl>
+  </section>
+  <section class="b3-results" aria-labelledby="b3-results-title">
+    <div class="b3-results-inner">
+      <div class="b3-results-heading"><h2 id="b3-results-title">Resultados</h2><p>Mesmo sem teste A/B, <strong>o MVP entregue em tempo recorde já trouxe impactos relevantes:</strong></p></div>
+      <ul class="b3-results-grid">
+        <li class="b3-result-card"><a class="case-media-link" href="assets/images/Atlas/festa.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Confete de celebração" title="Ampliar imagem"><img src="assets/images/Atlas/festa.png" alt="Confete de celebração" width="53" height="53" loading="lazy"></a><div><h3>−32% de abandono do cadastro</h3><p>Trazendo clareza de status e independência para o contratante realizar o cadastro sem auxílio.</p></div></li>
+        <li class="b3-result-card"><a class="case-media-link" href="assets/images/Mercado-Pago/09-Gabriele-Pedro-Mercado_pago.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Alvo com uma flecha" title="Ampliar imagem"><img src="assets/images/Mercado-Pago/09-Gabriele-Pedro-Mercado_pago.png" alt="Alvo com uma flecha" width="53" height="53" loading="lazy"></a><div><h3>−41% de cancelamentos durante o cadastro</h3><p>Menos etapas e maior clareza no preenchimento.</p></div></li>
+        <li class="b3-result-card"><a class="case-media-link" href="assets/images/Atlas/reducao.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Gráfico de redução" title="Ampliar imagem"><img src="assets/images/Atlas/reducao.png" alt="Gráfico de redução" width="53" height="53" loading="lazy"></a><div><h3>−27% no tempo médio de conclusão</h3><p>Usuários passaram a realizar o cadastro sem a dependência de terceiros ou suporte da B3.</p></div></li>
+        <li class="b3-result-card"><a class="case-media-link" href="assets/images/Atlas/NPS.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Rosto sorridente" title="Ampliar imagem"><img src="assets/images/Atlas/NPS.png" alt="Rosto sorridente" width="53" height="53" loading="lazy"></a><div><h3>−35% nos erros finais de submissão</h3><p>Graças à validação de campos em tempo real conforme progride o cadastro.</p></div></li>
+      </ul>
+      <p class="b3-results-conclusion">Do ponto de vista do negócio, <strong>o cadastro de contratação de serviços deixou de ser gargalo</strong> e <strong>passou a sustentar ativação de clientes, escala e redução de custos de suporte</strong> de maneira autônoma.</p>
+    </div>
+  </section>
+  <section class="b3-gallery" aria-label="Telas do projeto B3">
+      <figure><a class="case-media-link" href="assets/images/B3/Case-B3-01.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Tela inicial de contratação de serviços B3 com aviso de nenhum CNPJ cadastrado e opção para iniciar cadastro." title="Ampliar imagem"><img src="assets/images/B3/Case-B3-01.png" alt="Tela inicial de contratação de serviços B3 com aviso de nenhum CNPJ cadastrado e opção para iniciar cadastro." width="4560" height="3200" loading="lazy"></a></figure>
+      <figure><a class="case-media-link" href="assets/images/B3/Case-B3-02.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Etapa de dados da empresa no cadastro B3, com campos de CNPJ, razão social e endereço." title="Ampliar imagem"><img src="assets/images/B3/Case-B3-02.png" alt="Etapa de dados da empresa no cadastro B3, com campos de CNPJ, razão social e endereço." width="4560" height="3200" loading="lazy"></a></figure>
+      <figure><a class="case-media-link" href="assets/images/B3/Case-B3-03.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Etapa de estrutura societária B3 com formulário para adicionar um representante." title="Ampliar imagem"><img src="assets/images/B3/Case-B3-03.png" alt="Etapa de estrutura societária B3 com formulário para adicionar um representante." width="4560" height="3200" loading="lazy"></a></figure>
+      <figure><a class="case-media-link" href="assets/images/B3/Case-B3-04.png" aria-haspopup="dialog" aria-controls="case-image-viewer" aria-label="Ampliar: Confirmação de cadastro enviado na B3, com próximos passos e botão para acompanhar o status." title="Ampliar imagem"><img src="assets/images/B3/Case-B3-04.png" alt="Confirmação de cadastro enviado na B3, com próximos passos e botão para acompanhar o status." width="4560" height="3200" loading="lazy"></a></figure>
+  </section>
 </main>
 <!-- component:related-cases -->
 <section class="related-cases" aria-labelledby="related-cases-title">
@@ -192,7 +230,7 @@
 <div class="custom-cursor" aria-hidden="true">
   <span class="custom-cursor-icon"><img src="assets/icons/asterisco_v2.svg" alt="" width="32" height="32"></span>
 </div>
-<script src="scripts/site-motion.js?v=site-motion-5" defer></script>
+<script src="scripts/site-motion.js?v=site-motion-6" defer></script>
 <!-- /component:motion -->
 <!-- component:image-viewer -->
 <dialog id="case-image-viewer" class="image-viewer" aria-label="Imagem ampliada" aria-describedby="image-viewer-caption">
