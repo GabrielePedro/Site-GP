@@ -1,6 +1,6 @@
 /* Shared case card. Natural text height; media has a reserved aspect ratio. */
 .cases-section, .skillset-section { background: var(--system-background-medium); }
-.case-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-grid); align-items: center; width: 100%; min-width: 0; }
+.case-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-grid); align-items: end; width: 100%; min-width: 0; }
 .case-left { display: flex; flex-direction: column; align-items: flex-start; gap: var(--spacing-elements); min-width: 0; }
 .case-left > * { margin: 0; }
 .case-right { min-width: 0; width: 100%; }
@@ -21,7 +21,7 @@
 .case-detail .case { display: grid; gap: var(--spacing-text); }
 .case-detail .case-hero { max-width: 570px; }
 @media (max-width: 1000px) {
-  .case-row { grid-template-columns: minmax(0, 1fr); }
+  .case-row { grid-template-columns: minmax(0, 1fr); align-items: start; }
   .case-row--reverse .case-left { order: -1; }
 }
 /* Skillset section styles (added for Projects -> Skillset block) */
