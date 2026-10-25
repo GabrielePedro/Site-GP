@@ -15,6 +15,8 @@ body.motion-ready .hero-word {
 body.motion-ready .is-visible .hero-word { opacity: 1; transform: none; }
 .case-image-link { display: block; color: inherit; text-decoration: none; }
 .case-image-link:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 6px; }
+.case-media-link { display: block; width: 100%; height: 100%; color: inherit; cursor: zoom-in; }
+.case-media-link:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: -4px; }
 .motion-media { transition: transform 450ms cubic-bezier(.22, 1, .36, 1); }
 @media (hover: hover) and (pointer: fine) {
   .case-image-link:hover .motion-media,

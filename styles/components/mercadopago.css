@@ -27,12 +27,12 @@
 .mp-hero-tag { margin: 0; padding-inline: 8px; background: var(--mp-yellow); color: var(--system-text-black); font: 400 24px/1.4 var(--font-family-body); letter-spacing: .24px; }
 .mp-right { margin-top: 27px; width: 540px; max-width: 100%; }
 .mp-right img { display: block; width: 540px; height: 632px; max-width: 100%; object-fit: cover; object-position: center; }
-.mp-overview { width: 100%; }
+.mp-overview { width: 100%; background: var(--system-background-medium); border-radius: 0 0 var(--mp-radius) var(--mp-radius); }
 .mp-overview-inner {
   width: 100%; max-width: var(--mp-frame-width); min-height: 690px;
   margin-inline: auto; padding: 100px var(--mp-inline);
   display: flex; flex-direction: column; align-items: flex-start; gap: 48px;
-  background: var(--system-background-medium); border-radius: 0 0 var(--mp-radius) var(--mp-radius);
+  background: transparent;
 }
 .mp-overview-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; width: 100%; }
 .mp-overview-title { margin: 0; padding: 6px 6px 10px; background: var(--mercado-pago-blue-light); color: white; font: 400 32px/1 var(--font-family-headings); }
