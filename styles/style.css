@@ -3,7 +3,7 @@
 @import './spacing.css';
 @import './components/header.css';
 @import './components/contact-button.css';
-@import './components/case.css?v=case-bottom-1';
+@import './components/case.css?v=case-gap-2';
 @import './components/work.css';
 @import './components/footer.css';
 @import './layout.css';
