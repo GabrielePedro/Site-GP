@@ -6,9 +6,9 @@
   "Logo Gabriele Pedro": "Gabriele Pedro logo",
   "Open to work": "Open to work",
   "Navegação principal": "Main navigation",
-  "Case Atlas": "Atlas Case Study",
-  "Case B3": "B3 Case Study",
-  "Case Mercado Pago": "Mercado Pago Case Study",
+  "Case Atlas": "Atlas Case",
+  "Case B3": "B3 Case",
+  "Case Mercado Pago": "Mercado Pago Case",
   "Product Designer,": "Product Designer,",
   "há +6 anos criando experiências que": "creating experiences for 6+ years that",
   "geram valor para": "deliver value for",
@@ -334,5 +334,9 @@
   "Español latinoamericano": "Español latinoamericano",
   "PT": "PT",
   "EN": "EN",
-  "ES": "ES"
+  "ES": "ES",
+  "Selecionar idioma": "Choose language",
+  "Português": "Português",
+  "English": "English",
+  "Español": "Español"
 }

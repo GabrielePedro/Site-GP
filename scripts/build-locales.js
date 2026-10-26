@@ -46,6 +46,7 @@ function buildLocales(pages) {
     }
     return skip ? token : translate(token);
    }).join('');
+   html = html.replace(/(<span class="current-language">).*?(<\/span>)/, (_, open, close) => open + (locale.lang === 'en-US' ? 'English' : 'Español') + close);
    html = html.replace('</head>', seo(page,locale)+'\n</head>').replace(/<head>/,'<head>\n<base href="../">');
    const out = path.join(root,locale.dir,page);
    fs.mkdirSync(path.dirname(out),{recursive:true});

@@ -19,7 +19,9 @@ test('static build is repeatable and all pages share the same footer', () => {
     assert.equal(footer(html), footer(first[0]));
     const nav = html.match(/<nav class="header-nav"[\s\S]*?<\/nav>/)[0];
     assert.match(nav, /href="case-b3.html"/);
-    assert.doesNotMatch(nav, /href="case-yampi.html"/);
+    assert.doesNotMatch(nav, /href="case-yampi.html"|href="index.html"/);
+    assert.match(html, /<details class="language-switcher">/);
+    assert.match(html, /class="brand-logo" href="index.html"/);
     assert.doesNotMatch(html, /{{\w+}}|\sstyle\s*=/i);
     assert.match(html, /styles\/style.css/);
     assert.equal((html.match(/class="custom-cursor"/g) || []).length, 1);
@@ -150,6 +152,8 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
  }
  assert.match(read('en/index.html'), /people and businesses/);
  assert.match(read('es/index.html'), /personas y negocios/);
+ assert.match(read('en/index.html'), /class="current-language">English/);
+ assert.match(read('es/index.html'), /class="current-language">Español/);
 });
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
