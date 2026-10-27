@@ -68,7 +68,7 @@
     if (!cursor || event.pointerType !== 'mouse' || reducedMotion.matches || !finePointer.matches) return;
     mouseX = event.clientX; mouseY = event.clientY;
     cursor.classList.add('is-active');
-    cursor.classList.toggle('is-hovering', !!event.target.closest('a, button, [role="button"]'));
+    cursor.classList.toggle('is-hovering', !!event.target.closest('a, button, summary, [role="button"]'));
     if (cursorFrame === null) cursorFrame = requestAnimationFrame(updateCursor);
   });
   document.addEventListener('pointerleave', hideCursor);

@@ -6,13 +6,18 @@
   const caption = viewer.querySelector('.image-viewer-caption');
   const stage = viewer.querySelector('.image-viewer-stage');
   const zoom = viewer.querySelector('.image-viewer-zoom');
+  const labels = {
+    'en-US': { fit: 'Fit to screen', zoom: 'Zoom in' },
+    'es-419': { fit: 'Ajustar a la pantalla', zoom: 'Ampliar' },
+    'pt-BR': { fit: 'Ajustar à tela', zoom: 'Ampliar' }
+  }[document.documentElement.lang] || { fit: 'Ajustar à tela', zoom: 'Ampliar' };
   let trigger = null;
   let savedScroll = null;
 
   function setZoom(zoomed) {
     viewer.classList.toggle('is-zoomed', zoomed);
     zoom.setAttribute('aria-pressed', String(zoomed));
-    zoom.textContent = zoomed ? 'Ajustar à tela' : 'Ampliar';
+    zoom.textContent = zoomed ? labels.fit : labels.zoom;
     if (zoomed) requestAnimationFrame(() => {
       stage.scrollLeft = Math.max(0, (stage.scrollWidth - stage.clientWidth) / 2);
       stage.scrollTop = Math.max(0, (stage.scrollHeight - stage.clientHeight) / 2);

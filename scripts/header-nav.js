@@ -30,3 +30,18 @@
  update();
  nav.classList.add('has-indicator');
 })();
+
+/* Native details works without JS; Escape and outside clicks enhance dismissal. */
+(() => {
+ const picker = document.querySelector('.language-switcher');
+ if (!picker) return;
+ document.addEventListener('click', event => {
+  if (!picker.contains(event.target)) picker.open = false;
+ });
+ picker.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && picker.open) {
+   event.preventDefault(); picker.open = false; picker.querySelector('summary').focus();
+  }
+ });
+ picker.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { picker.open = false; }));
+})();
