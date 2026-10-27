@@ -1,0 +1,17 @@
+/* One result icon contract across the case pages: 100px circle, 53px artwork. */
+#main-content :is(.atlas-result-card, .b3-result-card, .mp-result-card) > .case-media-link,
+#main-content .results-icon {
+ display: flex; align-items: center; justify-content: center;
+ width: 100px; min-width: 100px; max-width: 100px;
+ height: 100px; min-height: 100px; max-height: 100px;
+ flex-shrink: 0; border-radius: 50%;
+}
+#main-content .results-icon-inner {
+ display: flex; align-items: center; justify-content: center;
+ width: 53px; height: 53px; min-height: 0; flex: none;
+}
+#main-content .results-icon-inner > .case-media-link { display: flex; align-items: center; justify-content: center; }
+#main-content :is(.atlas-result-card, .b3-result-card, .mp-result-card, .results-icon-inner) img {
+ display: block; width: auto; max-width: 53px; height: 53px; max-height: 53px;
+ object-fit: contain; flex-shrink: 0;
+}
