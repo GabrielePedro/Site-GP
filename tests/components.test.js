@@ -154,7 +154,7 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
    for (const [, src] of html.matchAll(/(?:src|href)="((?:assets|styles|scripts)\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root,src)), src);
   }
  }
- assert.match(read('en/index.html'), /people and businesses/);
+ assert.match(read('en/index.html').replace(/<[^>]+>/g, ''), /people and businesses/);
  assert.match(read('es/index.html'), /personas y negocios/);
  assert.match(read('en/index.html'), /class="current-language">English/);
  assert.match(read('es/index.html'), /class="current-language">Español/);
