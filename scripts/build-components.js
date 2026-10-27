@@ -32,7 +32,7 @@ function expandCaseImageLinks(html) {
 // The home card data is the single source for related case titles/copy/images.
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const catalog = [...home.matchAll(/<!-- component:case (.*?) -->/g)].map(match => JSON.parse(match[1]));
-const relatedOrder = ['Atlas', 'B3', 'Mercado Pago', 'Yampi'];
+const relatedOrder = ['Mercado Pago', 'B3', 'Atlas', 'Yampi'];
 const relatedSummaries = JSON.parse(fs.readFileSync(path.join(root, 'components/related-case-summaries.json'), 'utf8'));
 function renderRelatedCases(page) {
   const current = catalog.find(item => item.action.href === page);

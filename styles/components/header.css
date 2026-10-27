@@ -1,28 +1,31 @@
-/* Figma desktop: 94px header, 32px top / 100px inline, rounded lower corners. */
-.site-header { position: sticky; top: 0; z-index: 1000; background: var(--system-background-medium); border-radius: 0 0 24px 24px; box-shadow: 0 0 14px rgb(0 0 0 / 25%); color: #2f3640; font-family: var(--font-family-body); }
+/* Shared menu: 18px text, 4px indicator and square outer corners. */
+.site-header { position: sticky; top: 0; z-index: 1000; background: var(--system-background-medium); border-radius: 0; box-shadow: 0 0 14px rgb(0 0 0 / 25%); color: #2f3640; font-family: var(--font-family-body); }
 .site-header .container { display: flex; align-items: flex-start; gap: 32px; max-width: 1440px; padding: 32px 100px 0; }
 .header-brand { display: flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; }
 .brand-logo { display: block; }
 .brand-logo img { width: 138px; height: 32px; object-fit: contain; }
-.availability { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-size: 20px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
+.availability { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
 .availability-dot { width: 12px; height: 12px; flex-shrink: 0; border-radius: 50%; background: #34c759; }
 .header-tools { display: contents; }
 .header-nav { position: relative; display: flex; flex: 1; align-items: flex-start; justify-content: center; min-width: 0; }
-.header-nav a { position: relative; display: block; height: 62px; padding: 0 24px 0 0; color: inherit; text-decoration: none; white-space: nowrap; font-size: 24px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
-.header-nav a::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 12px; background: var(--brand-blue); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
+.header-nav a { position: relative; display: block; height: 62px; padding: 0 24px 0 0; color: inherit; text-decoration: none; white-space: nowrap; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
+.header-nav a::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 4px; background: var(--brand-blue); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
 .header-nav a:hover, .header-nav a.active { color: var(--brand-blue); }
 .header-nav a.active::after, .header-nav a:hover::after { transform: scaleX(1); }
-.nav-indicator { display: none; position: absolute; left: 0; bottom: 0; width: var(--nav-indicator-width, 0px); height: 12px; background: var(--brand-blue); transform: translateX(var(--nav-indicator-left, 0px)); pointer-events: none; transition: transform 220ms ease, width 220ms ease; }
+.nav-indicator { display: none; position: absolute; left: 0; bottom: 0; width: var(--nav-indicator-width, 0px); height: 4px; background: var(--brand-blue); transform: translateX(var(--nav-indicator-left, 0px)); pointer-events: none; transition: transform 220ms ease, width 220ms ease; }
 .header-nav.has-indicator .nav-indicator { display: block; }
 .header-nav.has-indicator a::after { display: none; }
 .nav-indicator[hidden] { display: none !important; }
-.language-switcher { position: relative; z-index: 2; flex: 0 0 175px; width: 175px; height: 34px; font-size: 24px; font-weight: 400; line-height: 1.4; letter-spacing: .01em; }
+.language-switcher { position: relative; z-index: 2; flex: 0 0 175px; width: 175px; height: 34px; font-size: 18px; font-weight: 400; line-height: 1.4; letter-spacing: .01em; }
 .language-trigger { display: flex; align-items: center; gap: 0; height: 34px; list-style: none; cursor: pointer; }
 .language-trigger::-webkit-details-marker { display: none; }
 .language-icon { flex-shrink: 0; width: 24px; height: 24px; }
 .current-language { margin-left: 4px; width: 113px; flex-shrink: 0; }
-.language-chevron { width: 34px; height: 34px; flex-shrink: 0; transition: transform 220ms ease; }
-.language-switcher[open] .language-chevron { transform: rotate(180deg); }
+.language-chevron { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex-shrink: 0; }
+.language-chevron img { width: 16px; height: 10px; object-fit: contain; }
+.language-arrow-open { display: none; }
+.language-switcher[open] .language-arrow-default { display: none; }
+.language-switcher[open] .language-arrow-open { display: block; }
 .language-options { position: absolute; right: 0; top: 42px; width: 175px; overflow: hidden; border: 1px solid var(--brand-blue); border-radius: 16px; background: white; box-shadow: 0 4px 16px rgb(0 0 0 / 25%); }
 .language-link { display: flex; align-items: center; min-height: 50px; padding: 8px 8px 8px 32px; color: #2f3640; text-decoration: none; }
 .language-link[aria-current="true"] { display: none; }
@@ -32,18 +35,19 @@
  .header-brand { flex: 1; justify-content: flex-start; }
  .header-tools { display: flex; flex: 1 0 100%; min-width: 0; width: 100%; justify-content: space-between; align-items: flex-start; gap: 24px; }
  .header-nav { flex: 0 1 auto; justify-content: flex-start; overflow-x: auto; }
- .header-nav a { font-size: 20px; }
- .language-switcher { font-size: 20px; }
+ .header-nav a { font-size: 18px; }
+ .language-switcher { font-size: 18px; }
 }
 @media (max-width: 700px) {
  .site-header .container { padding: 20px 20px 0; gap: 16px; }
  .brand-logo img { width: auto; height: 28px; }
- .availability { font-size: 16px; }
+ .header-brand { flex: 0 0 100%; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+ .availability { font-size: 18px; }
  .header-tools { flex-wrap: wrap; gap: 12px; }
  .language-switcher { order: -1; margin-left: auto; flex-basis: 175px; font-size: 18px; }
  .header-nav { flex: 1 0 100%; width: 100%; }
- .header-nav a { font-size: 16px; height: 48px; padding-right: 16px; }
- .nav-indicator, .header-nav a::after { height: 6px; }
+ .header-nav a { font-size: 18px; height: 48px; padding-right: 16px; }
+ .nav-indicator, .header-nav a::after { height: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
  .header-nav a::after, .nav-indicator, .language-chevron { transition: none; }

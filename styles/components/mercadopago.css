@@ -55,9 +55,9 @@
 .mp-result-copy h3 { margin: 0; color: var(--mp-results-blue); font: 400 20px/1.4 var(--font-family-headings); letter-spacing: -.05em; }
 .mp-results-conclusion { width: 100%; padding: 8px 24px; background: var(--mp-results-blue); }
 .mp-results-conclusion p { color: white; }
-.mp-gallery { border-radius: var(--mp-radius) var(--mp-radius) 0 0; background: var(--mp-light-blue); overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: var(--mp-section-gap); width: 100%; padding: 100px 0; margin-inline: auto; }
+.mp-gallery { border-radius: var(--mp-radius) var(--mp-radius) 0 0; background: var(--mp-light-blue); overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 48px; width: 100%; padding: 100px 0; margin-inline: auto; }
 .mercadopago-page .related-cases { max-width: none; background: var(--mp-light-blue); padding-inline: max(var(--mp-inline), calc((100% - 1140px) / 2)); }
-.mp-showcase { width: 100%; max-width: 1140px; aspect-ratio: 1140 / 800; margin: 0; overflow: hidden; }
+.mp-showcase { width: 100%; max-width: 1140px; aspect-ratio: 1140 / 700; margin: 0; overflow: hidden; }
 .mp-showcase--yellow { background: linear-gradient(-71.29deg, #fffbd7, #ffe700); }
 .mp-showcase--blue { background: var(--mp-blue-gradient); }
 /* Full exports already include the phones and decorative circles. */

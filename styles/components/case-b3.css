@@ -20,7 +20,7 @@
 .b3-context-description li:not(:last-child) { margin-bottom: 8px; }
 .b3-metadata { display: grid; grid-template-columns: max-content 204px minmax(0, 1fr) 180px; gap: 88px; margin: 0; }
 .b3-metadata > div { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; min-width: 0; }
-.b3-gallery { display: flex; flex-direction: column; gap: 100px; max-width: 1440px; padding: 100px var(--b3-inline) 0; margin-inline: auto; }
+.b3-gallery { display: flex; flex-direction: column; gap: 48px; max-width: 1440px; padding: 100px var(--b3-inline) 0; margin-inline: auto; }
 .b3-gallery figure { margin: 0; width: 100%; }
 .b3-gallery img { display: block; width: 100%; height: auto; object-fit: contain; }
 @media (max-width: 1250px) {
@@ -35,7 +35,7 @@
  .b3-hero-copy { padding-top: 64px; padding-right: var(--b3-inline); padding-bottom: 40px; }
  .b3-hero-visual { min-height: 360px; justify-content: center; }
  .b3-context { padding-block: 64px; }
- .b3-gallery { padding-top: 64px; gap: 64px; }
+ .b3-gallery { padding-top: 64px; gap: 48px; }
 }
 @media (max-width: 600px) {
  .b3-page { --b3-inline: 20px; --b3-radius: 48px; }
