@@ -77,6 +77,7 @@ test('Atlas presents the supplied context and visible Figma results before the g
   assert.doesNotMatch(main, /Conteúdo do case Atlas/);
   for (const value of ['2025, mai –jun', 'Implementado em produção.', '+22% na tx. de conclusão de cadastro', 'Redução de 30%', 'Figma Maker e Lovable']) assert.ok(main.includes(value), value);
   assert.equal((main.match(/class="atlas-result-card"/g) || []).length, 4);
+  assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 5);
   assert.ok(main.indexOf('class="atlas-results"') < main.indexOf('class="atlas-gallery"'));
 });
 test('B3 uses its supplied case content, four full-resolution panels and requested result icons', () => {
