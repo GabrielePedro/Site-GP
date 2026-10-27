@@ -36,7 +36,7 @@ test('generated case cards preserve all content and valid local images', () => {
   assert.equal(cards.length, 5);
   for (const [html, json] of cards) {
     const data = JSON.parse(json);
-    assert.ok(fs.existsSync(path.join(root, data.image)), data.image);
+    assert.ok(fs.existsSync(path.join(root, data.image.split('?')[0])), data.image);
     assert.ok(html.includes(data.lead));
     assert.match(html, /class="case-left"/);
     assert.match(html, /class="case-right"/);
