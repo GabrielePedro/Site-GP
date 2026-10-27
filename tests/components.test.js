@@ -51,15 +51,16 @@ test('generated case cards preserve all content and valid local images', () => {
     assert.match(imageLink[1], /aria-label="[^"]+"/);
   }
 });
-test('Mercado Pago contains the supplied overview and four real image panels', () => {
+test('Mercado Pago contains the supplied overview and seven real image panels', () => {
   build();
   const html = read('case-mercadopago.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)[0];
   for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
-  assert.equal([...main.matchAll(/<figure class="mp-showcase /g)].length, 4);
+  assert.equal([...main.matchAll(/<figure class="mp-showcase"/g)].length, 7);
   assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
-  assert.equal(images.length, 10);
+  assert.equal(images.length, 13);
+  assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 7);
   assert.ok(main.indexOf('class="mp-results"') < main.indexOf('class="mp-gallery"'));
   assert.doesNotMatch(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Resultados/);
   assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="53" height="53"/g)].length, 4);

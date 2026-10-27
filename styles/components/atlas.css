@@ -22,7 +22,7 @@
 .atlas-metadata--intro { grid-template-columns: max-content minmax(0, 1fr); }
 .atlas-context-art { width: 575px; height: 373px; object-fit: contain; flex-shrink: 0; }
 .atlas-metadata--scope { width: 100%; max-width: 1440px; margin-inline: auto; grid-template-columns: minmax(0, 1fr) 226px; padding: 48px var(--atlas-inline) 150px; }
-.atlas-gallery { display: flex; flex-direction: column; gap: 100px; max-width: 1440px; padding: 100px var(--atlas-inline); margin-inline: auto; }
+.atlas-gallery { display: flex; flex-direction: column; gap: 48px; max-width: 1440px; padding: 100px var(--atlas-inline); margin-inline: auto; }
 .atlas-gallery figure { max-width: 1140px; margin: 0 auto; }
 .atlas-gallery img { width: 100%; height: auto; object-fit: contain; }
 @media (max-width: 1250px) {
