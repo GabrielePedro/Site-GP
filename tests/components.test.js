@@ -19,6 +19,7 @@ test('static build is repeatable and all pages share the same footer', () => {
     assert.equal(footer(html), footer(first[0]));
     const nav = html.match(/<nav class="header-nav"[\s\S]*?<\/nav>/)[0];
     assert.match(nav, /href="case-b3.html"/);
+    assert.deepEqual([...nav.matchAll(/href="([^"]+)"/g)].map(m => m[1]), ['case-mercadopago.html', 'case-b3.html', 'case-atlas.html']);
     assert.doesNotMatch(nav, /href="case-yampi.html"|href="index.html"/);
     assert.match(html, /<details class="language-switcher">/);
     assert.match(html, /class="brand-logo" href="index.html"/);
@@ -34,6 +35,7 @@ test('generated case cards preserve all content and valid local images', () => {
   const home = read('index.html');
   const cards = [...home.matchAll(/<!-- component:case (.*?) -->[\s\S]*?<!-- \/component:case -->/g)];
   assert.equal(cards.length, 5);
+  assert.deepEqual(cards.slice(0, 3).map(([, json]) => JSON.parse(json).title), ['Mercado Pago', 'B3', 'Atlas']);
   for (const [html, json] of cards) {
     const data = JSON.parse(json);
     assert.ok(fs.existsSync(path.join(root, data.image.split('?')[0])), data.image);
@@ -108,7 +110,7 @@ test('case images share a same-page viewer, without changing home cards', () => 
 test('related cases exclude the current case and use the right summaries in the requested order', () => {
   build();
   const catalog = [...read('index.html').matchAll(/<!-- component:case (.*?) -->/g)].map(m => JSON.parse(m[1]));
-  const order = ['Atlas', 'B3', 'Mercado Pago', 'Yampi'];
+  const order = ['Mercado Pago', 'B3', 'Atlas', 'Yampi'];
   const summaries = JSON.parse(read('components/related-case-summaries.json'));
   for (const current of catalog.filter(item => order.includes(item.title))) {
     const html = read(current.action.href);
