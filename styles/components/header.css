@@ -20,9 +20,9 @@
 .language-trigger { display: flex; align-items: center; gap: 0; height: 34px; list-style: none; cursor: pointer; }
 .language-trigger::-webkit-details-marker { display: none; }
 .language-icon { flex-shrink: 0; width: 24px; height: 24px; }
-.current-language { margin-left: 4px; width: auto; white-space: nowrap; flex-shrink: 0; }
+.current-language { font-weight: 700; margin-left: 4px; width: auto; white-space: nowrap; flex-shrink: 0; }
 .language-chevron { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex-shrink: 0; }
-.language-chevron img { width: 17.2px; max-width: none; height: 10px; flex-shrink: 0; object-fit: fill; }
+.language-chevron img { width: 15.2px; max-width: none; height: 8px; flex-shrink: 0; object-fit: fill; }
 .language-arrow-open { display: none; }
 .language-switcher[open] .language-arrow-default { display: none; }
 .language-switcher[open] .language-arrow-open { display: block; }

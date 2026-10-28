@@ -47,7 +47,7 @@ function buildLocales(pages) {
     return skip ? token : translate(token);
    }).join('');
    if (locale.lang === 'en-US' && page === 'index.html') {
-    html = html.replace('people and businesses.</div>', 'people and <span class="hero-last-word">businesses.</span></div>');
+    html = html.replace('people and businesses</div>', 'people and <span class="hero-last-word">businesses</span></div>');
    }
    html = html.replace(/(<span class="current-language"[^>]*>).*?(<\/span>)/, (_, open, close) => open + (locale.lang === 'en-US' ? 'English' : 'Español') + close);
    html = html.replace('</head>', seo(page,locale)+'\n</head>').replace(/<head>/,'<head>\n<base href="../">');
