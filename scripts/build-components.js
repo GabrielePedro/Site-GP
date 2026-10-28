@@ -1,6 +1,7 @@
 // Static component expansion: works with Express, Python and GitHub Pages.
 const fs = require('node:fs');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const pages = ['index.html', 'case-atlas.html', 'case-b3.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -52,10 +53,15 @@ function renderRelatedCases(page) {
   }).join('\n');
   return template('related-cases').replace('{{cards}}', cards);
 }
+const headerVersion = createHash('sha256').update(fs.readFileSync(path.join(root, 'styles/components/header.css'))).digest('hex').slice(0, 12);
 for (const page of pages) {
   const file = path.join(root, page);
   const original = fs.readFileSync(file, 'utf8');
   let source = original;
+  const headerStyle = `<link id="site-header-styles" rel="stylesheet" href="styles/components/header.css?v=${headerVersion}">`;
+  source = /<link id="site-header-styles"[^>]*>/.test(source)
+    ? source.replace(/<link id="site-header-styles"[^>]*>/, headerStyle)
+    : source.replace('</head>', headerStyle + '\n</head>');
   if (!source.includes('<!-- component:motion -->')) source = source.replace('</body>', '<!-- component:motion -->\n<!-- /component:motion -->\n</body>');
   if (!/href="styles\/motion\.css/.test(source)) source = source.replace('</head>', '<link rel="stylesheet" href="styles/motion.css?v=case-images-3">\n</head>');
   if (page.startsWith('case-')) {

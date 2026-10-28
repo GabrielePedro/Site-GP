@@ -147,6 +147,7 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
    assert.ok(html.includes(`data-language="${lang}"`));
    assert.ok(html.includes(`href="${dir}/case-b3.html"`));
    assert.ok(html.includes('hreflang="pt-BR"'));
+   assert.equal(html.match(/<link id="site-header-styles"[^>]*>/)[0], read(page).match(/<link id="site-header-styles"[^>]*>/)[0]);
    assert.ok(html.includes('hreflang="en-US"'));
    assert.ok(html.includes('hreflang="es-419"'));
    assert.doesNotMatch(html, /Entenda o processo|Conhecer projeto|Navegação principal|{{\w+}}/);
