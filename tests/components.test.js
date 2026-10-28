@@ -156,8 +156,8 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
  }
  assert.match(read('en/index.html').replace(/<[^>]+>/g, ''), /people and businesses/);
  assert.match(read('es/index.html'), /personas y negocios/);
- assert.match(read('en/index.html'), /class="current-language">English/);
- assert.match(read('es/index.html'), /class="current-language">Español/);
+ assert.match(read('en/index.html'), /class="current-language"[^>]*>English/);
+ assert.match(read('es/index.html'), /class="current-language"[^>]*>Español/);
 });
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
