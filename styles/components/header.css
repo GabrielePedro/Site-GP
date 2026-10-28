@@ -3,7 +3,7 @@
 .site-header .container { display: flex; align-items: flex-start; gap: 24px; max-width: 1440px; padding: 16px 100px 0; }
 .header-brand { display: flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; }
 .brand-logo { display: block; }
-.brand-logo img { width: 138px; height: 32px; object-fit: contain; }
+.brand-logo img { width: auto; height: 24px; object-fit: contain; }
 .availability { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: .01em; }
 .availability-dot { width: 12px; height: 12px; flex-shrink: 0; border-radius: 50%; background: #34c759; }
 .header-tools { display: contents; }
@@ -26,10 +26,10 @@
 .language-arrow-open { display: none; }
 .language-switcher[open] .language-arrow-default { display: none; }
 .language-switcher[open] .language-arrow-open { display: block; }
-.language-options { position: absolute; right: 0; top: 42px; width: 175px; overflow: hidden; border: 1px solid var(--brand-blue); border-radius: 16px; background: white; box-shadow: 0 4px 16px rgb(0 0 0 / 25%); }
-.language-link { display: flex; align-items: center; min-height: 50px; padding: 8px 8px 8px 32px; color: #2f3640; text-decoration: none; }
+.language-options { position: absolute; right: 0; top: 38px; width: 175px; height: 102px; display: flex; flex-direction: column; align-items: stretch; overflow: hidden; border: 1px solid #b4ccef; border-radius: 0; background: white; box-shadow: 0 0 8px rgb(0 0 0 / 15%); font-size: 20px; line-height: 1.4; }
+.language-link { display: flex; align-items: center; min-height: 50px; height: 50px; flex-shrink: 0; padding: 8px 8px 8px 32px; color: #2f3640; font-weight: 400; text-decoration: none; }
 .language-link[aria-current="true"] { display: none; }
-.language-link:hover, .language-link:focus-visible { background: #b4ccef; color: var(--brand-blue); }
+.language-link:hover, .language-link:focus-visible { background: #d1d8e1; color: #2f3640; font-weight: 700; }
 @media (max-width: 1400px) {
  .site-header .container { flex-wrap: wrap; padding: 16px 40px 0; gap: 16px; }
  .header-brand { flex: 1; justify-content: flex-start; }
@@ -40,7 +40,7 @@
 }
 @media (max-width: 700px) {
  .site-header .container { display: grid; grid-template-columns: minmax(0, 1fr); padding: 16px 20px 0; gap: 16px; }
- .brand-logo img { width: auto; height: 24px; }
+ .brand-logo img { width: auto; height: 16px; }
  .header-brand { grid-column: 1; grid-row: 1; flex-direction: column; align-items: center; justify-content: center; width: 100%; min-width: 0; }
  .availability { font-size: 14px; }
  .header-tools { display: contents; }

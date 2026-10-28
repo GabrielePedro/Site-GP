@@ -1,7 +1,7 @@
 /* Single shared entry point. Page-specific artwork loads after this file. */
 @import './_tokens.css';
 @import './spacing.css';
-@import './components/header.css?v=selector-8';
+@import './components/header.css?v=language-card-9';
 @import './components/contact-button.css';
 @import './components/case.css?v=case-gap-2';
 @import './components/work.css';
