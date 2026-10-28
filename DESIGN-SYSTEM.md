@@ -96,3 +96,10 @@ As galerias sequenciais de Atlas, B3 e Mercado Pago usam 48px entre imagens em d
 Os ícones de resultados do Atlas usam largura e altura fixas de 53px. Sua animação usa apenas translação vertical, sem escala ou rotação, para manter a dimensão visual durante todo o movimento.
 
 O card de idiomas fica 4px abaixo do seletor, mede 175 × 102px e tem borda de 1px #B4CCEF, cantos retos e sombra 0 0 8px rgba(0,0,0,.15). Fora do hover, os itens usam peso regular.
+
+
+## Cases alternativos V2
+
+`npm run build` gera quatro cases em `v2/`, `v2/en/` e `v2/es/`. Eles ficam fora do menu e dos carrosséis das páginas principais e usam `noindex,nofollow`. A logo retorna à home atual; links entre cases e o seletor de idioma permanecem na V2. Os novos textos de processo serão inseridos em `components/v2/process-content.json`, por idioma e página, antes da galeria ou protótipo. Enquanto os campos estiverem vazios, as páginas usam o conteúdo atual, sem textos inventados ou placeholders visíveis. Os textos devem ser HTML autoral sem estilos inline.
+
+As páginas são acessíveis por link direto, por exemplo `v2/case-atlas.html`; não são privadas. Não publique no conteúdo informações confidenciais. A geração não altera a versão atual dos cases.

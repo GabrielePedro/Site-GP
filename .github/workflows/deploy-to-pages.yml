@@ -27,7 +27,7 @@ jobs:
           mkdir -p public
           # Copy site files (adjust as needed)
           cp index.html public/
-          cp -R en es public/
+          cp -R en es v2 public/
           cp case-*.html public/
           cp contact.html public/
           cp experiencia.html public/

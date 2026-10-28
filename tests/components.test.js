@@ -160,6 +160,21 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
  assert.match(read('en/index.html'), /class="current-language"[^>]*>English/);
  assert.match(read('es/index.html'), /class="current-language"[^>]*>Español/);
 });
+test('V2 case pages remain unlisted, noindex and connected only to alternate cases', () => {
+ build();
+ const cases = pages.filter(page => page.startsWith('case-'));
+ for (const dir of ['', 'en/', 'es/']) {
+  for (const page of cases) {
+   const html = read(`v2/${dir}${page}`);
+   assert.match(html, /name="robots" content="noindex,nofollow"/);
+   assert.ok(html.includes(`<base href="${dir ? '../../' : '../'}">`));
+   assert.ok(html.includes(`href="v2/${dir}case-b3.html"`));
+   assert.ok(html.includes('id="case-image-viewer"'));
+   assert.doesNotMatch(html, /rel="canonical"|rel="alternate"/);
+  }
+ }
+ for (const page of pages) assert.doesNotMatch(read(page), /href="v2\//);
+});
 test('inline style check rejects a real violation', () => {
   const fixture = path.join(root, 'tests', 'inline-fixture.html');
   try {
