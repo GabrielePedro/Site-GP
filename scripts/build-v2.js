@@ -19,7 +19,7 @@ function buildV2() {
    if (page === 'case-atlas.html' && locale.lang === 'pt-BR') {
     const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8');
     html = html.replace(/(<main\b[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => open + alternate + close);
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=1">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=2">\n</head>');
    }
    const process = content[locale.lang]?.[page]?.trim();
    if (process) {
