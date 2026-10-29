@@ -16,6 +16,11 @@ function buildV2() {
    html = html.replace('<head>', `<head>\n<base href="${base}">\n<meta name="robots" content="noindex,nofollow">`);
    // All paths resolve from the site root because of <base>. Home remains the current home.
    html = html.replace(/href="((?:en\/|es\/)?case-[\w-]+\.html)"/g, (_, href) => `href="v2/${href}"`);
+   if (page === 'case-atlas.html' && locale.lang === 'pt-BR') {
+    const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8');
+    html = html.replace(/(<main\b[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => open + alternate + close);
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=1">\n</head>');
+   }
    const process = content[locale.lang]?.[page]?.trim();
    if (process) {
     if (/\sstyle\s*=/i.test(process)) throw new Error(`Inline style in V2 process content: ${page}`);
@@ -26,6 +31,6 @@ function buildV2() {
    if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== html) fs.writeFileSync(file, html);
   }
  }
- console.log('12 unlisted V2 case pages generated; process content awaits the supplied copy.');
+ console.log('12 unlisted V2 case pages generated; alternate content applied where supplied.');
 }
 module.exports = {buildV2};

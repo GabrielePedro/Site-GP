@@ -183,3 +183,21 @@ test('inline style check rejects a real violation', () => {
   } finally { fs.rmSync(fixture, {force: true}); }
   execFileSync('bash', ['scripts/check-inline-styles.sh'], {cwd: root});
 });
+
+test('Atlas V2 uses the supplied process structure without changing the public case', () => {
+ build();
+ const html = read('v2/case-atlas.html');
+ const sections = ['topo', 'contexto', 'metodologia', 'soluo', 'atlas-gallery', 'resultados'];
+ let previous = -1;
+ for (const section of sections) {
+  const position = html.indexOf(`class="${section}"`, previous + 1);
+  assert.ok(position > previous, section);
+  previous = position;
+ }
+ assert.match(html, /Discovery & Assessment/);
+ assert.match(html, /Notebook LM/);
+ assert.match(html, /styles\/components\/atlas-v2.css/);
+ assert.equal((html.match(/class="case-media-link"/g) || []).length, 5);
+ assert.doesNotMatch(read('case-atlas.html'), /class="atlas-v2"|class="metodologia"/);
+ for (const [, src] of html.matchAll(/src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
+});
