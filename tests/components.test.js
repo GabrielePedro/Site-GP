@@ -187,7 +187,7 @@ test('inline style check rejects a real violation', () => {
 test('Atlas V2 uses the supplied process structure without changing the public case', () => {
  build();
  const html = read('v2/case-atlas.html');
- const sections = ['topo', 'contexto', 'metodologia', 'soluo', 'atlas-gallery', 'resultados'];
+ const sections = ['topo', 'contexto', 'metodologia', 'soluo', 'atlas-gallery', 'atlas-results'];
  let previous = -1;
  for (const section of sections) {
   const position = html.indexOf(`class="${section}"`, previous + 1);
@@ -197,7 +197,8 @@ test('Atlas V2 uses the supplied process structure without changing the public c
  assert.match(html, /Discovery & Assessment/);
  assert.match(html, /Notebook LM/);
  assert.match(html, /styles\/components\/atlas-v2.css/);
- assert.equal((html.match(/class="case-media-link"/g) || []).length, 5);
+ assert.equal((html.match(/class="case-media-link"/g) || []).length, 9);
+ assert.equal(html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0], read('case-atlas.html').match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0]);
  assert.doesNotMatch(read('case-atlas.html'), /class="atlas-v2"|class="metodologia"/);
  for (const [, src] of html.matchAll(/src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
 });

@@ -17,9 +17,10 @@ function buildV2() {
    // All paths resolve from the site root because of <base>. Home remains the current home.
    html = html.replace(/href="((?:en\/|es\/)?case-[\w-]+\.html)"/g, (_, href) => `href="v2/${href}"`);
    if (page === 'case-atlas.html' && locale.lang === 'pt-BR') {
-    const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8');
+    const results = html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0];
+    const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8').replace('{{atlas-results}}', results);
     html = html.replace(/(<main\b[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => open + alternate + close);
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=2">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=3">\n</head>');
    }
    const process = content[locale.lang]?.[page]?.trim();
    if (process) {
