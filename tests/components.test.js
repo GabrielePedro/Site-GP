@@ -155,7 +155,7 @@ test('localized pages cover all six routes, preserve locale navigation and inclu
    for (const [, src] of html.matchAll(/(?:src|href)="((?:assets|styles|scripts)\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root,src)), src);
   }
  }
- assert.match(read('en/index.html').replace(/<[^>]+>/g, ''), /people and businesses/);
+ assert.match(read('en/index.html').replace(/<[^>]+>/g, '').replace(/\s+/g, ' '), /people and businesses/);
  assert.match(read('es/index.html'), /personas y negocios/);
  assert.match(read('en/index.html'), /class="current-language"[^>]*>English/);
  assert.match(read('es/index.html'), /class="current-language"[^>]*>Español/);
@@ -200,4 +200,17 @@ test('Atlas V2 uses the supplied process structure without changing the public c
  assert.equal((html.match(/class="case-media-link"/g) || []).length, 5);
  assert.doesNotMatch(read('case-atlas.html'), /class="atlas-v2"|class="metodologia"/);
  for (const [, src] of html.matchAll(/src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
+});
+
+test('English banner uses approved lines and locales use the custom SEO domain and alphabetical picker', () => {
+ build();
+ const banner = read('en/index.html').match(/<div class="hero-lines">([\s\S]*?)<\/div><\/div>/)[1];
+ assert.deepEqual([...banner.matchAll(/class="hero-line">([^<]+)/g)].map(match => match[1]),
+  ['Product Designer,', 'creating experiences', 'for 6+ years that', 'deliver value for', 'people and', 'businesses']);
+ for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
+  const html = read(dir + page);
+  assert.deepEqual([...html.matchAll(/data-language="([^"]+)"/g)].map(match => match[1]), ['en-US','es-419','pt-BR']);
+  assert.ok(html.includes(`rel="canonical" href="https://gabrielepedro.com/${dir}${page}"`));
+  assert.doesNotMatch(html, /gabrielepedro\.github\.io\/Site-GP/);
+ }
 });

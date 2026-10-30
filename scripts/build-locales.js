@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const site = 'https://gabrielepedro.github.io/Site-GP/';
+const site = 'https://gabrielepedro.com/';
 const locales = [{lang: 'pt-BR', dir: ''}, {lang: 'en-US', dir: 'en/'}, {lang: 'es-419', dir: 'es/'}];
 const decode = text => text.replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x[\da-f]+);/gi, entity => {
  const known = {'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&nbsp;':' '};
@@ -47,7 +47,10 @@ function buildLocales(pages) {
     return skip ? token : translate(token);
    }).join('');
    if (locale.lang === 'en-US' && page === 'index.html') {
-    html = html.replace('people and businesses</div>', 'people and <span class="hero-last-word">businesses</span></div>');
+    // Match the six lines approved for the English home banner.
+    const lines = ['Product Designer,', 'creating experiences', 'for 6+ years that', 'deliver value for', 'people and', 'businesses'];
+    html = html.replace(/<div class="hero-lines">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/,
+      '<div class="hero-lines">' + lines.map(line => `<div class="hero-line">${line}</div>`).join('\n') + '</div></div>');
    }
    html = html.replace(/(<span class="current-language"[^>]*>).*?(<\/span>)/, (_, open, close) => open + (locale.lang === 'en-US' ? 'English' : 'Español') + close);
    html = html.replace('</head>', seo(page,locale)+'\n</head>').replace(/<head>/,'<head>\n<base href="../">');
