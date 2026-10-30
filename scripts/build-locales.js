@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const site = 'https://gabrielepedro.com/';
+const site = 'https://gabrielepedro.github.io/Site-GP/';
 const locales = [{lang: 'pt-BR', dir: ''}, {lang: 'en-US', dir: 'en/'}, {lang: 'es-419', dir: 'es/'}];
 const decode = text => text.replace(/&(?:amp|quot|apos|lt|gt|nbsp|#\d+|#x[\da-f]+);/gi, entity => {
  const known = {'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&nbsp;':' '};
