@@ -26,6 +26,7 @@ jobs:
           rm -rf public
           mkdir -p public
           # Copy site files (adjust as needed)
+          cp CNAME public/
           cp index.html public/
           cp -R en es v2 public/
           cp case-*.html public/
