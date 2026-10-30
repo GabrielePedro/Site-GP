@@ -24,7 +24,6 @@ h1, h2, h3 { font-family: var(--font-family-headings); overflow-wrap: anywhere; 
 .banner-divider { height: var(--space-4); background: var(--system-componentes-blue); }
 .banner-meta { display: flex; justify-content: flex-end; padding-top: var(--spacing-banner-divider-text); }
 .meta-text { max-width: 540px; margin: 0; font-size: 20px; text-align: right; }
-.contact-page { padding-block: var(--spacing-section); }
 @media (max-width: 1000px) {
   .banner-inner { grid-template-columns: minmax(0, 1fr); }
   .banner-right { width: min(100%, 567px); }

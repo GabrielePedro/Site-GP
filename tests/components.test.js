@@ -4,7 +4,7 @@ const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
-const pages = ['index.html', 'case-atlas.html', 'case-b3.html', 'case-yampi.html', 'case-mercadopago.html', 'contact.html'];
+const pages = ['index.html', 'case-atlas.html', 'case-b3.html', 'case-yampi.html', 'case-mercadopago.html'];
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const build = () => execFileSync(process.execPath, ['scripts/build-components.js'], { cwd: root });
 test('static build is repeatable and all pages share the same footer', () => {
@@ -135,9 +135,9 @@ test('related cases exclude the current case and use the right summaries in the 
     }
     assert.ok(html.indexOf('<!-- component:related-cases -->') < html.indexOf('<!-- component:footer -->'));
   }
-  for (const page of ['index.html', 'contact.html']) assert.doesNotMatch(read(page), /class="related-cases"/);
+  assert.doesNotMatch(read('index.html'), /class="related-cases"/);
 });
-test('localized pages cover all six routes, preserve locale navigation and include translated metadata', () => {
+test('localized pages cover all five routes, preserve locale navigation and include translated metadata', () => {
  build();
  for (const [dir, lang] of [['en', 'en-US'], ['es', 'es-419']]) {
   for (const page of pages) {

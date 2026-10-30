@@ -30,7 +30,6 @@ jobs:
           cp index.html public/
           cp -R en es v2 public/
           cp case-*.html public/
-          cp contact.html public/
           cp experiencia.html public/
           mkdir -p public/assets
           cp -R assets/. public/assets/

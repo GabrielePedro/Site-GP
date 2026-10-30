@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js --watch server.js --watch styles --watch components --watch scripts --watch index.html --watch case-atlas.html --watch case-yampi.html --watch case-mercadopago.html --watch contact.html --ext html,css,js",
+    "dev": "nodemon server.js --watch server.js --watch styles --watch components --watch scripts --watch index.html --watch case-atlas.html --watch case-yampi.html --watch case-mercadopago.html --ext html,css,js",
     "check:styles": "./scripts/check-inline-styles.sh",
     "install-githooks": "sh ./scripts/install-git-hook.sh || true",
     "build": "node scripts/build-components.js",
