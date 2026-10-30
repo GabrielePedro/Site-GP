@@ -70,5 +70,7 @@
 
 /* The portrait meets the divider even when translated copy makes the row taller. */
 .home-page .banner--home .banner-right { align-self: end; }
-html[lang="en-US"] .home-page .banner--home .hero-line--keep-together { white-space: normal; }
-.home-page .banner--home .hero-last-word { display: block; }
+html[lang="en-US"] .home-page .banner--home .hero-line {
+  font-size: clamp(12px, 7cqw, 54px);
+  white-space: nowrap;
+}

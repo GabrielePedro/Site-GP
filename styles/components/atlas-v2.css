@@ -1,0 +1,572 @@
+.atlas-v2 {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 56px;
+    color: #fff;
+    font-family: 'Krona One';
+}
+.atlas-v2 .topo {
+    align-self: stretch;
+    height: 600px;
+    border-radius: 0px 0px 0px 150px;
+    background-color: #7a2bde;
+    display: flex;
+    align-items: flex-start;
+    padding: 100px 0px 0px 150px;
+    box-sizing: border-box;
+    gap: 16px;
+}
+.atlas-v2 .ttulo-logo-subttulo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.atlas-v2 .brand-atlas-negative-icon {
+    width: 190px;
+    height: 56px;
+    position: relative;
+    object-fit: cover;
+}
+.atlas-v2 .h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.atlas-v2 .redesign {
+    width: 525px;
+    position: relative;
+    letter-spacing: -0.04em;
+    line-height: 120%;
+    display: inline-block;
+}
+.atlas-v2 .tag {
+    background-color: #e25352;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    font-size: 32px;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .ux-research-e {
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+}
+.atlas-v2 .gabriele-pedro-logo-atlas-1-icon {
+    height: 500px;
+    width: 575px;
+    position: relative;
+}
+.atlas-v2 .contexto {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    padding: 0px 0px 150px 150px;
+    gap: 48px;
+    font-size: 32px;
+}
+.atlas-v2 .texto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 75px 4px 0px 0px;
+    gap: 32px;
+}
+.atlas-v2 .titulo {
+    background-color: #7a2bde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0px;
+}
+.atlas-v2 .contexto2 {
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 100%;
+}
+.atlas-v2 .a-atlas-plataforma-container {
+    align-self: stretch;
+    position: relative;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    color: #2f3640;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .a-atlas-plataforma {
+    margin-block-start: 0;
+    margin-block-end: 16px;
+    line-height: 140%;
+}
+.atlas-v2 .blank-line {
+    line-height: 140%;
+}
+.atlas-v2 .redesenhar-o-fluxo {
+    font-family: 'Red Hat Display';
+    line-height: 140%;
+}
+.atlas-v2 .a-ponta-com {
+    margin: 0;
+    line-height: 140%;
+}
+.atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {
+    height: 373px;
+    width: 575px;
+    position: relative;
+    object-fit: cover;
+}
+.atlas-v2 .metodologia {
+    width: 1440px;
+    height: 1654px;
+    position: relative;
+    font-size: 32px;
+}
+.atlas-v2 .roadmap {
+    position: absolute;
+    top: 265px;
+    left: 0px;
+    border-radius: 150px;
+    background-color: #ecf0f7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 325px 150px 150px;
+    gap: 32px;
+}
+.atlas-v2 .ttulo {
+    background-color: #7a2bde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+}
+.atlas-v2 .tabela {
+    width: 1140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    font-size: 24px;
+    color: #7a2bde;
+}
+.atlas-v2 .titulo2 {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    gap: 100px;
+}
+.atlas-v2 .fase {
+    width: 250px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .perodo {
+    width: 140px;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .atividades {
+    flex: 1;
+    position: relative;
+}
+.atlas-v2 .listagem {
+    align-self: stretch;
+    box-shadow: 0px -4px 0px #b4ccef;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 20px;
+    color: #2f3640;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .div {
+    align-self: stretch;
+    box-shadow: 0px 4px 0px #b4ccef;
+    background-color: #ecf0f7;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px 0px;
+    gap: 100px;
+}
+.atlas-v2 .discovery-assessment {
+    align-self: stretch;
+    width: 250px;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .jan2025 {
+    align-self: stretch;
+    width: 140px;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .entrevistas-com-acompanhantes {
+    align-self: stretch;
+    flex: 1;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    white-space: pre-wrap;
+}
+.atlas-v2 .strategic-planning {
+    width: 250px;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .abr2025 {
+    width: 140px;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .definio-de-dores {
+    flex: 1;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+}
+.atlas-v2 .div6 {
+    align-self: stretch;
+    background-color: #ecf0f7;
+    display: flex;
+    align-items: flex-start;
+    padding: 24px 0px 0px;
+    gap: 100px;
+}
+.atlas-v2 .metodologias-aplicadas {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    border-radius: 150px;
+    background-color: #eee1ff;
+    width: 1140px;
+    display: flex;
+    align-items: center;
+    padding: 75px;
+    box-sizing: border-box;
+    gap: 100px;
+}
+.atlas-v2 .foto-icon {
+    height: 300px;
+    width: 300px;
+    border-radius: 420px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.atlas-v2 .ttulo-subtitulo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    flex-shrink: 0;
+}
+.atlas-v2 .metodologias-aplicadas2 {
+    height: 36px;
+    width: 462px;
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 100%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .ux-research-entrevistas-container {
+    width: 594px;
+    position: relative;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    color: #2f3640;
+    display: inline-block;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .ux-research-entrevistas-surv {
+    margin: 0;
+    font-size: inherit;
+    padding-left: 27px;
+    line-height: 140%;
+}
+.atlas-v2 .blueprint-canvas-de-proposta {
+    margin-bottom: 8px;
+    line-height: 140%;
+}
+.atlas-v2 .soluo {
+    width: 1440px;
+    border-radius: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 75px 150px 150px;
+    box-sizing: border-box;
+    gap: 75px;
+    font-size: 20px;
+}
+.atlas-v2 .ttulo-subtitulo2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    font-size: 32px;
+}
+.atlas-v2 .soluo2 {
+    height: 36px;
+    width: 164px;
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 100%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.atlas-v2 .a-principal-mudana-container {
+    position: relative;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    color: #2f3640;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .box-1 {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    text-align: center;
+    color: #7a2bde;
+}
+.atlas-v2 .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+.atlas-v2 .gabriele-pedro-product-designe-icon {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 250px;
+    object-fit: cover;
+}
+.atlas-v2 .texto2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.atlas-v2 .remoo-da-validao {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 140%;
+}
+.atlas-v2 .movendo-a-para-o {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: 0.01em;
+    line-height: 140%;
+    font-family: 'Red Hat Display';
+    color: #2f3640;
+}
+.atlas-v2 .texto4 {
+    align-self: stretch;
+    height: 154px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.atlas-v2 .box-2 {
+    align-self: stretch;
+    background-color: #7a2bde;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: 'Red Hat Display';
+}
+.atlas-v2 .carrossel {
+    width: 1440px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+.atlas-v2 .case-atlas-gabriele-pedroprod {
+    width: 1140px;
+    height: 700px;
+    position: relative;
+    background-color: #7a2bde;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.atlas-v2 .case-atlas-gabriele-pedroprod-child {
+    position: absolute;
+    top: calc(50% - 300px);
+    left: calc(50% - 300px);
+    filter: blur(500px);
+    border-radius: 50%;
+    background-color: #fff;
+    width: 600px;
+    height: 600px;
+    opacity: 0.4;
+}
+.atlas-v2 .forms {
+    position: absolute;
+    top: calc(50% - 292px);
+    left: calc(50% - 469px);
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+.atlas-v2 .frame-icon {
+    height: 585px;
+    width: 270px;
+    position: relative;
+    border-radius: 16px;
+    object-fit: cover;
+}
+.atlas-v2 .frame-icon3 {
+    height: 585px;
+    width: 270px;
+    position: relative;
+    border-radius: 24px;
+    object-fit: cover;
+}
+.atlas-v2 .case-atlas-gabriele-pedroprod-icon {
+    width: 1140px;
+    height: 700px;
+    position: relative;
+    object-fit: contain;
+}
+.atlas-v2 .resultados {
+    width: 1440px;
+    border-radius: 150px;
+    background-color: #ecf0f7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 75px 150px 150px;
+    box-sizing: border-box;
+    gap: 75px;
+    font-size: 20px;
+}
+.atlas-v2 .box4 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    text-align: center;
+    color: #7a2bde;
+}
+.atlas-v2 .gabriele-pedro-product-designe-icon4 {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 250px;
+}
+.atlas-v2 .na-taxa-de {
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 140%;
+}
+.atlas-v2 .aumento-de-confiana {
+    align-self: stretch;
+    position: relative;
+    letter-spacing: -0.05em;
+    line-height: 140%;
+    white-space: pre-wrap;
+}
+
+/* Responsive layout and shared image contracts; scoped to the alternate page. */
+.atlas-v2 {overflow: clip;}
+.atlas-v2 > * {width:100%;box-sizing:border-box;}
+.atlas-v2 .metodologia {height:auto;display:flex;flex-direction:column;}
+.atlas-v2 .metodologias-aplicadas {position:relative;top:auto;left:auto;align-self:center;width:calc(100% - 300px);z-index:1;gap:100px;}
+.atlas-v2 .ttulo-subtitulo {flex:1;min-width:0;flex-shrink:1;}
+.atlas-v2 .ux-research-entrevistas-container,.atlas-v2 .metodologias-aplicadas2 {width:auto;height:auto;}
+.atlas-v2 .roadmap {position:relative;top:auto;left:auto;margin-top:-265px;padding-top:325px;}
+.atlas-v2 .tabela {width:100%;}
+.atlas-v2 .foto-icon {width:300px;height:300px;}
+.atlas-v2 .gabriele-pedro-product-designe-icon,.atlas-v2 .gabriele-pedro-product-designe-icon4 {width:53px;height:53px;object-fit:contain;animation:atlas-result-float 5.5s ease-in-out infinite;}
+.atlas-v2 .box {min-width:0;}
+.atlas-v2 .texto4 {height:auto;}
+.atlas-v2 .atlas-gallery {padding:100px 150px;gap:48px;}
+.atlas-v2 .atlas-gallery img {width:100%;height:auto;}
+.atlas-v2 .topo > img,.atlas-v2 .contexto > img {max-width:45%;object-fit:contain;object-position:right top;}
+.atlas-v2 .redesign {width:auto;}
+.atlas-v2 h1 {margin:0;font:inherit;}
+@media(max-width:1100px){
+.atlas-v2 .topo{padding-left:48px;height:auto;min-height:500px;}
+.atlas-v2 .contexto{padding-left:48px;}
+.atlas-v2 .metodologias-aplicadas{width:calc(100% - 96px);padding:48px;}
+.atlas-v2 .roadmap,.atlas-v2 .soluo,.atlas-v2 .resultados{padding-left:48px;padding-right:48px;}
+.atlas-v2 .titulo2,.atlas-v2 .div,.atlas-v2 .div6{gap:32px;}
+.atlas-v2 .fase,.atlas-v2 .discovery-assessment,.atlas-v2 .strategic-planning{width:180px;}
+.atlas-v2 .atlas-gallery{padding-left:48px;padding-right:48px;}
+}
+@media(max-width:700px){
+.atlas-v2{font-size:32px;}
+.atlas-v2 .topo{padding:48px 0 0 24px;flex-wrap:wrap;border-radius:0 0 0 64px;}
+.atlas-v2 .topo > img{margin-left:auto;height:230px;max-width:65%;}
+.atlas-v2 .contexto{padding:0 0 64px 24px;flex-direction:column;gap:0;}
+.atlas-v2 .contexto .texto{padding:48px 24px 0 0;}
+.atlas-v2 .contexto > img{align-self:flex-end;max-width:65%;height:auto;}
+.atlas-v2 .metodologias-aplicadas{width:calc(100% - 48px);padding:32px 24px;flex-direction:column;border-radius:48px;gap:24px;}
+.atlas-v2 .foto-icon{width:160px;height:160px;}
+.atlas-v2 .roadmap{padding:220px 24px 64px;border-radius:48px;}
+.atlas-v2 .titulo2,.atlas-v2 .div,.atlas-v2 .div6{flex-direction:column;gap:12px;}
+.atlas-v2 .tabela > .titulo2{display:none;}
+.atlas-v2 .fase,.atlas-v2 .discovery-assessment,.atlas-v2 .strategic-planning,.atlas-v2 .jan2025,.atlas-v2 .abr2025{width:auto;}
+.atlas-v2 .soluo,.atlas-v2 .resultados{padding:64px 24px;gap:40px;border-radius:48px;}
+.atlas-v2 .box-1{flex-direction:column;gap:40px;}
+.atlas-v2 .box{width:100%;}
+.atlas-v2 .atlas-gallery{padding:64px 24px;}
+.atlas-v2 .tag{font-size:20px;}
+.atlas-v2 .box-2{padding:24px;}
+}
+@media(prefers-reduced-motion:reduce){.atlas-v2 img{animation:none!important;}}
+
+/* The roadmap flows below the overlapping methodology card, never over its text. */
+.atlas-v2 .roadmap-columns {align-self:stretch;display:flex;align-items:flex-start;gap:100px;}
+.atlas-v2 .roadmap2,.atlas-v2 .metodologias-aplicadas2 {margin:0;font:inherit;letter-spacing:-.05em;line-height:1;}
+.atlas-v2 .ux-research {font-family:'Red Hat Display',sans-serif;line-height:1.4;}
+.atlas-v2 .entrevistas-survey-social {line-height:1.4;}
+@media(max-width:1100px){
+ .atlas-v2 .metodologias-aplicadas{gap:32px;}
+ .atlas-v2 .foto-icon{width:200px;height:200px;}
+ .atlas-v2 .roadmap-columns{gap:32px;}
+}
+@media(max-width:700px){
+ .atlas-v2 .foto-icon{width:160px;height:160px;}
+ .atlas-v2 .roadmap{margin-top:-156px;padding-top:220px;}
+ .atlas-v2 .roadmap-columns{display:none;}
+}
