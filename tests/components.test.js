@@ -198,7 +198,7 @@ test('Atlas V2 uses the supplied process structure without changing the public c
  assert.match(html, /Discovery & Assessment/);
  assert.match(html, /Notebook LM/);
  assert.match(html, /styles\/components\/atlas-v2.css/);
- assert.equal((html.match(/class="case-media-link"/g) || []).length, 9);
+ assert.equal((html.match(/class="case-media-link"/g) || []).length, 12);
  assert.equal(html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0], read('case-atlas.html').match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0]);
  assert.doesNotMatch(read('case-atlas.html'), /class="atlas-v2"|class="metodologia"/);
  for (const [, src] of html.matchAll(/src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
