@@ -16,7 +16,6 @@
  position:relative;z-index:1;align-self:center;width:calc(100% - 2 * var(--v2-gutter));
  display:flex;align-items:center;gap:100px;padding:75px;border-radius:150px;background:#eee1ff;
 }
-.atlas-v2 .foto-icon {width:150px;height:150px;flex-shrink:0;object-fit:contain;background:#e0d1ff;border-radius:50%;}
 .atlas-v2 .ttulo-subtitulo {min-width:0;flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
 .atlas-v2 .metodologias-aplicadas2,.atlas-v2 .roadmap2 {font:inherit;}
 .atlas-v2 .ux-research-entrevistas-surv {margin:0;padding-left:27px;}
@@ -28,20 +27,18 @@
 .atlas-v2 .listagem {border-top:4px solid #b4ccef;}
 .atlas-v2 :is(.div,.div6) {padding:24px 0;border-bottom:4px solid #b4ccef;}
 .atlas-v2 .div6 {border-bottom:0;}
-.atlas-v2 .soluo {padding:75px var(--v2-gutter) 150px;display:flex;flex-direction:column;gap:75px;}
+.atlas-v2 .soluo {padding:75px var(--v2-gutter) 0;display:flex;flex-direction:column;gap:75px;}
 .atlas-v2 .ttulo-subtitulo2 {display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
 .atlas-v2 .box-1 {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:50px;}
 .atlas-v2 .box {display:flex;flex-direction:column;align-items:center;gap:32px;min-width:0;text-align:center;}
-.atlas-v2 .gabriele-pedro-product-designe-icon {width:53px;height:53px;object-fit:contain;border-radius:50%;background:#eee1ff;animation:atlas-result-float 5.5s ease-in-out infinite;}
 .atlas-v2 :is(.texto2,.texto4) {display:flex;flex-direction:column;gap:8px;}
 .atlas-v2 .remoo-da-validao {color:#7a2bde;font:400 var(--case-type-result)/1.4 'Krona One',sans-serif;letter-spacing:-.05em;}
 .atlas-v2 .box-2 {padding:24px;background:#7a2bde;color:white;}
-.atlas-v2 .atlas-gallery {padding:100px var(--v2-gutter);gap:48px;}
+.atlas-v2 .atlas-gallery {padding:150px var(--v2-gutter) 100px;gap:48px;}
 .atlas-v2 .atlas-gallery img {width:100%;height:auto;}
 @media(max-width:1200px){
  .atlas-v2 {--v2-gutter:48px;}
  .atlas-v2 .metodologias-aplicadas {padding:48px;gap:40px;}
- .atlas-v2 .foto-icon {width:150px;height:150px;}
  .atlas-v2 :is(.roadmap-columns,.div,.div6) {grid-template-columns:180px 110px minmax(0,1fr);gap:32px;}
 }
 @media(max-width:700px){
@@ -51,11 +48,10 @@
  .atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {align-self:flex-end;width:65%;}
  .atlas-v2 :is(.titulo,.ttulo) {font-size:24px;}
  .atlas-v2 .metodologias-aplicadas {padding:32px 24px;gap:24px;flex-direction:column;border-radius:48px;}
- .atlas-v2 .foto-icon {width:150px;height:150px;}
  .atlas-v2 .roadmap {margin-top:-156px;padding-top:220px;padding-bottom:64px;border-radius:48px;}
  .atlas-v2 .roadmap-columns {display:none;}
  .atlas-v2 :is(.div,.div6) {grid-template-columns:minmax(0,1fr);gap:12px;}
- .atlas-v2 .soluo {padding-block:64px;gap:40px;}
+ .atlas-v2 .soluo {padding-block:64px 0;gap:40px;}
  .atlas-v2 .box-1 {grid-template-columns:minmax(0,1fr);gap:40px;}
  .atlas-v2 .atlas-gallery {padding-block:64px;}
 }
@@ -68,5 +64,15 @@
 }
 .atlas-v2 :is(.titulo,.ttulo) {font-size:var(--case-type-section);}
 .atlas-v2 .contexto .titulo {font-size:var(--case-type-tag);}
-.atlas-v2 .foto-icon {width:150px;height:150px;}
-.atlas-v2 .gabriele-pedro-product-designe-icon {width:53px;height:53px;min-width:53px;max-width:53px;}
+
+/* Only the context spans the viewport; the remaining sections keep their frame. */
+.atlas-v2--context {max-width:none;}
+.atlas-v2--context .contexto {padding-left:max(var(--v2-gutter),calc((100% - 1140px)/2));padding-right:0;}
+.atlas-v2 .foto-icon {
+ flex:0 0 300px;width:100%;max-width:300px;height:300px;
+ position:relative;border-radius:200px;object-fit:cover;background:#e0d1ff;
+}
+.atlas-v2 .gabriele-pedro-product-designe-icon {width:53px;height:53px;object-fit:contain;}
+@media(max-width:700px){
+ .atlas-v2 .foto-icon {flex-basis:auto;max-width:100%;}
+}
