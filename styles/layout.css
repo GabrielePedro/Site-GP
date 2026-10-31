@@ -1,6 +1,6 @@
 /* Layout owns space; components own their internal gaps; motion owns neither. */
 .container, .banner-outer, .cases-outer, .work-outer, .experience-outer,
-.skillset-outer, .footer-outer, .contact-page {
+.skillset-outer, .footer-outer {
   width: 100%; max-width: var(--layout-max-width); margin-inline: auto;
   padding-inline: var(--spacing-inline);
 }

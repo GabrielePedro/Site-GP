@@ -14,7 +14,9 @@ body.case-study {
 #main-content :is(p, dd, .b3-context li, .solution-list, .solution-list li, .results-item-copy) {
   font-size: var(--case-type-body); line-height: 1.5;
 }
-#main-content :is(.atlas-context-copy p, .mp-overview-copy p, .b3-context-description, .case-context-copy p) { max-width: 70ch; }
+#main-content :is(.atlas-context-copy p, .case-context-copy p) { max-width: 70ch; }
+/* Full-width overview copy follows the section gutters on B3 and Mercado Pago. */
+#main-content :is(.b3-context-description, .mp-overview-copy p) { width: 100%; max-width: none; }
 #main-content :is(.atlas-results-heading h2, .b3-results-heading h2, .mp-results-heading h2, .context-title, .problem-title, .plan-title, .plan-subtitle, .process-title, .solution-title, .results-title-left, .results-title-right) {
   font-size: var(--case-type-section); line-height: 1.2;
 }
