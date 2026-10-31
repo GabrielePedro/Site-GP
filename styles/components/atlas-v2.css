@@ -2,30 +2,21 @@
 .atlas-v2 {
  --v2-gutter:150px;
  width:100%;max-width:1440px;margin-inline:auto;box-sizing:border-box;
- color:#2f3640;font:400 20px/1.4 'Red Hat Display',sans-serif;
+ color:#2f3640;font:400 var(--case-type-body)/1.5 'Red Hat Display',sans-serif;
 }
 .atlas-v2 *, .atlas-v2 *::before, .atlas-v2 *::after {box-sizing:border-box;}
 .atlas-v2 p,.atlas-v2 h1,.atlas-v2 h2 {margin:0;}
-.atlas-v2 .topo {
- display:flex;align-items:flex-start;gap:16px;min-height:600px;
- padding:100px 0 0 var(--v2-gutter);border-radius:0 0 0 150px;background:#7a2bde;color:white;
-}
-.atlas-v2 .ttulo-logo-subttulo {flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
-.atlas-v2 .brand-atlas-negative-icon {width:auto;height:48px;}
-.atlas-v2 .h1 {font:400 56px/1.2 'Krona One',sans-serif;letter-spacing:-.04em;display:flex;flex-direction:column;gap:8px;}
-.atlas-v2 .tag {padding:2px 6px;background:#e25352;font-size:24px;}
-.atlas-v2 .gabriele-pedro-logo-atlas-1-icon {width:45%;height:500px;object-fit:contain;object-position:right top;}
 .atlas-v2 .contexto {display:flex;align-items:flex-start;gap:48px;padding:0 0 150px var(--v2-gutter);}
 .atlas-v2 .texto {flex:1;min-width:0;padding-top:75px;display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
 .atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {width:45%;height:auto;object-fit:contain;object-position:right top;}
 .atlas-v2 .a-atlas-plataforma {margin-bottom:16px;}
-.atlas-v2 :is(.titulo,.ttulo) {display:inline-flex;align-items:center;background:#7a2bde;padding:4px 8px;color:white;font:400 32px/1 'Krona One',sans-serif;letter-spacing:-.05em;}
+.atlas-v2 :is(.titulo,.ttulo) {display:inline-flex;align-items:center;background:#7a2bde;padding:4px 8px;color:white;font:400 var(--case-type-section)/1.2 'Krona One',sans-serif;letter-spacing:-.05em;}
 .atlas-v2 .metodologia {width:100%;display:flex;flex-direction:column;}
 .atlas-v2 .metodologias-aplicadas {
  position:relative;z-index:1;align-self:center;width:calc(100% - 2 * var(--v2-gutter));
  display:flex;align-items:center;gap:100px;padding:75px;border-radius:150px;background:#eee1ff;
 }
-.atlas-v2 .foto-icon {width:300px;height:300px;flex-shrink:0;object-fit:contain;background:#e0d1ff;border-radius:50%;}
+.atlas-v2 .foto-icon {width:150px;height:150px;flex-shrink:0;object-fit:contain;background:#e0d1ff;border-radius:50%;}
 .atlas-v2 .ttulo-subtitulo {min-width:0;flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
 .atlas-v2 .metodologias-aplicadas2,.atlas-v2 .roadmap2 {font:inherit;}
 .atlas-v2 .ux-research-entrevistas-surv {margin:0;padding-left:27px;}
@@ -33,7 +24,7 @@
 .atlas-v2 .roadmap {width:100%;margin-top:-265px;padding:325px var(--v2-gutter) 150px;display:flex;flex-direction:column;align-items:flex-start;gap:32px;border-radius:150px;background:#ecf0f7;}
 .atlas-v2 .tabela {width:100%;display:flex;flex-direction:column;gap:24px;}
 .atlas-v2 :is(.roadmap-columns,.div,.div6) {display:grid;grid-template-columns:250px 140px minmax(0,1fr);gap:100px;width:100%;}
-.atlas-v2 .roadmap-columns {color:#7a2bde;font:400 24px/1.4 'Krona One',sans-serif;}
+.atlas-v2 .roadmap-columns {color:#7a2bde;font:400 var(--case-type-result)/1.4 'Krona One',sans-serif;}
 .atlas-v2 .listagem {border-top:4px solid #b4ccef;}
 .atlas-v2 :is(.div,.div6) {padding:24px 0;border-bottom:4px solid #b4ccef;}
 .atlas-v2 .div6 {border-bottom:0;}
@@ -41,31 +32,26 @@
 .atlas-v2 .ttulo-subtitulo2 {display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
 .atlas-v2 .box-1 {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:50px;}
 .atlas-v2 .box {display:flex;flex-direction:column;align-items:center;gap:32px;min-width:0;text-align:center;}
-.atlas-v2 .gabriele-pedro-product-designe-icon {width:150px;height:150px;object-fit:contain;border-radius:50%;background:#eee1ff;animation:atlas-result-float 5.5s ease-in-out infinite;}
+.atlas-v2 .gabriele-pedro-product-designe-icon {width:53px;height:53px;object-fit:contain;border-radius:50%;background:#eee1ff;animation:atlas-result-float 5.5s ease-in-out infinite;}
 .atlas-v2 :is(.texto2,.texto4) {display:flex;flex-direction:column;gap:8px;}
-.atlas-v2 .remoo-da-validao {color:#7a2bde;font:400 20px/1.4 'Krona One',sans-serif;letter-spacing:-.05em;}
+.atlas-v2 .remoo-da-validao {color:#7a2bde;font:400 var(--case-type-result)/1.4 'Krona One',sans-serif;letter-spacing:-.05em;}
 .atlas-v2 .box-2 {padding:24px;background:#7a2bde;color:white;}
 .atlas-v2 .atlas-gallery {padding:100px var(--v2-gutter);gap:48px;}
 .atlas-v2 .atlas-gallery img {width:100%;height:auto;}
 @media(max-width:1200px){
  .atlas-v2 {--v2-gutter:48px;}
- .atlas-v2 .h1 {font-size:42px;}
  .atlas-v2 .metodologias-aplicadas {padding:48px;gap:40px;}
- .atlas-v2 .foto-icon {width:220px;height:220px;}
+ .atlas-v2 .foto-icon {width:150px;height:150px;}
  .atlas-v2 :is(.roadmap-columns,.div,.div6) {grid-template-columns:180px 110px minmax(0,1fr);gap:32px;}
 }
 @media(max-width:700px){
  .atlas-v2 {--v2-gutter:24px;font-size:16px;}
- .atlas-v2 .topo {padding-top:48px;flex-wrap:wrap;min-height:0;border-radius:0 0 0 64px;}
- .atlas-v2 .h1 {font-size:32px;}
- .atlas-v2 .tag {font-size:18px;}
- .atlas-v2 .gabriele-pedro-logo-atlas-1-icon {margin-left:auto;width:65%;height:230px;}
  .atlas-v2 .contexto {flex-direction:column;gap:0;padding-bottom:64px;}
  .atlas-v2 .texto {padding-top:48px;padding-right:var(--v2-gutter);}
  .atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {align-self:flex-end;width:65%;}
  .atlas-v2 :is(.titulo,.ttulo) {font-size:24px;}
  .atlas-v2 .metodologias-aplicadas {padding:32px 24px;gap:24px;flex-direction:column;border-radius:48px;}
- .atlas-v2 .foto-icon {width:160px;height:160px;}
+ .atlas-v2 .foto-icon {width:150px;height:150px;}
  .atlas-v2 .roadmap {margin-top:-156px;padding-top:220px;padding-bottom:64px;border-radius:48px;}
  .atlas-v2 .roadmap-columns {display:none;}
  .atlas-v2 :is(.div,.div6) {grid-template-columns:minmax(0,1fr);gap:12px;}
@@ -74,3 +60,13 @@
  .atlas-v2 .atlas-gallery {padding-block:64px;}
 }
 @media(prefers-reduced-motion:reduce){.atlas-v2 img {animation:none!important;}}
+
+/* Use the existing case typography tokens, including their mobile scale. */
+.atlas-v2 .contexto .titulo {
+ font:700 var(--case-type-tag)/1.3 'Red Hat Display',sans-serif;
+ padding:2px 6px;letter-spacing:.01em;
+}
+.atlas-v2 :is(.titulo,.ttulo) {font-size:var(--case-type-section);}
+.atlas-v2 .contexto .titulo {font-size:var(--case-type-tag);}
+.atlas-v2 .foto-icon {width:150px;height:150px;}
+.atlas-v2 .gabriele-pedro-product-designe-icon {width:53px;height:53px;min-width:53px;max-width:53px;}

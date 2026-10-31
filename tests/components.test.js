@@ -187,13 +187,14 @@ test('inline style check rejects a real violation', () => {
 test('Atlas V2 uses the supplied process structure without changing the public case', () => {
  build();
  const html = read('v2/case-atlas.html');
- const sections = ['topo', 'contexto', 'metodologia', 'soluo', 'atlas-gallery', 'atlas-results'];
+ const sections = ['atlas-hero', 'contexto', 'metodologia', 'soluo', 'atlas-gallery', 'atlas-results'];
  let previous = -1;
  for (const section of sections) {
   const position = html.indexOf(`class="${section}"`, previous + 1);
   assert.ok(position > previous, section);
   previous = position;
  }
+ assert.equal(html.match(/<section class="atlas-hero"[\s\S]*?<\/section>/)[0], read('case-atlas.html').match(/<section class="atlas-hero"[\s\S]*?<\/section>/)[0]);
  assert.match(html, /Discovery & Assessment/);
  assert.match(html, /Notebook LM/);
  assert.match(html, /styles\/components\/atlas-v2.css/);
