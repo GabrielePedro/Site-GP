@@ -76,3 +76,12 @@
 @media(max-width:700px){
  .atlas-v2 .foto-icon {flex-basis:auto;max-width:100%;}
 }
+
+/* These PNGs contain transparent margins: size the artwork, not its empty canvas. */
+.atlas-v2 .soluo .box:nth-child(1) {--solution-canvas-size:94px;}
+.atlas-v2 .soluo .box:nth-child(2) {--solution-canvas-size:86px;}
+.atlas-v2 .soluo .box:nth-child(3) {--solution-canvas-size:74px;}
+#main-content .soluo .atlas-result-card img {
+ width:var(--solution-canvas-size);height:var(--solution-canvas-size);
+ min-width:0;max-width:none;min-height:0;max-height:none;object-fit:contain;
+}
