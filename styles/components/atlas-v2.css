@@ -6,9 +6,6 @@
 }
 .atlas-v2 *, .atlas-v2 *::before, .atlas-v2 *::after {box-sizing:border-box;}
 .atlas-v2 p,.atlas-v2 h1,.atlas-v2 h2 {margin:0;}
-.atlas-v2 .contexto {display:flex;align-items:flex-start;gap:48px;padding:0 0 150px var(--v2-gutter);}
-.atlas-v2 .texto {flex:1;min-width:0;padding-top:75px;display:flex;flex-direction:column;align-items:flex-start;gap:32px;}
-.atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {width:45%;height:auto;object-fit:contain;object-position:right top;}
 .atlas-v2 .a-atlas-plataforma {margin-bottom:16px;}
 .atlas-v2 :is(.titulo,.ttulo) {display:inline-flex;align-items:center;background:#7a2bde;padding:4px 8px;color:white;font:400 var(--case-type-section)/1.2 'Krona One',sans-serif;letter-spacing:-.05em;}
 .atlas-v2 .metodologia {width:100%;display:flex;flex-direction:column;}
@@ -43,9 +40,6 @@
 }
 @media(max-width:700px){
  .atlas-v2 {--v2-gutter:24px;font-size:16px;}
- .atlas-v2 .contexto {flex-direction:column;gap:0;padding-bottom:64px;}
- .atlas-v2 .texto {padding-top:48px;padding-right:var(--v2-gutter);}
- .atlas-v2 .gabriele-pedro-logo-atlas-2-1-icon {align-self:flex-end;width:65%;}
  .atlas-v2 :is(.titulo,.ttulo) {font-size:24px;}
  .atlas-v2 .metodologias-aplicadas {padding:32px 24px;gap:24px;flex-direction:column;border-radius:48px;}
  .atlas-v2 .roadmap {margin-top:-156px;padding-top:220px;padding-bottom:64px;border-radius:48px;}
@@ -66,8 +60,8 @@
 .atlas-v2 .contexto .titulo {font-size:var(--case-type-tag);}
 
 /* Only the context spans the viewport; the remaining sections keep their frame. */
-.atlas-v2--context {max-width:none;}
-.atlas-v2--context .contexto {padding-left:max(var(--v2-gutter),calc((100% - 1140px)/2));padding-right:0;}
+.atlas-v2--context {max-width:none;padding-bottom:150px;}
+@media(max-width:900px){.atlas-v2--context {padding-bottom:64px;}}
 .atlas-v2 .foto-icon {
  flex:0 0 300px;width:100%;max-width:300px;height:300px;
  position:relative;border-radius:200px;object-fit:cover;background:#e0d1ff;
