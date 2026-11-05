@@ -21,7 +21,11 @@ function buildV2() {
     const results = html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0];
     const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8').replace('{{atlas-results}}', results);
     html = html.replace(/(<main\b[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => open + hero + alternate + close);
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=8">\n</head>');
+
+   }
+   if (page === 'case-atlas.html') {
+    html = html.replace('class="atlas-page case-study"', 'class="atlas-page case-study atlas-v2-page"');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=9">\n</head>');
    }
    const process = content[locale.lang]?.[page]?.trim();
    if (process) {
