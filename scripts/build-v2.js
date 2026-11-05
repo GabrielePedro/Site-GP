@@ -26,7 +26,7 @@ function buildV2() {
    if (page === 'case-mercadopago.html' && locale.lang === 'pt-BR') {
     const block = fs.readFileSync(path.join(root, 'components/v2/mercadopago-first-block.pt-BR.html'), 'utf8');
     html = html.replace(/<section class="mp-overview"[\s\S]*?<\/section>/, block);
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=1">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=2">\n</head>');
    }
    if (page === 'case-atlas.html') {
     html = html.replace('class="atlas-page case-study"', 'class="atlas-page case-study atlas-v2-page"');
