@@ -32,7 +32,7 @@ function buildV2() {
     const results = html.match(/<section class="mp-results"[\s\S]*?<\/section>/)[0];
     const gallery = html.match(/<section class="mp-gallery"[\s\S]*?<\/section>/)[0];
     html = html.replace(results, '').replace(gallery, '').replace('</main>', gallery + '\n' + results + '\n</main>').replace(/^[ \t]+$/gm, '');
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=7">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=8">\n</head>');
    }
    if (page === 'case-atlas.html') {
     html = html.replace('class="atlas-page case-study"', 'class="atlas-page case-study atlas-v2-page"');
