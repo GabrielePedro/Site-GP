@@ -25,7 +25,7 @@ function buildV2() {
    }
    if (page === 'case-atlas.html') {
     html = html.replace('class="atlas-page case-study"', 'class="atlas-page case-study atlas-v2-page"');
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=9">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/atlas-v2.css?v=10">\n</head>');
    }
    const process = content[locale.lang]?.[page]?.trim();
    if (process) {
