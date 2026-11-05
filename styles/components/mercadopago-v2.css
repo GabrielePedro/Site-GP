@@ -75,3 +75,28 @@
  .mp-v2-roadmap-table tr {display:flex;flex-direction:column;gap:12px;padding:24px 0;border-top:4px solid #b4ccef;}
  .mp-v2-roadmap-table td,.mp-v2-roadmap-table :is(th,td):nth-child(1),.mp-v2-roadmap-table :is(th,td):nth-child(2) {display:block;width:100%;padding:0;border:0;font-size:16px;line-height:1.5;}
 }
+
+.mp-v2-solution {width:100%;max-width:1440px;margin-inline:auto;padding:0 150px;box-sizing:border-box;}
+.mp-v2-solution-panel {display:flex;flex-direction:column;align-items:flex-start;gap:40px;padding:75px;border-radius:150px 150px 0 0;background:rgba(80,180,233,.2);}
+.mp-v2-solution-heading {margin:0;padding:4px 8px;background:#50b4e9;color:white;font:400 32px/1.2 var(--font-family-headings);letter-spacing:-.05em;}
+.mp-v2-solution-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 100px;width:100%;}
+.mp-v2-solution-card {display:flex;flex-direction:column;align-items:center;gap:32px;min-width:0;text-align:center;}
+.mp-v2-solution-card > img {width:150px;height:150px;object-fit:contain;border-radius:250px;animation:atlas-result-float 5.5s ease-in-out infinite;}
+.mp-v2-solution-copy {display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
+.mp-v2-solution-card h3 {display:flex;flex-direction:column;align-items:center;gap:8px;margin:0;color:#50b4e9;font:400 20px/1.2 var(--font-family-headings);letter-spacing:-.05em;}
+.mp-v2-solution-card h3 > span {padding:4px;background:white;}
+.mp-v2-solution-card p {margin:0;color:#2f3640;font:400 20px/1.2 var(--font-family-body);letter-spacing:.01em;}
+@media(max-width:1250px){
+ .mp-v2-solution {padding-inline:48px;}
+ .mp-v2-solution-panel {padding:48px;border-radius:96px 96px 0 0;}
+ .mp-v2-solution-grid {column-gap:48px;}
+}
+@media(max-width:700px){
+ .mp-v2-solution {padding-inline:24px;}
+ .mp-v2-solution-panel {padding:48px 24px;border-radius:64px 64px 0 0;}
+ .mp-v2-solution-grid {grid-template-columns:minmax(0,1fr);gap:40px;}
+ .mp-v2-solution-heading {font-size:26px;}
+ .mp-v2-solution-card h3 {font-size:18px;}
+ .mp-v2-solution-card p {font-size:16px;line-height:1.5;}
+}
+@media(prefers-reduced-motion:reduce){.mp-v2-solution-card > img {animation:none;}}
