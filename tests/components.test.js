@@ -216,3 +216,16 @@ test('English banner uses approved lines and locales use the custom SEO domain a
   assert.doesNotMatch(html, /gabrielepedro\.github\.io\/Site-GP/);
  }
 });
+
+test('Mercado Pago V2 keeps the V1 banner and adds the supplied first block only to the alternate page', () => {
+ build();
+ const current = read('case-mercadopago.html');
+ const alternate = read('v2/case-mercadopago.html');
+ const hero = html => html.match(/<section class="mp-hero"[\s\S]*?<\/section>/)[0];
+ assert.equal(hero(alternate), hero(current));
+ assert.match(alternate, /class="mp-v2-first-block"/);
+ assert.match(alternate, /bloqueios totais e pouco transparentes/);
+ assert.doesNotMatch(alternate, /class="mp-overview"/);
+ assert.doesNotMatch(current, /class="mp-v2-first-block"/);
+ assert.doesNotMatch(alternate, /<img\b[^>]*src=""/);
+});
