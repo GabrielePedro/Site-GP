@@ -100,3 +100,29 @@
  .mp-v2-solution-card p {font-size:16px;line-height:1.5;}
 }
 @media(prefers-reduced-motion:reduce){.mp-v2-solution-card > img {animation:none;}}
+
+/* V2 refinements share the original overview surface and result icon motion. */
+.mp-v2-context-surface {width:100%;background:var(--system-background-medium);border-radius:0 0 var(--mp-radius) var(--mp-radius);}
+.mp-v2-context {background:transparent;border-radius:0;}
+body.mp-v2-page #main-content :is(.mp-v2-heading,.mp-v2-rule-label,.mp-v2-roadmap-heading,.mp-v2-solution-heading,.mp-results-heading h2) {font-size:24px;}
+.mp-v2-first-block .mp-v2-heading {width:310px;height:82px;}
+.mp-v2-heading > :last-child {top:38px;left:140px;}
+.mp-v2-heading .mp-v2-connector {z-index:2;top:24px;left:132px;animation:work-icon-drift 5.5s ease-in-out infinite;}
+.mp-v2-first-block .mp-v2-heading--rule {width:250px;height:82px;}
+.mp-v2-heading--rule > :last-child {top:38px;left:90px;}
+.mp-v2-heading--rule .mp-v2-connector {top:24px;left:82px;}
+.mp-v2-rule-wrap {padding-bottom:0;}
+.mp-v2-rule-media {flex:0 0 350px;max-width:350px;width:100%;height:350px;position:relative;border-radius:350px;object-fit:contain;animation:work-icon-drift 5.5s ease-in-out infinite;}
+.mp-v2-context-media {animation:work-icon-drift 5.5s ease-in-out infinite;}
+.mp-v2-solution-icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:150px;height:150px;border-radius:250px;background:#c8e9f8;transform-origin:center;animation:work-badge-breathe 5.5s ease-in-out infinite;}
+.mp-v2-solution-icon img {display:block;width:auto;max-width:53px;height:53px;object-fit:contain;transform-origin:center;animation:work-icon-drift 5.5s ease-in-out infinite;}
+.mp-v2-solution-card:nth-child(2) .mp-v2-solution-icon,.mp-v2-solution-card:nth-child(2) img {animation-delay:-1.8s;}
+.mp-v2-solution-card:nth-child(3) .mp-v2-solution-icon,.mp-v2-solution-card:nth-child(3) img {animation-delay:-3.6s;}
+.mp-v2-solution-card:nth-child(4) .mp-v2-solution-icon,.mp-v2-solution-card:nth-child(4) img {animation-delay:-4.5s;}
+body.mp-v2-page .mp-gallery,body.mp-v2-page .related-cases {background:#fff;}
+@media(max-width:900px){
+ .mp-v2-rule-media {flex-basis:auto;max-width:100%;width:100%;height:350px;}
+}
+@media(prefers-reduced-motion:reduce){
+ .mp-v2-heading .mp-v2-connector,.mp-v2-rule-media,.mp-v2-context-media,.mp-v2-solution-icon,.mp-v2-solution-icon img {animation:none;}
+}

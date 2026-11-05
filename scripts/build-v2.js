@@ -24,6 +24,7 @@ function buildV2() {
 
    }
    if (page === 'case-mercadopago.html' && locale.lang === 'pt-BR') {
+    html = html.replace('class="mercadopago-page case-study"', 'class="mercadopago-page case-study mp-v2-page"');
     const block = fs.readFileSync(path.join(root, 'components/v2/mercadopago-first-block.pt-BR.html'), 'utf8');
     const roadmap = fs.readFileSync(path.join(root, 'components/v2/mercadopago-roadmap.pt-BR.html'), 'utf8');
     const solution = fs.readFileSync(path.join(root, 'components/v2/mercadopago-solution.pt-BR.html'), 'utf8');
@@ -31,7 +32,7 @@ function buildV2() {
     const results = html.match(/<section class="mp-results"[\s\S]*?<\/section>/)[0];
     const gallery = html.match(/<section class="mp-gallery"[\s\S]*?<\/section>/)[0];
     html = html.replace(results, '').replace(gallery, '').replace('</main>', gallery + '\n' + results + '\n</main>').replace(/^[ \t]+$/gm, '');
-    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=4">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=5">\n</head>');
    }
    if (page === 'case-atlas.html') {
     html = html.replace('class="atlas-page case-study"', 'class="atlas-page case-study atlas-v2-page"');
