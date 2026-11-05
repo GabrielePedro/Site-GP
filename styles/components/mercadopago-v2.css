@@ -126,3 +126,11 @@ body.mp-v2-page .mp-gallery,body.mp-v2-page .related-cases {background:#fff;}
 @media(prefers-reduced-motion:reduce){
  .mp-v2-heading .mp-v2-connector,.mp-v2-rule-media,.mp-v2-context-media,.mp-v2-solution-icon,.mp-v2-solution-icon img {animation:none;}
 }
+
+/* Context illustrations stay still; the rule artwork sits inside its own circle. */
+.mp-v2-context-media,.mp-v2-rule-media {animation:none;transform:none;}
+.mp-v2-rule-icon {display:flex;align-items:center;justify-content:center;flex:0 0 350px;width:350px;height:350px;border-radius:50%;background:#c8e9f8;}
+.mp-v2-rule .mp-v2-rule-media {flex:none;width:100px;max-width:100px;height:100px;object-fit:contain;}
+.mp-v2-solution-icon {width:100px;height:100px;}
+@media(max-width:1250px) and (min-width:901px){.mp-v2-rule-icon {flex-basis:250px;width:250px;height:250px;}}
+@media(max-width:900px){.mp-v2-rule-icon {flex:none;width:min(100%,350px);height:auto;aspect-ratio:1;}}
