@@ -230,6 +230,11 @@ test('Mercado Pago V2 keeps the V1 banner and adds the supplied first block only
  assert.ok(alternate.indexOf('class="mp-v2-roadmap"') > alternate.indexOf('class="mp-v2-first-block"'));
  assert.ok(alternate.indexOf('class="mp-v2-roadmap"') < alternate.indexOf('class="mp-results"'));
  assert.doesNotMatch(current, /class="mp-v2-roadmap"/);
+ for (const block of ['mp-gallery','mp-results']) {
+  const pattern = new RegExp('<section class="' + block + '"[\\s\\S]*?<\\/section>');
+  assert.equal(alternate.match(pattern)[0], current.match(pattern)[0]);
+ }
+ assert.ok(alternate.indexOf('class="mp-gallery"') < alternate.indexOf('class="mp-results"'));
  assert.doesNotMatch(alternate, /class="mp-overview"/);
  assert.doesNotMatch(current, /class="mp-v2-first-block"/);
  assert.doesNotMatch(alternate, /<img\b[^>]*src=""/);

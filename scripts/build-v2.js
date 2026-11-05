@@ -28,6 +28,9 @@ function buildV2() {
     const roadmap = fs.readFileSync(path.join(root, 'components/v2/mercadopago-roadmap.pt-BR.html'), 'utf8');
     const solution = fs.readFileSync(path.join(root, 'components/v2/mercadopago-solution.pt-BR.html'), 'utf8');
     html = html.replace(/<section class="mp-overview"[\s\S]*?<\/section>/, block + roadmap + solution);
+    const results = html.match(/<section class="mp-results"[\s\S]*?<\/section>/)[0];
+    const gallery = html.match(/<section class="mp-gallery"[\s\S]*?<\/section>/)[0];
+    html = html.replace(results, '').replace(gallery, '').replace('</main>', gallery + '\n' + results + '\n</main>').replace(/^[ \t]+$/gm, '');
     html = html.replace('</head>', '<link rel="stylesheet" href="styles/components/mercadopago-v2.css?v=4">\n</head>');
    }
    if (page === 'case-atlas.html') {
