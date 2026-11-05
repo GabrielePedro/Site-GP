@@ -81,8 +81,8 @@
 }
 
 /* V2-only heading scale; the original Atlas retains its current typography. */
-body.atlas-v2-page {--case-type-hero:24px;--case-type-section:24px;--case-type-result:24px;}
-body.atlas-v2-page #main-content :is(h1,h2,h3,.ttulo,.roadmap-columns,.remoo-da-validao) {font-size:24px;}
+body.atlas-v2-page {--case-type-section:24px;--case-type-result:24px;}
+body.atlas-v2-page #main-content :is(h2,h3,.ttulo,.roadmap-columns,.remoo-da-validao) {font-size:24px;}
 .atlas-v2 .contexto .titulo {align-self:flex-start;width:fit-content;max-width:100%;}
 
 body.atlas-v2-page .contexto .titulo,
