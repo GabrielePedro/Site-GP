@@ -225,6 +225,11 @@ test('Mercado Pago V2 keeps the V1 banner and adds the supplied first block only
  assert.equal(hero(alternate), hero(current));
  assert.match(alternate, /class="mp-v2-first-block"/);
  assert.match(alternate, /bloqueios totais e pouco transparentes/);
+ const roadmap = alternate.match(/<table class="mp-v2-roadmap-table"[\s\S]*?<\/table>/)[0];
+ assert.equal((roadmap.match(/<td><strong>Ago\/2024<\/strong><\/td>/g) || []).length, 6);
+ assert.ok(alternate.indexOf('class="mp-v2-roadmap"') > alternate.indexOf('class="mp-v2-first-block"'));
+ assert.ok(alternate.indexOf('class="mp-v2-roadmap"') < alternate.indexOf('class="mp-results"'));
+ assert.doesNotMatch(current, /class="mp-v2-roadmap"/);
  assert.doesNotMatch(alternate, /class="mp-overview"/);
  assert.doesNotMatch(current, /class="mp-v2-first-block"/);
  assert.doesNotMatch(alternate, /<img\b[^>]*src=""/);
