@@ -109,3 +109,7 @@ A Atlas V2 em português usa o conteúdo completo enviado em `components/v2/atla
 ## Indexação de imagens
 
 O build gera `sitemap.xml` com as páginas públicas e suas imagens editoriais nos três idiomas. `robots.txt` permite o rastreamento e aponta para esse sitemap. Ambos são copiados para a publicação. As páginas públicas permitem previews grandes de imagens; as V2 continuam com `noindex,nofollow` e fora do sitemap. Após publicar, envie `https://gabrielepedro.com/sitemap.xml` na propriedade do domínio no Google Search Console. A inclusão nos resultados depende do Google.
+
+As páginas públicas usam um único H1, descrições traduzidas, Open Graph/Twitter Cards e dados Schema.org (Person, WebSite e WebPage/ProfilePage). Os metadados são gerados por `scripts/build-search-metadata.js` depois da tradução e excluídos das V2. Os valores vêm do conteúdo real das páginas, sem avaliações ou notas inventadas.
+
+As imagens grandes possuem cópias WebP em qualidade 90, sem redimensionamento. Os PNG originais permanecem disponíveis, inclusive para as prévias sociais. Depois de substituir um PNG, execute `python scripts/optimize-images.py` (requer Pillow) e `npm run build` para atualizar as cópias e suas versões de cache. O manifesto `scripts/image-optimization-manifest.json` registra os caminhos e os pesos. O build de publicação usa os WebP versionados e não depende de Python.

@@ -206,7 +206,7 @@ test('Atlas V2 uses the supplied process structure without changing the public c
 
 test('English banner uses approved lines and locales use the custom SEO domain and alphabetical picker', () => {
  build();
- const banner = read('en/index.html').match(/<div class="hero-lines">([\s\S]*?)<\/div><\/div>/)[1];
+ const banner = read('en/index.html').match(/<h1 class="hero-lines">([\s\S]*?)<\/h1>/)[1];
  assert.deepEqual([...banner.matchAll(/class="hero-line">([^<]+)/g)].map(match => match[1]),
   ['Product Designer,', 'creating experiences', 'for 6+ years that', 'deliver value for', 'people and', 'businesses']);
  for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
@@ -245,7 +245,7 @@ test('public image sitemap uses the custom domain and leaves unlisted cases unin
  const sitemap = read('sitemap.xml');
  assert.equal((sitemap.match(/<url>/g) || []).length, pages.length * 3);
  assert.match(sitemap, /xmlns:image="http:\/\/www.google.com\/schemas\/sitemap-image\/1.1"/);
- assert.match(sitemap, /<image:loc>https:\/\/gabrielepedro.com\/assets\/images\/Gabriele_Pedro_Product_Designer.png<\/image:loc>/);
+ assert.match(sitemap, /<image:loc>https:\/\/gabrielepedro.com\/assets\/images\/Gabriele_Pedro_Product_Designer.webp<\/image:loc>/);
  assert.doesNotMatch(sitemap, /\/v2\/|github\.io|contact\.html/);
  assert.match(read('robots.txt'), /Sitemap: https:\/\/gabrielepedro.com\/sitemap.xml/);
  for (const dir of ['', 'en/', 'es/']) {
@@ -255,5 +255,42 @@ test('public image sitemap uses the custom domain and leaves unlisted cases unin
    assert.equal((alternate.match(/name="robots"/g) || []).length, 1);
    assert.match(alternate, /noindex,nofollow/);
   }
+ }
+});
+
+test('public SEO metadata is localized, complete and has a single primary heading', () => {
+ build();
+ const canonicalUrls = new Set();
+ for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
+  const html = read(dir + page);
+  assert.equal((html.match(/<h1\b/g) || []).length, 1, dir + page);
+  assert.equal((html.match(/name="description"/g) || []).length, 1);
+  assert.equal((html.match(/property="og:title"/g) || []).length, 1);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/)[1];
+  assert.ok(!canonicalUrls.has(canonical));
+  canonicalUrls.add(canonical);
+  assert.ok(html.includes(`property="og:url" content="${canonical}"`));
+  const structured = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(structured['@context'], 'https://schema.org');
+  const webpage = structured['@graph'].find(item => /Page$/.test(item['@type']));
+  assert.equal(webpage.url, canonical);
+  assert.equal(webpage.inLanguage, html.match(/<html lang="([^"]+)"/)[1]);
+ }
+ for (const dir of ['', 'en/', 'es/']) for (const page of pages.filter(p => p.startsWith('case-'))) {
+  assert.doesNotMatch(read('v2/' + dir + page), /property="og:url"|application\/ld\+json/);
+ }
+});
+
+test('optimized images retain original files and resolve throughout the public pages', () => {
+ const manifest = JSON.parse(read('scripts/image-optimization-manifest.json'));
+ assert.ok(manifest.optimizedBytes < manifest.originalBytes);
+ assert.equal(manifest.resized, false);
+ for (const [original, optimized] of Object.entries(manifest.files)) {
+  assert.ok(fs.existsSync(path.join(root, original)));
+  assert.ok(fs.existsSync(path.join(root, optimized)));
+ }
+ for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
+  for (const [, src] of read(dir + page).matchAll(/<img\b[^>]*src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
  }
 });
