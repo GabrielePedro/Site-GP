@@ -105,3 +105,7 @@ O card de idiomas fica 4px abaixo do seletor, mede 175 × 102px e tem borda de 1
 As páginas são acessíveis por link direto, por exemplo `v2/case-atlas.html`; não são privadas. Não publique no conteúdo informações confidenciais. A geração não altera a versão atual dos cases.
 
 A Atlas V2 em português usa o conteúdo completo enviado em `components/v2/atlas.pt-BR.html`, com estilos isolados em `styles/components/atlas-v2.css`: contexto, metodologias, roadmap, solução, galeria e resultados. Mantém as cinco imagens de alta resolução, a ampliação e os componentes compartilhados. As versões V2 em inglês e espanhol ainda usam o conteúdo anterior, até a tradução desta nova estrutura. As imagens de metodologias e solução enviadas no ZIP ficam em `assets/images/Atlas/v2/`. O bloco de resultados é reutilizado diretamente da Atlas principal durante a geração, mantendo conteúdo, ícones e animações sincronizados. A V2 usa frame de 1440px com laterais de 150px no desktop e laterais menores no tablet e celular.
+
+## Indexação de imagens
+
+O build gera `sitemap.xml` com as páginas públicas e suas imagens editoriais nos três idiomas. `robots.txt` permite o rastreamento e aponta para esse sitemap. Ambos são copiados para a publicação. As páginas públicas permitem previews grandes de imagens; as V2 continuam com `noindex,nofollow` e fora do sitemap. Após publicar, envie `https://gabrielepedro.com/sitemap.xml` na propriedade do domínio no Google Search Console. A inclusão nos resultados depende do Google.

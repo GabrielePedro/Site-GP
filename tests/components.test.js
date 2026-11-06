@@ -239,3 +239,21 @@ test('Mercado Pago V2 keeps the V1 banner and adds the supplied first block only
  assert.doesNotMatch(current, /class="mp-v2-first-block"/);
  assert.doesNotMatch(alternate, /<img\b[^>]*src=""/);
 });
+
+test('public image sitemap uses the custom domain and leaves unlisted cases unindexed', () => {
+ build();
+ const sitemap = read('sitemap.xml');
+ assert.equal((sitemap.match(/<url>/g) || []).length, pages.length * 3);
+ assert.match(sitemap, /xmlns:image="http:\/\/www.google.com\/schemas\/sitemap-image\/1.1"/);
+ assert.match(sitemap, /<image:loc>https:\/\/gabrielepedro.com\/assets\/images\/Gabriele_Pedro_Product_Designer.png<\/image:loc>/);
+ assert.doesNotMatch(sitemap, /\/v2\/|github\.io|contact\.html/);
+ assert.match(read('robots.txt'), /Sitemap: https:\/\/gabrielepedro.com\/sitemap.xml/);
+ for (const dir of ['', 'en/', 'es/']) {
+  assert.match(read(dir + 'index.html'), /max-image-preview:large/);
+  for (const page of pages.filter(p => p.startsWith('case-'))) {
+   const alternate = read('v2/' + dir + page);
+   assert.equal((alternate.match(/name="robots"/g) || []).length, 1);
+   assert.match(alternate, /noindex,nofollow/);
+  }
+ }
+});
