@@ -12,6 +12,7 @@ function buildV2() {
    html = html.replace(/<!-- locale-seo -->[\s\S]*?<!-- \/locale-seo -->/g, '');
    html = html.replace(/<!--[\s\S]*?-->/g, '');
    html = html.replace(/<base\b[^>]*>\s*/g, '');
+   html = html.replace(/<meta\b[^>]*name="robots"[^>]*>\s*/g, '');
    const base = locale.dir ? '../../' : '../';
    html = html.replace('<head>', `<head>\n<base href="${base}">\n<meta name="robots" content="noindex,nofollow">`);
    // All paths resolve from the site root because of <base>. Home remains the current home.

@@ -101,3 +101,5 @@ console.log(`Shared components and motion generated for ${pages.length} pages.`)
 require('./build-locales').buildLocales(pages);
 
 require('./build-v2').buildV2();
+
+require('./build-image-sitemap').buildImageSitemap(pages);
