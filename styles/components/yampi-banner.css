@@ -61,3 +61,5 @@
 
 .case-page--yampi .banner--yampi .banner-logo { width: auto; height: 48px; }
 .case-page--yampi .banner--yampi .banner-logo img { display: block; width: auto; height: 48px; object-fit: contain; }
+
+.banner--yampi h1.hero-lines {margin:0;font:inherit;}

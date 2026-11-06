@@ -1,0 +1,32 @@
+{
+  "quality": 90,
+  "resized": false,
+  "originalBytes": 34494039,
+  "optimizedBytes": 3173474,
+  "files": {
+    "assets/images/Atlas/Case-Atlas-01.png": "assets/images/Atlas/Case-Atlas-01.webp",
+    "assets/images/Atlas/Case-Atlas-02.png": "assets/images/Atlas/Case-Atlas-02.webp",
+    "assets/images/Atlas/Case-Atlas-04.png": "assets/images/Atlas/Case-Atlas-04.webp",
+    "assets/images/Atlas/Case-Atlas-05.png": "assets/images/Atlas/Case-Atlas-05.webp",
+    "assets/images/B3/Case-B3-01.png": "assets/images/B3/Case-B3-01.webp",
+    "assets/images/B3/Case-B3-02.png": "assets/images/B3/Case-B3-02.webp",
+    "assets/images/B3/Case-B3-03.png": "assets/images/B3/Case-B3-03.webp",
+    "assets/images/B3/Case-B3-04.png": "assets/images/B3/Case-B3-04.webp",
+    "assets/images/Gabriele_Pedro_Product_Designer.png": "assets/images/Gabriele_Pedro_Product_Designer.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-01.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-01.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-02.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-02.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-03.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-03.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-04.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-04.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-05.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-05.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-06.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-06.webp",
+    "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-07.png": "assets/images/Mercado-Pago/00-Gabriele-Pedro-Case_Mercado-Pago-07.webp",
+    "assets/images/Mercado-Pago/01-Gabriele-Pedro-Mercado_pago.png": "assets/images/Mercado-Pago/01-Gabriele-Pedro-Mercado_pago.webp",
+    "assets/images/Yampi/01-Gabriele-Pedro-Graficos-banner.png": "assets/images/Yampi/01-Gabriele-Pedro-Graficos-banner.webp",
+    "assets/images/Yampi/02-Gabriele-Pedro-Graficos-receita.png": "assets/images/Yampi/02-Gabriele-Pedro-Graficos-receita.webp",
+    "assets/images/case-images/UX-Atlas.png": "assets/images/case-images/UX-Atlas.webp",
+    "assets/images/case-images/UX-B3.png": "assets/images/case-images/UX-B3.webp",
+    "assets/images/case-images/UX-Mercado-Pago.png": "assets/images/case-images/UX-Mercado-Pago.webp",
+    "assets/images/case-images/UX-Vega_Feedback.png": "assets/images/case-images/UX-Vega_Feedback.webp",
+    "assets/images/case-images/UX-Yampi.png": "assets/images/case-images/UX-Yampi.webp"
+  }
+}

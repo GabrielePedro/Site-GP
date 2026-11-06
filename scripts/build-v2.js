@@ -10,6 +10,7 @@ function buildV2() {
   for (const page of cases) {
    let html = fs.readFileSync(path.join(root, locale.dir, page), 'utf8');
    html = html.replace(/<!-- locale-seo -->[\s\S]*?<!-- \/locale-seo -->/g, '');
+   html = html.replace(/<!-- search-metadata -->[\s\S]*?<!-- \/search-metadata -->\s*/g, '');
    html = html.replace(/<!--[\s\S]*?-->/g, '');
    html = html.replace(/<base\b[^>]*>\s*/g, '');
    html = html.replace(/<meta\b[^>]*name="robots"[^>]*>\s*/g, '');

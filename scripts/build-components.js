@@ -103,3 +103,4 @@ require('./build-locales').buildLocales(pages);
 require('./build-v2').buildV2();
 
 require('./build-image-sitemap').buildImageSitemap(pages);
+require('./build-search-metadata').buildSearchMetadata(pages);

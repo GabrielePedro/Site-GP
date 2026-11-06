@@ -16,7 +16,7 @@ function seo(page, current) {
 function buildLocales(pages) {
  for (const page of pages) {
   const file = path.join(root,page);
-  let source = fs.readFileSync(file,'utf8').replace(/<!-- locale-seo -->[\s\S]*?<!-- \/locale-seo -->\s*/g, '');
+  let source = fs.readFileSync(file,'utf8').replace(/<!-- locale-seo -->[\s\S]*?<!-- \/locale-seo -->\s*/g, '').replace(/<!-- search-metadata -->[\s\S]*?<!-- \/search-metadata -->\s*/g, '');
   const original = source;
   source = source.replace('</head>', seo(page,locales[0])+'\n</head>');
   if (fs.readFileSync(file,'utf8') !== source) fs.writeFileSync(file,source);
@@ -49,8 +49,8 @@ function buildLocales(pages) {
    if (locale.lang === 'en-US' && page === 'index.html') {
     // Match the six lines approved for the English home banner.
     const lines = ['Product Designer,', 'creating experiences', 'for 6+ years that', 'deliver value for', 'people and', 'businesses'];
-    html = html.replace(/<div class="hero-lines">[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/,
-      '<div class="hero-lines">' + lines.map(line => `<div class="hero-line">${line}</div>`).join('\n') + '</div></div>');
+    html = html.replace(/<h1 class="hero-lines">[\s\S]*?<\/h1>/,
+      '<h1 class="hero-lines">' + lines.map(line => `<span class="hero-line">${line}</span>`).join('\n') + '</h1>');
    }
    html = html.replace(/(<span class="current-language"[^>]*>).*?(<\/span>)/, (_, open, close) => open + (locale.lang === 'en-US' ? 'English' : 'Español') + close);
    html = html.replace('</head>', seo(page,locale)+'\n</head>').replace(/<head>/,'<head>\n<base href="../">');

@@ -93,3 +93,5 @@ html[lang="en-US"] .home-page .banner--home .hero-line {
 @media(max-width:700px){
  .home-page .projects-title-asterisk {width:80px;height:76px;left:calc(50% - 40px);}
 }
+
+.home-page .banner--home h1.hero-lines {margin:0;font:inherit;}
