@@ -78,9 +78,7 @@ html[lang="en-US"] .home-page .banner--home .hero-line {
   white-space: nowrap;
 }
 
-/* Match the name label to the headline on mobile in every language. */
-@media (max-width: 700px) {
-  .home-page .banner--home .banner-left > .label {
-    font-size: var(--home-hero-font-size);
-  }
+/* Keep the name tag smaller than the responsive headline in every language. */
+.home-page .banner--home .banner-left > .label {
+  font-size: min(32px, calc(var(--home-hero-font-size) * .7));
 }
