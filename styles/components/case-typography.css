@@ -42,3 +42,14 @@ body.case-study {
     --case-type-subtitle: 18px;
   }
 }
+
+/* Long authored titles and subtitles use the available text column naturally. */
+#main-content .case-hero-subtitle {margin:0;color:inherit;font:400 var(--case-type-subtitle)/1.5 var(--font-family-body);letter-spacing:.01em;max-width:100%;}
+#main-content :is(.atlas-hero h1,.b3-hero h1,.mp-title) {overflow-wrap:normal;hyphens:auto;}
+.atlas-hero-art {align-self:flex-end;}
+.b3-context-description,.a-atlas-plataforma-container {display:flex;flex-direction:column;gap:24px;}
+
+.case-summary-meta {display:flex;flex-direction:column;gap:16px;margin:0 0 24px;max-width:100%;}
+.case-summary-meta > div {display:flex;flex-direction:column;gap:8px;}
+.case-summary-meta dt {font-weight:700;}
+.case-summary-meta dd {margin:0;}

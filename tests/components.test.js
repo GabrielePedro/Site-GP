@@ -55,14 +55,14 @@ test('Mercado Pago contains the supplied overview and seven real image panels', 
   build();
   const html = read('case-mercadopago.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)[0];
-  for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
+  for (const value of ['2024, ago – out', 'Product Designer', 'Pesquisa documental, análise heurística, regras de negócio, fluxo, teste A/B, UX Writing e UI.', 'Projeto com resultados documentados.', '47% → 68% de compreensão do bloqueio', '19% → 25% de pagamento em até três horas', '+6pp no pagamento em até três horas', '+21pp na compreensão do bloqueio']) assert.ok(main.includes(value), value);
   assert.equal([...main.matchAll(/<figure class="mp-showcase"/g)].length, 7);
   assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
   assert.equal(images.length, 13);
   assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 7);
   assert.ok(main.indexOf('class="mp-results"') < main.indexOf('class="mp-gallery"'));
-  assert.doesNotMatch(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Resultados/);
+  assert.match(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Hoje faria diferente:/);
   assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="53" height="53"/g)].length, 4);
   for (const [tag, src] of images) {
     assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
@@ -71,11 +71,11 @@ test('Mercado Pago contains the supplied overview and seven real image panels', 
     assert.match(tag, /height="\d+"/);
   }
 });
-test('Atlas presents the supplied context and visible Figma results before the gallery', () => {
+test('Atlas presents the revised context and qualified results before the gallery', () => {
   build();
   const main = read('case-atlas.html').match(/<main[\s\S]*?<\/main>/)[0];
   assert.doesNotMatch(main, /Conteúdo do case Atlas/);
-  for (const value of ['2025, mai –jun', 'Implementado em produção.', '+22% na tx. de conclusão de cadastro', 'Redução de 30%', 'Figma Maker e Lovable']) assert.ok(main.includes(value), value);
+  for (const value of ['2025, mai –jun.', 'Implementado em produção.', 'Cerca de 93% menos tempo de cadastro', '86,7% → 95%', 'quatro dias']) assert.ok(main.includes(value), value);
   assert.equal((main.match(/class="atlas-result-card"/g) || []).length, 4);
   assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 5);
   assert.ok(main.indexOf('class="atlas-results"') < main.indexOf('class="atlas-gallery"'));
@@ -83,7 +83,7 @@ test('Atlas presents the supplied context and visible Figma results before the g
 test('B3 uses its supplied case content, four full-resolution panels and requested result icons', () => {
  build();
  const main = read('case-b3.html').match(/<main[\s\S]*?<\/main>/)[0];
- for (const copy of ['−32% de abandono', '−41% de cancelamentos', '−27% no tempo', '−35% nos erros', 'Google Analytics', 'Microsoft Clarity', '2025–2026']) assert.ok(main.includes(copy), copy);
+ for (const copy of ['32% menos abandono', '27% menos tempo', '35% menos erros finais', '15 gravações de sessão', 'Analytics', '2025–2026']) assert.ok(main.includes(copy), copy);
  const cards = [...main.matchAll(/<li class="b3-result-card">[\s\S]*?<\/li>/g)].map(m => m[0]);
  const icons = ['Atlas/festa.png', 'Mercado-Pago/09-Gabriele-Pedro-Mercado_pago.png', 'Atlas/reducao.png', 'Atlas/NPS.png'];
  assert.equal(cards.length, 4);
@@ -224,7 +224,7 @@ test('Mercado Pago V2 keeps the V1 banner and adds the supplied first block only
  const hero = html => html.match(/<section class="mp-hero"[\s\S]*?<\/section>/)[0];
  assert.equal(hero(alternate), hero(current));
  assert.match(alternate, /class="mp-v2-first-block"/);
- assert.match(alternate, /bloqueios totais e pouco transparentes/);
+ assert.match(alternate, /priorizei atrasos de pagamento/);
  const roadmap = alternate.match(/<table class="mp-v2-roadmap-table"[\s\S]*?<\/table>/)[0];
  assert.equal((roadmap.match(/<td><strong>Ago\/2024<\/strong><\/td>/g) || []).length, 6);
  assert.ok(alternate.indexOf('class="mp-v2-roadmap"') > alternate.indexOf('class="mp-v2-first-block"'));
@@ -293,4 +293,26 @@ test('optimized images retain original files and resolve throughout the public p
  for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
   for (const [, src] of read(dir + page).matchAll(/<img\b[^>]*src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
  }
+});
+
+test('revised case copy preserves evidence qualifiers and home cards have two independent tags', () => {
+ build();
+ const expected = {
+  'case-mercadopago.html': ['Retenção de saldo: clareza e autonomia para regularizar dívidas', 'mantive os cenários de fraude fora do redesenho', '19% para 25%', '47% para 68%'],
+  'case-b3.html': ['Cadastro de participantes: menos fricção em uma jornada regulada', '15 gravações de sessão', 'Redesenho documentado, com resultados reportados na apresentação'],
+  'case-atlas.html': ['Cadastro internacional: menos barreiras para concluir o cadastro', '128 respostas e quatro entrevistas', 'na janela inicial de quatro dias']
+ };
+ for (const [page, copy] of Object.entries(expected)) {
+  const source = read(page);
+  copy.forEach(value => assert.ok(source.includes(value), value));
+  assert.match(source, /<h2 class="case-hero-subtitle">/);
+  assert.doesNotMatch(source, /−41%|–18%|\+22%|Aumento de 79%/);
+ }
+ for (const dir of ['', 'en/', 'es/']) {
+  const groups = [...read(dir + 'index.html').matchAll(/<div class="case-tags">([\s\S]*?)<\/div>/g)];
+  assert.equal(groups.length, 5);
+  groups.forEach(group => assert.equal((group[1].match(/class="pill"/g) || []).length, 2));
+ }
+ assert.match(read('case-atlas.html'), /name="description"[^>]*93%/);
+ assert.match(read('case-mercadopago.html'), /name="description"[^>]*19% a 25%/);
 });

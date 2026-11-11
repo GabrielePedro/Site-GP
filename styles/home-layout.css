@@ -95,3 +95,5 @@ html[lang="en-US"] .home-page .banner--home .hero-line {
 }
 
 .home-page .banner--home h1.hero-lines {margin:0;font:inherit;}
+
+.case-tags {font-size:14px;display:flex;align-items:flex-start;flex-wrap:wrap;gap:8px;max-width:100%;}
