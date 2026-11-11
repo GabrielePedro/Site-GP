@@ -62,7 +62,7 @@ test('Mercado Pago contains the supplied overview and seven real image panels', 
   assert.equal(images.length, 13);
   assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 7);
   assert.ok(main.indexOf('class="mp-results"') < main.indexOf('class="mp-gallery"'));
-  assert.match(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Hoje faria diferente:/);
+  assert.match(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Hoje faria diferente/);
   assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="53" height="53"/g)].length, 4);
   for (const [tag, src] of images) {
     assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
@@ -298,9 +298,9 @@ test('optimized images retain original files and resolve throughout the public p
 test('revised case copy preserves evidence qualifiers and home cards have two independent tags', () => {
  build();
  const expected = {
-  'case-mercadopago.html': ['Retenção de saldo: clareza e autonomia para regularizar dívidas', 'mantive os cenários de fraude fora do redesenho', '19% para 25%', '47% para 68%'],
+  'case-mercadopago.html': ['Retenção de saldo: clareza e autonomia para regularizar dívidas', 'mantive os cenários de fraude fora do redesenho', '19% → 25%', '47% → 68%'],
   'case-b3.html': ['Cadastro de participantes: menos fricção em uma jornada regulada', '15 gravações de sessão', 'Redesenho documentado, com resultados reportados na apresentação'],
-  'case-atlas.html': ['Cadastro internacional: menos barreiras para concluir o cadastro', '128 respostas e quatro entrevistas', 'na janela inicial de quatro dias']
+  'case-atlas.html': ['Cadastro internacional: menos barreiras para concluir o cadastro', '128 respostas e quatro entrevistas', 'janela de quatro dias']
  };
  for (const [page, copy] of Object.entries(expected)) {
   const source = read(page);
@@ -315,4 +315,25 @@ test('revised case copy preserves evidence qualifiers and home cards have two in
  }
  assert.match(read('case-atlas.html'), /name="description"[^>]*93%/);
  assert.match(read('case-mercadopago.html'), /name="description"[^>]*19% a 25%/);
+});
+
+test('each revised case fact has its own tag and results appear only in their dedicated block', () => {
+ build();
+ for (const [dir, labels] of [
+  ['', ['Problema','Minha atuação','Decisão','Hoje faria diferente']],
+  ['en/', ['Problem','My contribution','Decision','What I would do differently today']],
+  ['es/', ['Problema','Mi contribución','Decisión','Qué haría diferente hoy']]
+ ]) for (const page of ['case-atlas.html','case-b3.html','case-mercadopago.html']) {
+  const html = read(dir + page);
+  const facts = [...html.matchAll(/<div class="case-fact">([\s\S]*?)<\/div>/g)].map(m=>m[1]);
+  assert.equal(facts.length, 4);
+  assert.deepEqual(facts.map(f=>f.match(/<h2\b[^>]*>([^<]+)<\/h2>/)[1]),labels);
+  facts.forEach(f=>{
+   assert.match(f, /<p>/);
+   assert.doesNotMatch(f, /<p><strong>(Problema|Minha atuação|Decisão|Resultado|Hoje faria diferente):/);
+  });
+ }
+ for (const page of ['case-atlas.html','case-mercadopago.html']) {
+  assert.equal((read('v2/'+page).match(/class="case-fact"/g)||[]).length,4);
+ }
 });
