@@ -83,10 +83,7 @@ for (const page of pages) {
       if (key === 'imageExternal') return data.action.external ? ' target="_blank" rel="noopener noreferrer"' : '';
       if (key === 'imageLabel') return escape(`${data.action.label} — ${data.title}`);
       if (key === 'reverse') return data.reverse ? ' case-row--reverse' : '';
-      if (key === 'pill') {
-        const pills = data.pills || (data.pill ? [data.pill] : []);
-        return pills.length ? '<div class="case-tags">' + pills.map(pill => `<span class="pill">${escape(pill)}</span>`).join('') + '</div>' : '';
-      }
+      if (key === 'pill') return data.pill ? `<span class="pill">${escape(data.pill)}</span>` : '';
       // Lead is authored HTML, like the rest of the page; never use untrusted input here.
       if (key === 'lead') return data.lead;
       if (key === 'action') return `<!-- component:button ${JSON.stringify(data.action)} -->\n<!-- /component:button -->`;
