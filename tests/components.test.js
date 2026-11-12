@@ -75,10 +75,10 @@ test('Atlas presents the supplied context and visible Figma results before the g
   build();
   const main = read('case-atlas.html').match(/<main[\s\S]*?<\/main>/)[0];
   assert.doesNotMatch(main, /Conteúdo do case Atlas/);
-  for (const value of ['2025, mai –jun', 'Implementado em produção.', '+22% na tx. de conclusão de cadastro', 'Redução de 30%', 'Figma Maker e Lovable']) assert.ok(main.includes(value), value);
+  for (const value of ['2025, mai –jun', 'Implementado em produção, com resultados reportados.', '+22% na taxa de conclusão', 'Tempo médio caiu cerca de 93%', 'Redução de 30%', 'Lovable']) assert.ok(main.includes(value), value);
   assert.equal((main.match(/class="atlas-result-card"/g) || []).length, 4);
   assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 5);
-  assert.ok(main.indexOf('class="atlas-results"') < main.indexOf('class="atlas-gallery"'));
+  assert.ok(main.indexOf('class="atlas-results') < main.indexOf('class="atlas-gallery"'));
 });
 test('B3 uses its supplied case content, four full-resolution panels and requested result icons', () => {
  build();
@@ -187,7 +187,7 @@ test('inline style check rejects a real violation', () => {
 test('Atlas V2 uses the supplied process structure without changing the public case', () => {
  build();
  const html = read('v2/case-atlas.html');
- const sections = ['atlas-hero', 'contexto atlas-context-inner', 'metodologia', 'soluo', 'atlas-gallery', 'atlas-results'];
+ const sections = ['atlas-hero', 'contexto atlas-context-inner', 'metodologia', 'soluo', 'atlas-gallery', 'atlas-results atlas-results--revised'];
  let previous = -1;
  for (const section of sections) {
   const position = html.indexOf(`class="${section}"`, previous + 1);
@@ -199,7 +199,7 @@ test('Atlas V2 uses the supplied process structure without changing the public c
  assert.match(html, /Notebook LM/);
  assert.match(html, /styles\/components\/atlas-v2.css/);
  assert.equal((html.match(/class="case-media-link"/g) || []).length, 12);
- assert.equal(html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0], read('case-atlas.html').match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0]);
+ assert.equal(html.match(/<section class="atlas-results(?: atlas-results--revised)?"[\s\S]*?<\/section>/)[0], read('case-atlas.html').match(/<section class="atlas-results(?: atlas-results--revised)?"[\s\S]*?<\/section>/)[0]);
  assert.doesNotMatch(read('case-atlas.html'), /class="atlas-v2"|class="metodologia"/);
  for (const [, src] of html.matchAll(/src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
 });
@@ -315,4 +315,21 @@ test('Mercado Pago revised overview follows the supplied seven-tag rows and shor
   const translated = read(dir+'case-mercadopago.html');
   assert.equal((translated.match(/class="mp-fact(?: mp-fact--period)?"/g)||[]).length,7);
  }
+});
+
+test('Atlas revised copy has its own tags, evidence and the supplied result order', () => {
+ build();
+ const source = read('case-atlas.html');
+ const context = source.match(/<section class="atlas-context atlas-context--revised"[\s\S]*?<\/section>/)[0];
+ const labels = [...context.matchAll(/<(?:h2|dt) class="atlas-label"[^>]*>([^<]+)<\/(?:h2|dt)>/g)].map(m=>m[1]);
+ assert.deepEqual(labels,['Problema','Atuação','Escopo','Decisão','Hoje faria diferente','Status','Período']);
+ assert.match(source, /<h1 id="atlas-title"><span>Cadastro<\/span> <span>Internacional<\/span><\/h1>/);
+ assert.match(context, /<strong>128 respostas e quatro entrevistas<\/strong>/);
+ assert.match(context, /<strong>priorizando a conclusão inicial e adiando a completude do perfil<\/strong>/);
+ assert.doesNotMatch(context, /Resultados|97,9%/);
+ const result = source.match(/<section class="atlas-results atlas-results--revised"[\s\S]*?<\/section>/)[0];
+ assert.deepEqual([...result.matchAll(/<h3>([^<]+)<\/h3>/g)].map(m=>m[1]),
+ ['+22% na taxa de conclusão','Tempo médio caiu cerca de 93%','Redução de 30% na complexidade','Estrutura p/ escalabilidade']);
+ assert.match(result, /<strong>Lovable<\/strong>/);
+ assert.doesNotMatch(result, /79%|Figma Maker/);
 });

@@ -20,7 +20,7 @@ function buildV2() {
    html = html.replace(/href="((?:en\/|es\/)?case-[\w-]+\.html)"/g, (_, href) => `href="v2/${href}"`);
    if (page === 'case-atlas.html' && locale.lang === 'pt-BR') {
     const hero = html.match(/<section class="atlas-hero"[\s\S]*?<\/section>/)[0];
-    const results = html.match(/<section class="atlas-results"[\s\S]*?<\/section>/)[0];
+    const results = html.match(/<section class="atlas-results(?: atlas-results--revised)?"[\s\S]*?<\/section>/)[0];
     const alternate = fs.readFileSync(path.join(root, 'components/v2/atlas.pt-BR.html'), 'utf8').replace('{{atlas-results}}', results);
     html = html.replace(/(<main\b[^>]*>)[\s\S]*?(<\/main>)/, (_, open, close) => open + hero + alternate + close);
 
