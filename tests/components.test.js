@@ -83,13 +83,13 @@ test('Atlas presents the supplied context and visible Figma results before the g
 test('B3 uses its supplied case content, four full-resolution panels and requested result icons', () => {
  build();
  const main = read('case-b3.html').match(/<main[\s\S]*?<\/main>/)[0];
- for (const copy of ['−32% de abandono', '−41% de cancelamentos', '−27% no tempo', '−35% nos erros', 'Google Analytics', 'Microsoft Clarity', '2025–2026']) assert.ok(main.includes(copy), copy);
+ for (const copy of ['- 32% de abandono', '−41% de cancelamentos', '−27% no tempo', '−35% nos erros', '15 gravações de sessão', 'Analytics', '2025–2026']) assert.ok(main.includes(copy), copy);
  const cards = [...main.matchAll(/<li class="b3-result-card">[\s\S]*?<\/li>/g)].map(m => m[0]);
  const icons = ['Atlas/festa.png', 'Mercado-Pago/09-Gabriele-Pedro-Mercado_pago.png', 'Atlas/reducao.png', 'Atlas/NPS.png'];
  assert.equal(cards.length, 4);
  cards.forEach((card, i) => assert.ok(card.includes(icons[i])));
  assert.equal((main.match(/width="4560" height="3200"/g) || []).length, 4);
- assert.ok(main.indexOf('class="b3-results"') < main.indexOf('class="b3-gallery"'));
+ assert.ok(main.indexOf('class="b3-results') < main.indexOf('class="b3-gallery"'));
 });
 test('case images share a same-page viewer, without changing home cards', () => {
   build();
@@ -332,4 +332,18 @@ test('Atlas revised copy has its own tags, evidence and the supplied result orde
  ['+22% na taxa de conclusão','Tempo médio caiu cerca de 93%','Redução de 30% na complexidade','Estrutura p/ escalabilidade']);
  assert.match(result, /<strong>Lovable<\/strong>/);
  assert.doesNotMatch(result, /79%|Figma Maker/);
+});
+
+test('B3 revised copy has seven separate tags, supplied emphasis and the short banner title', () => {
+ build();
+ const source = read('case-b3.html');
+ const context = source.match(/<section class="b3-context b3-context--revised"[\s\S]*?<\/section>/)[0];
+ assert.deepEqual([...context.matchAll(/<h2 class="b3-label"[^>]*>([^<]+)<\/h2>/g)].map(m=>m[1]),
+ ['Problema','Atuação','Escopo','Decisão','Hoje faria diferente','Status','Período']);
+ assert.match(source, /<h1 id="b3-title"><span>Contratação<\/span> <span>de serviços<\/span><\/h1>/);
+ assert.match(source, /<strong>menos fricção<\/strong> em uma <strong>jornada regulada<\/strong>/);
+ assert.match(context, /<strong>15 gravações de sessão<\/strong>/);
+ assert.match(context, /<strong>preservando as exigências regulatórias<\/strong>/);
+ assert.doesNotMatch(context, /Mercado Pago|retenção de saldo|Resultados/);
+ assert.match(context, /Implementado em produção, com resultados reportados/);
 });

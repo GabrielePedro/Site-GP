@@ -1,0 +1,33 @@
+/* B3: supplied overview grid; banner artwork and geometry stay shared. */
+.b3-context--revised {padding:100px 150px;gap:40px;}
+.b3-overview-row {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px;width:100%;}
+.b3-overview-row--metadata {grid-template-columns:minmax(0,534px) minmax(0,1fr) max-content;}
+.b3-fact {display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0;}
+#main-content .b3-context--revised .b3-label {margin:0;padding:2px 6px;font:700 16px/1.2 var(--font-family-body);letter-spacing:.01em;}
+#main-content .b3-context--revised .b3-fact p {margin:0;font:400 20px/1.2 var(--font-family-body);letter-spacing:.01em;}
+.b3-context--revised #b3-context-title {text-transform:capitalize;}
+.b3-results--revised {width:calc(100% - 48px);max-width:1208px;margin-inline:auto;}
+.b3-results--revised .b3-results-inner {padding:75px 100px;gap:50px;}
+.b3-results--revised .b3-results-grid {gap:50px 100px;}
+.b3-results--revised .b3-result-card {gap:16px;}
+.b3-results--revised .b3-result-card > div {gap:8px;}
+body.b3-page #main-content .b3-results--revised .b3-results-heading h2 {font-size:24px;line-height:1.2;}
+body.b3-page #main-content .b3-results--revised p,
+body.b3-page #main-content .b3-results--revised .b3-result-card h3 {font-size:20px;line-height:1.2;}
+@media(max-width:1250px){
+ .b3-context--revised {padding-inline:64px;}
+ .b3-overview-row {column-gap:40px;}
+ .b3-overview-row--metadata {grid-template-columns:repeat(2,minmax(0,1fr));}
+ .b3-results--revised .b3-results-inner {padding-inline:48px;}
+ .b3-results--revised .b3-results-grid {column-gap:40px;}
+}
+@media(max-width:700px){
+ .b3-context--revised {padding:64px 20px;gap:32px;}
+ .b3-overview-row {grid-template-columns:minmax(0,1fr);gap:32px;}
+ #main-content .b3-context--revised .b3-fact p {font-size:16px;line-height:1.5;}
+ .b3-results--revised {width:calc(100% - 40px);}
+ .b3-results--revised .b3-results-inner {padding:48px 24px;gap:40px;}
+ .b3-results--revised .b3-results-grid {grid-template-columns:minmax(0,1fr);row-gap:40px;}
+ body.b3-page #main-content .b3-results--revised p {font-size:16px;line-height:1.5;}
+ body.b3-page #main-content .b3-results--revised .b3-result-card h3 {font-size:18px;}
+}
