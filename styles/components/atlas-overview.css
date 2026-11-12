@@ -1,0 +1,27 @@
+/* New content uses the existing Atlas artwork, frame and banner geometry. */
+.atlas-context--revised .atlas-metadata--intro {grid-template-columns:repeat(2,minmax(0,1fr));gap:72px;}
+.atlas-context--revised .atlas-metadata--scope {grid-template-columns:repeat(2,minmax(0,1fr)) 163px max-content;gap:72px;}
+.atlas-results--revised {width:calc(100% - 48px);max-width:1209px;margin-inline:auto;}
+.atlas-results--revised .atlas-results-inner {padding:75px 100px;gap:50px;}
+.atlas-results--revised .atlas-results-grid {gap:50px 100px;}
+.atlas-results--revised .atlas-result-card {gap:16px;}
+.atlas-results--revised .atlas-result-card > div {gap:8px;}
+body.atlas-page #main-content .atlas-results--revised .atlas-results-heading h2 {font-size:24px;line-height:1.2;}
+body.atlas-page #main-content .atlas-results--revised p,
+body.atlas-page #main-content .atlas-results--revised .atlas-result-card h3 {font-size:20px;line-height:1.2;}
+@media(max-width:1250px){
+ .atlas-context--revised .atlas-metadata--intro {gap:32px;}
+ .atlas-context--revised .atlas-metadata--scope {grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;}
+ .atlas-results--revised .atlas-results-inner {padding-inline:48px;}
+ .atlas-results--revised .atlas-results-grid {column-gap:40px;}
+}
+@media(max-width:600px){
+ .atlas-context--revised .atlas-metadata--intro,.atlas-context--revised .atlas-metadata--scope {grid-template-columns:minmax(0,1fr);gap:32px;}
+ .atlas-results--revised {width:calc(100% - 40px);}
+ .atlas-results--revised .atlas-results-inner {padding:48px 24px;gap:40px;}
+ .atlas-results--revised .atlas-results-grid {row-gap:40px;}
+ body.atlas-page #main-content .atlas-results--revised p {font-size:16px;line-height:1.5;}
+ body.atlas-page #main-content .atlas-results--revised .atlas-result-card h3 {font-size:18px;}
+}
+
+.atlas-context--revised #atlas-context-title {text-transform:capitalize;}
