@@ -55,14 +55,14 @@ test('Mercado Pago contains the supplied overview and seven real image panels', 
   build();
   const html = read('case-mercadopago.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)[0];
-  for (const value of ['2024, ago – out', 'Product Designer · UX Research · UI Design', 'UX Research, Análise Heurística, Fluxos, Microcopy, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
+  for (const value of ['2024, ago – out', 'Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e comunicação.', 'Pesquisa documental, análise heurística, regras de negócio, fluxos, UX Writing e UI, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
   assert.equal([...main.matchAll(/<figure class="mp-showcase"/g)].length, 7);
   assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
   assert.equal(images.length, 13);
   assert.equal((main.match(/width="2280" height="1400"/g) || []).length, 7);
   assert.ok(main.indexOf('class="mp-results"') < main.indexOf('class="mp-gallery"'));
-  assert.doesNotMatch(main.match(/<section class="mp-overview"[\s\S]*?<\/section>/)[0], /Resultados/);
+  assert.doesNotMatch(main.match(/<section class="mp-overview(?: mp-overview--revised)?"[\s\S]*?<\/section>/)[0], /Resultados/);
   assert.equal([...main.matchAll(/class="mp-result-icon"[^>]+width="53" height="53"/g)].length, 4);
   for (const [tag, src] of images) {
     assert.ok(fs.existsSync(path.join(root, src.split('?')[0])), src);
@@ -292,5 +292,22 @@ test('optimized images retain original files and resolve throughout the public p
  }
  for (const dir of ['', 'en/', 'es/']) for (const page of pages) {
   for (const [, src] of read(dir + page).matchAll(/<img\b[^>]*src="(assets\/[^"?#]+)/g)) assert.ok(fs.existsSync(path.join(root, src)), src);
+ }
+});
+
+test('Mercado Pago revised overview follows the supplied seven-tag rows and short banner copy', () => {
+ build();
+ const source = read('case-mercadopago.html');
+ const overview = source.match(/<section class="mp-overview mp-overview--revised"[\s\S]*?<\/section>/)[0];
+ assert.deepEqual([...overview.matchAll(/<h2 class="mp-label"[^>]*>([^<]+)<\/h2>/g)].map(m=>m[1]),
+  ['Problema','Atuação','Escopo','Decisão','Hoje faria diferente','Status','Período']);
+ assert.equal((overview.match(/class="mp-overview-row(?: mp-overview-row--metadata)?"/g)||[]).length,3);
+ assert.doesNotMatch(overview, /<img|Resultados|Contexto/);
+ assert.match(source, /<h1 class="mp-title" id="mp-title"><span>Retenção<\/span> <span>de saldo<\/span><\/h1>/);
+ assert.match(source, /<strong>clareza<\/strong> e <strong>autonomia<\/strong> para/);
+ assert.match(source, /regularizar dívidas!/);
+ for (const dir of ['en/','es/']) {
+  const translated = read(dir+'case-mercadopago.html');
+  assert.equal((translated.match(/class="mp-fact(?: mp-fact--period)?"/g)||[]).length,7);
  }
 });

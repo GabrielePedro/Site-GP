@@ -1,0 +1,19 @@
+/* Mercado Pago overview supplied by Figma. Banner geometry remains unchanged. */
+.mp-overview--revised .mp-overview-inner {gap:40px;padding:0 150px 100px;}
+.mp-overview-row {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px;width:100%;}
+.mp-overview-row--metadata {grid-template-columns:minmax(0,534px) minmax(0,1fr) max-content;}
+.mp-fact {display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-width:0;}
+#main-content .mp-overview--revised .mp-label {margin:0;padding:2px 6px;font:700 16px/1.2 var(--font-family-body);letter-spacing:.01em;}
+#main-content .mp-overview--revised .mp-fact p {margin:0;max-width:none;font:400 20px/1.2 var(--font-family-body);letter-spacing:.01em;}
+@media(max-width:1250px){
+ .mp-overview--revised .mp-overview-inner {padding-inline:64px;}
+ .mp-overview-row {column-gap:40px;}
+ .mp-overview-row--metadata {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:700px){
+ .mp-overview--revised .mp-overview-inner {padding-inline:20px;padding-bottom:48px;gap:32px;}
+ .mp-overview-row {grid-template-columns:minmax(0,1fr);gap:32px;}
+ #main-content .mp-overview--revised .mp-fact p {font-size:16px;line-height:1.5;}
+}
+
+.mp-overview--revised #mp-overview-title {text-transform:capitalize;}

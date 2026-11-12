@@ -383,5 +383,17 @@
   "Interface do Mercado Pago com informações sobre retenção de saldo.": "Interfaz de Mercado Pago con información sobre retención de saldo.",
   "Interface de contratação de serviços da B3 com cadastro de CNPJ.": "Interfaz de contratación de servicios de B3 con registro de empresa.",
   "Dashboard da Yampi com visão geral de vendas e métricas da loja.": "Dashboard de Yampi con un resumen de ventas y métricas de la tienda.",
-  "Dashboard do Vega Feedback para acompanhar avaliações e satisfação dos clientes.": "Dashboard de Vega Feedback para monitorear evaluaciones y satisfacción de clientes."
+  "Dashboard do Vega Feedback para acompanhar avaliações e satisfação dos clientes.": "Dashboard de Vega Feedback para monitorear evaluaciones y satisfacción de clientes.",
+  "de saldo": "de saldo",
+  "clareza": "claridad",
+  "autonomia": "autonomía",
+  "para": "para",
+  "regularizar dívidas!": "¡regularizar deudas!",
+  "Decisão": "Decisión",
+  "Hoje faria diferente": "Qué haría diferente hoy",
+  "O bloqueio integral impedia o uso do dinheiro, dificultava o pagamento da própria dívida e comprometia a confiança na plataforma.": "El bloqueo total impedía usar el dinero, dificultaba el pago de la propia deuda y afectaba la confianza en la plataforma.",
+  "Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e comunicação.": "Analicé reclamos, mapeé la experiencia y diseñé una alternativa de flujo y comunicación.",
+  "Pesquisa documental, análise heurística, regras de negócio, fluxos, UX Writing e UI, Testes A/B.": "Investigación documental, análisis heurístico, reglas de negocio, flujos, UX Writing y UI, pruebas A/B.",
+  "Priorizei atrasos de pagamento, propondo retenção parcial e uso do saldo para quitar a dívida; mantive os cenários de fraude fora do redesenho.": "Prioricé los atrasos de pago, proponiendo retención parcial y el uso del saldo para saldar la deuda; dejé los escenarios de fraude fuera del rediseño.",
+  "Validaria as mudanças de regra com Risco e Compliance antes de aprofundar a interface.": "Validaría los cambios de reglas con Riesgo y Compliance antes de profundizar en la interfaz."
 }

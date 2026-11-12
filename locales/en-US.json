@@ -171,7 +171,7 @@
   "Conhecer projeto: Atlas": "View project: Atlas",
   "Discovery e redesign do cadastro internacional para apoiar a expansão em Londres, simplificar a criação de perfis e facilitar a ativação de novos usuários.": "Discovery and redesign of international registration to support expansion in London, simplify profile creation, and help activate new users.",
   "+22% na conclusão de cadastro": "+22% registration completion",
-  "Retenção": "Balance holds",
+  "Retenção": "Balance",
   "de saldo com": "with",
   "transparência": "transparency",
   "Redesign de fluxo, microcopy": "Flow and microcopy redesign",
@@ -383,5 +383,17 @@
   "Interface do Mercado Pago com informações sobre retenção de saldo.": "Mercado Pago interface showing information about held funds.",
   "Interface de contratação de serviços da B3 com cadastro de CNPJ.": "B3 service signup interface with company registration.",
   "Dashboard da Yampi com visão geral de vendas e métricas da loja.": "Yampi dashboard with an overview of store sales and metrics.",
-  "Dashboard do Vega Feedback para acompanhar avaliações e satisfação dos clientes.": "Vega Feedback dashboard for tracking customer reviews and satisfaction."
+  "Dashboard do Vega Feedback para acompanhar avaliações e satisfação dos clientes.": "Vega Feedback dashboard for tracking customer reviews and satisfaction.",
+  "de saldo": "holds",
+  "clareza": "clarity",
+  "autonomia": "autonomy",
+  "para": "to",
+  "regularizar dívidas!": "settle debts!",
+  "Decisão": "Decision",
+  "Hoje faria diferente": "What I would do differently today",
+  "O bloqueio integral impedia o uso do dinheiro, dificultava o pagamento da própria dívida e comprometia a confiança na plataforma.": "Full holds prevented people from using their money, made it harder to repay the debt itself, and undermined trust in the platform.",
+  "Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e comunicação.": "I analyzed complaints, mapped the journey, and designed an alternative flow and communication.",
+  "Pesquisa documental, análise heurística, regras de negócio, fluxos, UX Writing e UI, Testes A/B.": "Documentary research, heuristic analysis, business rules, flows, UX writing and UI, A/B testing.",
+  "Priorizei atrasos de pagamento, propondo retenção parcial e uso do saldo para quitar a dívida; mantive os cenários de fraude fora do redesenho.": "I prioritized late payments, proposing partial holds and the use of available funds to repay debt; fraud scenarios remained outside the redesign.",
+  "Validaria as mudanças de regra com Risco e Compliance antes de aprofundar a interface.": "I would validate rule changes with Risk and Compliance before developing the interface in detail."
 }
