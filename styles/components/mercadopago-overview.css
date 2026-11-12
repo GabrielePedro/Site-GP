@@ -17,3 +17,21 @@
 }
 
 .mp-overview--revised #mp-overview-title {text-transform:capitalize;}
+
+/* Results match the revised Figma frame; icon circles retain their shared 100px size. */
+.mp-results {padding:150px var(--mp-inline);gap:50px;background:#fff;}
+.mp-results-grid {gap:50px 100px;}
+.mp-result-copy {gap:8px;}
+body.mercadopago-page #main-content .mp-results-heading h2 {font-size:24px;line-height:1.2;}
+body.mercadopago-page #main-content .mp-results p,
+body.mercadopago-page #main-content .mp-result-copy h3 {font-size:20px;line-height:1.2;}
+@media(max-width:1000px){
+ .mp-results {padding-block:96px;}
+ .mp-results-grid {column-gap:48px;}
+}
+@media(max-width:600px){
+ .mp-results {padding-block:64px;gap:40px;}
+ .mp-results-grid {row-gap:40px;}
+ body.mercadopago-page #main-content .mp-results p {font-size:16px;line-height:1.5;}
+ body.mercadopago-page #main-content .mp-result-copy h3 {font-size:18px;}
+}

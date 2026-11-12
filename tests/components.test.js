@@ -55,7 +55,7 @@ test('Mercado Pago contains the supplied overview and seven real image panels', 
   build();
   const html = read('case-mercadopago.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)[0];
-  for (const value of ['2024, ago – out', 'Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e comunicação.', 'Pesquisa documental, análise heurística, regras de negócio, fluxos, UX Writing e UI, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
+  for (const value of ['2024, ago – out', 'Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e duas de comunicação.', 'Pesquisa documental, análise heurística, regras de negócio, fluxos, UX Writing e UI, Testes A/B.', 'Projeto com resultados documentados.', '+21pp de compreensão', '+6pp na taxa de pagamento em atraso', '–18% de chamados no suporte', '+9pp de clareza percebida']) assert.ok(main.includes(value), value);
   assert.equal([...main.matchAll(/<figure class="mp-showcase"/g)].length, 7);
   assert.doesNotMatch(main, /placehold\.co|\sstyle\s*=/i);
   const images = [...main.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
@@ -306,6 +306,11 @@ test('Mercado Pago revised overview follows the supplied seven-tag rows and shor
  assert.match(source, /<h1 class="mp-title" id="mp-title"><span>Retenção<\/span> <span>de saldo<\/span><\/h1>/);
  assert.match(source, /<strong>clareza<\/strong> e <strong>autonomia<\/strong> para/);
  assert.match(source, /regularizar dívidas!/);
+ assert.match(overview, /<strong>a retenção integral do saldo dificultava o pagamento<\/strong>/);
+ assert.match(overview, /uma alternativa de fluxo e duas de comunicação/);
+ assert.match(overview, /<strong>propondo retenção parcial e uso do saldo para quitar a dívida<\/strong>/);
+ assert.match(overview, /fora do teste/);
+ assert.match(overview, /antes de rodar novos testes/);
  for (const dir of ['en/','es/']) {
   const translated = read(dir+'case-mercadopago.html');
   assert.equal((translated.match(/class="mp-fact(?: mp-fact--period)?"/g)||[]).length,7);

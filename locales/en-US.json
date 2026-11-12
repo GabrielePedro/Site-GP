@@ -397,5 +397,15 @@
   "Priorizei atrasos de pagamento, propondo retenção parcial e uso do saldo para quitar a dívida; mantive os cenários de fraude fora do redesenho.": "I prioritized late payments, proposing partial holds and the use of available funds to repay debt; fraud scenarios remained outside the redesign.",
   "Validaria as mudanças de regra com Risco e Compliance antes de aprofundar a interface.": "I would validate rule changes with Risk and Compliance before developing the interface in detail.",
   "Na conta digital do": "In the digital account at",
-  ", a retenção integral do saldo dificultava o pagamento da própria dívida. A falta de explicações e prazos comprometia a confiança e aumentava a dependência do suporte.": ", holding the entire balance made it harder to repay the debt itself. The lack of explanations and timelines undermined trust and increased reliance on support."
+  ", a retenção integral do saldo dificultava o pagamento da própria dívida. A falta de explicações e prazos comprometia a confiança e aumentava a dependência do suporte.": ", holding the entire balance made it harder to repay the debt itself. The lack of explanations and timelines undermined trust and increased reliance on support.",
+  "Na conta digital do Mercado Pago,": "In the Mercado Pago digital account,",
+  "a retenção integral do saldo dificultava o pagamento": "holding the entire balance made it harder to repay",
+  "da própria dívida. A falta de explicações e prazos": "the debt itself. The lack of explanations and timelines",
+  "comprometia a confiança e aumentava a dependência do suporte": "undermined trust and increased reliance on support",
+  "Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e duas de comunicação.": "I analyzed complaints, mapped the journey, and designed one flow alternative and two communication alternatives.",
+  "Priorizei atrasos de pagamento,": "I prioritized late payments,",
+  "propondo retenção parcial e uso do saldo para quitar a dívida": "proposing partial holds and the use of available funds to repay debt",
+  "; mantive os cenários de fraude fora do teste.": "; fraud scenarios remained outside the test.",
+  "Pensaria em melhores mudanças da regra e validaria com Risco e Compliance antes de rodar novos testes.": "I would consider better rule changes and validate them with Risk and Compliance before running new tests.",
+  ".": "."
 }

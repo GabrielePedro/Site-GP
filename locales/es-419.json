@@ -397,5 +397,15 @@
   "Priorizei atrasos de pagamento, propondo retenção parcial e uso do saldo para quitar a dívida; mantive os cenários de fraude fora do redesenho.": "Prioricé los atrasos de pago, proponiendo retención parcial y el uso del saldo para saldar la deuda; dejé los escenarios de fraude fuera del rediseño.",
   "Validaria as mudanças de regra com Risco e Compliance antes de aprofundar a interface.": "Validaría los cambios de reglas con Riesgo y Compliance antes de profundizar en la interfaz.",
   "Na conta digital do": "En la cuenta digital de",
-  ", a retenção integral do saldo dificultava o pagamento da própria dívida. A falta de explicações e prazos comprometia a confiança e aumentava a dependência do suporte.": ", la retención total del saldo dificultaba el pago de la propia deuda. La falta de explicaciones y plazos afectaba la confianza y aumentaba la dependencia del soporte."
+  ", a retenção integral do saldo dificultava o pagamento da própria dívida. A falta de explicações e prazos comprometia a confiança e aumentava a dependência do suporte.": ", la retención total del saldo dificultaba el pago de la propia deuda. La falta de explicaciones y plazos afectaba la confianza y aumentaba la dependencia del soporte.",
+  "Na conta digital do Mercado Pago,": "En la cuenta digital de Mercado Pago,",
+  "a retenção integral do saldo dificultava o pagamento": "la retención total del saldo dificultaba el pago",
+  "da própria dívida. A falta de explicações e prazos": "de la propia deuda. La falta de explicaciones y plazos",
+  "comprometia a confiança e aumentava a dependência do suporte": "afectaba la confianza y aumentaba la dependencia del soporte",
+  "Analisei reclamações, mapeei a jornada e desenhei uma alternativa de fluxo e duas de comunicação.": "Analicé reclamos, mapeé la experiencia y diseñé una alternativa de flujo y dos de comunicación.",
+  "Priorizei atrasos de pagamento,": "Prioricé los atrasos de pago,",
+  "propondo retenção parcial e uso do saldo para quitar a dívida": "proponiendo retención parcial y el uso del saldo para saldar la deuda",
+  "; mantive os cenários de fraude fora do teste.": "; dejé los escenarios de fraude fuera de la prueba.",
+  "Pensaria em melhores mudanças da regra e validaria com Risco e Compliance antes de rodar novos testes.": "Consideraría mejores cambios en las reglas y los validaría con Riesgo y Compliance antes de realizar nuevas pruebas.",
+  ".": "."
 }
