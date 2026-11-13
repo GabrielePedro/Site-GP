@@ -27,3 +27,20 @@
 @media (prefers-reduced-motion: reduce) {
  #main-content .atlas-result-card img, #main-content .atlas-result-card > .case-media-link { animation: none; }
 }
+
+/* Desktop result artwork stays exactly 48px even during its existing animation. */
+@media (min-width: 1001px) {
+ #main-content :is(.atlas-results .atlas-result-card, .b3-results .b3-result-card, .mp-results .mp-result-card, .results-item .results-icon-inner) img {
+  width:48px;min-width:48px;max-width:48px;
+  height:48px;min-height:48px;max-height:48px;
+  object-fit:contain;animation-name:atlas-result-float;
+ }
+ #main-content .results-item .results-icon-inner {width:48px;height:48px;}
+ #main-content :is(.atlas-results .atlas-result-card, .b3-results .b3-result-card, .mp-results .mp-result-card) > .case-media-link,
+ #main-content .results-item .results-icon {animation-name:atlas-result-float;}
+}
+@media (min-width: 1001px) and (prefers-reduced-motion: reduce) {
+ #main-content :is(.atlas-results .atlas-result-card, .b3-results .b3-result-card, .mp-results .mp-result-card, .results-item .results-icon-inner) img,
+ #main-content :is(.atlas-results .atlas-result-card, .b3-results .b3-result-card, .mp-results .mp-result-card) > .case-media-link,
+ #main-content .results-item .results-icon {animation:none;}
+}
