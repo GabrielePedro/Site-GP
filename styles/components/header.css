@@ -59,7 +59,7 @@
  .site-header .container { padding-top: 12px; gap: 16px; }
  .header-brand { align-items: center; }
  .header-nav a { height: 40px; padding-inline: 24px; }
- .brand-logo img { height: 16px; }
+ .brand-logo img { height: 20px; }
  .language-icon { width: 24px; height: 24px; }
  .availability-dot { width: 10px; height: 10px; }
 }
