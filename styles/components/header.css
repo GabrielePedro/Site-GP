@@ -55,7 +55,10 @@
 }
 /* Compact desktop menu; tablet and mobile keep their existing sizes. */
 @media (min-width: 1201px) {
- .availability, .header-nav a, .language-switcher, .language-options { font-size: 14px; }
+ .availability, .header-nav a, .language-switcher, .language-options { font-size: 16px; }
+ .site-header .container { padding-top: 12px; gap: 16px; }
+ .header-brand { align-items: center; }
+ .header-nav a { height: 40px; padding-inline: 24px; }
  .brand-logo img { height: 16px; }
  .language-icon { width: 16px; height: 16px; }
  .availability-dot { width: 10px; height: 10px; }
