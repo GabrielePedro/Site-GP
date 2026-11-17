@@ -53,6 +53,13 @@
  .header-nav a { font-size: 18px; height: 48px; padding-inline: 32px; }
  .nav-indicator, .header-nav a::after { height: 4px; }
 }
+/* Compact desktop menu; tablet and mobile keep their existing sizes. */
+@media (min-width: 1201px) {
+ .availability, .header-nav a, .language-switcher, .language-options { font-size: 14px; }
+ .brand-logo img { height: 16px; }
+ .language-icon { width: 16px; height: 16px; }
+ .availability-dot { width: 10px; height: 10px; }
+}
 @media (prefers-reduced-motion: reduce) {
  .header-nav a::after, .nav-indicator, .language-chevron { transition: none; }
 }
